@@ -11,6 +11,6 @@ class Dashboard extends PublicController
     }
     public function index()
     {
-        $this->display("dashboard/index.html");
+        $this->display("dashboard/dashboard.html");
     }
 }
