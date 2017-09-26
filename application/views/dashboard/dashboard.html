@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{'static/css/fonts.css'|base_url}}"/>
     <link rel="stylesheet" type="text/css" href="{{'static/css/style.css'|base_url}}"/>
     <link rel="stylesheet" type="text/css" href="{{'static/css/iconfont.css'|base_url}}">
+    <script type="application/javascript" src="{{'static/js/jquery-1.11.1.min.js'|base_url}}"></script>
     <noscript>
         <link rel="stylesheet" type="text/css" href="{{'static/css/no-js.css'|base_url}}"/>
     </noscript>
@@ -32,7 +33,8 @@
                     <div class="logo">
                         <a href="###">
                             <h1 class="top-logo">
-                                <svg class="logo-image" viewBox="0 0 841.72 154.7" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="logo-image" viewBox="0 0 841.72 154.7" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg">
                                     <g id="&#x56FE;&#x5C42;_2">
                                         <g id="&#x56FE;&#x5C42;_1-2">
                                             <path style="fill:#FFFFFF;" d="M77.35,0C34.631,0,0,34.631,0,77.35s34.631,77.35,77.35,77.35s77.35-34.631,77.35-77.35l0,0
@@ -75,10 +77,19 @@
                 <div class="h-cell h-middle"></div>
                 <div class="h-cell h-right">
                     <nav class="w-nav dropdown_mdesign ush_menu_1 type_desktop">
-                        <a class="w-nav-control" href="javascript:void(0);">
-                            <div class="w-nav-icon"><i></i></div>
-                            <span>Menu</span></a>
-                        <ul class="w-nav-list level_1" style="">
+                        <a class="w-nav-control" id="nav-mobile" href="javascript:void(0);">
+                            <div class="w-nav-icon">
+                                <icon class="iconfont">&#xe647;</icon>
+                            </div>
+                        </a>
+                        <ul class="w-nav-list level_1" id="nav-level-1" style="">
+                            <li class="menu-item  level_1">
+                                <a class="w-nav-anchor level_1" href="#">
+                                    <span class="w-nav-title">Home</span>
+                                    <span class="w-nav-arrow"><icon class="iconfont">&#xe603;</icon></span>
+                                    <span class="ripple-container"></span>
+                                </a>
+                            </li>
                             <li class="menu-item  level_1">
                                 <a class="w-nav-anchor level_1" href="#">
                                     <span class="w-nav-title">Demos</span>
@@ -89,6 +100,117 @@
                             <li class="menu-item  menu-item-has-children level_1 togglable">
                                 <a class="w-nav-anchor level_1" href="#">
                                     <span class="w-nav-title">Products</span>
+                                    <span class="w-nav-arrow"><icon class="iconfont">&#xe603;</icon></span>
+                                    <span class="ripple-container"></span>
+                                </a>
+                                <ul class="w-nav-list level_2" style="">
+                                    <li class="menu-item  level_2">
+                                        <a class="w-nav-anchor level_2" href="#">
+                                            <span class="w-nav-title">FIRST</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item  level_2 ">
+                                        <a class="w-nav-anchor level_2" href="#">
+                                            <span class="w-nav-title">SECOND</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item  level_2 ">
+                                        <a class="w-nav-anchor level_2" href="#">
+                                            <span class="w-nav-title">THIRD</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item  level_2">
+                                        <a class="w-nav-anchor level_2" href="#">
+                                            <span class="w-nav-title">FOUTH</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item  menu-item-has-children level_1 togglable">
+                                <a class="w-nav-anchor level_1" href="#">
+                                    <span class="w-nav-title">Support</span>
+                                    <span class="w-nav-arrow"><icon class="iconfont">&#xe603;</icon></span>
+                                    <span class="ripple-container"></span>
+                                </a>
+                                <ul class="w-nav-list level_2" style="">
+                                    <li class="menu-item  level_2">
+                                        <a class="w-nav-anchor level_2" href="#">
+                                            <span class="w-nav-title">FIRST</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item  level_2 ">
+                                        <a class="w-nav-anchor level_2" href="#">
+                                            <span class="w-nav-title">SECOND</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item  level_2 ">
+                                        <a class="w-nav-anchor level_2" href="#">
+                                            <span class="w-nav-title">THIRD</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item  level_2">
+                                        <a class="w-nav-anchor level_2" href="#">
+                                            <span class="w-nav-title">FOUTH</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item  menu-item-has-children level_1 togglable">
+                                <a class="w-nav-anchor level_1" href="#">
+                                    <span class="w-nav-title">Company</span>
+                                    <span class="w-nav-arrow"><icon class="iconfont">&#xe603;</icon></span>
+                                    <span class="ripple-container"></span>
+                                </a>
+                                <ul class="w-nav-list level_2" style="">
+                                    <li class="menu-item  level_2">
+                                        <a class="w-nav-anchor level_2" href="#">
+                                            <span class="w-nav-title">FIRST</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item  level_2 ">
+                                        <a class="w-nav-anchor level_2" href="#">
+                                            <span class="w-nav-title">SECOND</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item  level_2 ">
+                                        <a class="w-nav-anchor level_2" href="#">
+                                            <span class="w-nav-title">THIRD</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item  level_2">
+                                        <a class="w-nav-anchor level_2" href="#">
+                                            <span class="w-nav-title">FOUTH</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item  menu-item-has-children level_1 togglable">
+                                <a class="w-nav-anchor level_1" href="#">
+                                    <span class="w-nav-title">Contact Us</span>
                                     <span class="w-nav-arrow"><icon class="iconfont">&#xe603;</icon></span>
                                     <span class="ripple-container"></span>
                                 </a>
@@ -136,99 +258,98 @@
 <!--PAGE TRANSITION START-->
 <div class="wrapper" data-loadmodule="PageTransitions">
     <main id="main-content" class="main-content" tabindex="-1">
-        <!--<div class="module hero-list home-tiles" data-loadmodule="HeroList" data-visible="false">-->
-            <!--<div class="hero-list-container">-->
-                <!--<nav class="hero-list&#45;&#45;nav">-->
-                    <!--<ul class="hero-list&#45;&#45;nav&#45;&#45;items">-->
-                        <!--<li class="hero-list&#45;&#45;nav&#45;&#45;item">-->
-                            <!--<a class="hero-list&#45;&#45;nav&#45;&#45;link" href="#hero0">-->
-                                <!--<span class="hero-list&#45;&#45;nav&#45;&#45;link&#45;&#45;mask">-->
-                                    <!--<span class="hero-list&#45;&#45;nav&#45;&#45;link&#45;&#45;text">-->
-                                        <!--SapientRazorfish-->
-                                    <!--</span>-->
-                                <!--</span>-->
-                            <!--</a>-->
-                        <!--</li>-->
-                        <!--<li class="hero-list&#45;&#45;nav&#45;&#45;item">-->
-                            <!--<a class="hero-list&#45;&#45;nav&#45;&#45;link" href="#hero1">-->
-                                <!--<span class="hero-list&#45;&#45;nav&#45;&#45;link&#45;&#45;mask">-->
-                                    <!--<span class="hero-list&#45;&#45;nav&#45;&#45;link&#45;&#45;text">-->
-                                        <!--The Six Elements of Business Transformation-->
-                                    <!--</span>-->
-                                <!--</span>-->
-                            <!--</a>-->
-                        <!--</li>-->
-                        <!--<li class="hero-list&#45;&#45;nav&#45;&#45;item">-->
-                            <!--<a class="hero-list&#45;&#45;nav&#45;&#45;link" href="#hero2">-->
-                                <!--<span class="hero-list&#45;&#45;nav&#45;&#45;link&#45;&#45;mask">-->
-                                    <!--<span class="hero-list&#45;&#45;nav&#45;&#45;link&#45;&#45;text">-->
-                                        <!--A Perfect Blend for Tequila Patrón-->
-                                    <!--</span>-->
-                                <!--</span>-->
-                            <!--</a>-->
-                        <!--</li>-->
-                    <!--</ul>-->
-                <!--</nav>-->
-                <!--<div class="hero-story list-tile light-all has-image" id="hero0">-->
-                    <!--<div class="module-background"-->
-                         <!--style="background-image:url({{'static/images/banner_big.png'|base_url}});">-->
-                    <!--</div>-->
-                    <!--<a href="http://sapientrazorfish.com" class="featured-content-link dark-hover arrow-hover"-->
-                       <!--target="_blank">-->
-                        <!--<div class="dark-overlay"></div>-->
-                        <!--&lt;!&ndash; End Link HTML for hero home page &ndash;&gt;-->
-                        <!--<div class="module-content">-->
-                            <!--<div class="hero-content">-->
-                                <!--<h3 class="headline isFirst">PROCULUS</h3>-->
-                                <!--<h4 class="headline isSecond">TECHNOLOGIES</h4>-->
-                                <!--<div class="subhead isThird">Expert in GUIs with Total Solutions in Intelligent TFT LCMs-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a>-->
-                    <!--&lt;!&ndash; End Link HTML for hero home page &ndash;&gt;-->
-                <!--</div>-->
-                <!--<div class="hero-story list-tile light-all has-image" id="hero1">-->
-                    <!--<div class="module-background"-->
-                         <!--style="background-image:url({{'static/images/banner_big.png'|base_url}});"-->
-                    <!--&gt;</div>-->
-                    <!--<a href="http://sapientrazorfish.com" class="featured-content-link dark-hover arrow-hover"-->
-                       <!--target="_blank">-->
-                        <!--<div class="dark-overlay"></div>-->
-                        <!--&lt;!&ndash; End Link HTML for hero home page &ndash;&gt;-->
-                        <!--<div class="module-content">-->
-                            <!--<div class="hero-content">-->
-                                <!--<h3 class="headline isFirst">PROCULUS</h3>-->
-                                <!--<h4 class="headline isSecond">TECHNOLOGIES</h4>-->
-                                <!--<div class="subhead isThird">Expert in GUIs with Total Solutions in Intelligent TFT LCMs-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a>-->
-                    <!--&lt;!&ndash; End Link HTML for hero home page &ndash;&gt;-->
-                <!--</div>-->
-                <!--<div class="hero-story list-tile light-all has-image" id="hero2">-->
-                    <!--<div class="module-background"-->
-                         <!--style="background-image:url({{'static/images/banner_big.png'|base_url}});"-->
-                    <!--&gt;</div>-->
-                    <!--<a href="http://sapientrazorfish.com" class="featured-content-link dark-hover arrow-hover"-->
-                       <!--target="_blank">-->
-                        <!--<div class="dark-overlay"></div>-->
-                        <!--&lt;!&ndash; End Link HTML for hero home page &ndash;&gt;-->
-                        <!--<div class="module-content">-->
-                            <!--<div class="hero-content">-->
-                                <!--<h3 class="headline isFirst">PROCULUS</h3>-->
-                                <!--<h4 class="headline isSecond">TECHNOLOGIES</h4>-->
-                                <!--<div class="subhead isThird">Expert in GUIs with Total Solutions in Intelligent TFT LCMs-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a>-->
-                    <!--&lt;!&ndash; End Link HTML for hero home page &ndash;&gt;-->
-                <!--</div>-->
-
-            <!--</div>-->
-        <!--</div>-->
+        <div class="module hero-list home-tiles" data-loadmodule="HeroList" data-visible="false">
+            <div class="hero-list-container">
+                <nav class="hero-list--nav">
+                    <ul class="hero-list--nav--items">
+                        <li class="hero-list--nav--item">
+                            <a class="hero-list--nav--link" href="#hero0">
+                                <span class="hero-list--nav--link--mask">
+                                    <span class="hero-list--nav--link--text">
+                                        SapientRazorfish
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="hero-list--nav--item">
+                            <a class="hero-list--nav--link" href="#hero1">
+                                <span class="hero-list--nav--link--mask">
+                                    <span class="hero-list--nav--link--text">
+                                        The Six Elements of Business Transformation
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="hero-list--nav--item">
+                            <a class="hero-list--nav--link" href="#hero2">
+                                <span class="hero-list--nav--link--mask">
+                                    <span class="hero-list--nav--link--text">
+                                        A Perfect Blend for Tequila Patrón
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="hero-story list-tile light-all has-image" id="hero0">
+                    <div class="module-background"
+                         style="background-image:url({{'static/images/banner_big.png'|base_url}});">
+                    </div>
+                    <a href="http://sapientrazorfish.com" class="featured-content-link dark-hover arrow-hover"
+                       target="_blank">
+                        <div class="dark-overlay"></div>
+                        <!-- End Link HTML for hero home page -->
+                        <div class="module-content">
+                            <div class="hero-content">
+                                <h3 class="headline isFirst">PROCULUS</h3>
+                                <h4 class="headline isSecond">TECHNOLOGIES</h4>
+                                <div class="subhead isThird">Expert in GUIs with Total Solutions in Intelligent TFT LCMs
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- End Link HTML for hero home page -->
+                </div>
+                <div class="hero-story list-tile light-all has-image" id="hero1">
+                    <div class="module-background"
+                         style="background-image:url({{'static/images/banner_big.png'|base_url}});"
+                    ></div>
+                    <a href="http://sapientrazorfish.com" class="featured-content-link dark-hover arrow-hover"
+                       target="_blank">
+                        <div class="dark-overlay"></div>
+                        <!-- End Link HTML for hero home page -->
+                        <div class="module-content">
+                            <div class="hero-content">
+                                <h3 class="headline isFirst">PROCULUS</h3>
+                                <h4 class="headline isSecond">TECHNOLOGIES</h4>
+                                <div class="subhead isThird">Expert in GUIs with Total Solutions in Intelligent TFT LCMs
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- End Link HTML for hero home page -->
+                </div>
+                <div class="hero-story list-tile light-all has-image" id="hero2">
+                    <div class="module-background"
+                         style="background-image:url({{'static/images/banner_big.png'|base_url}});"
+                    ></div>
+                    <a href="http://sapientrazorfish.com" class="featured-content-link dark-hover arrow-hover"
+                       target="_blank">
+                        <div class="dark-overlay"></div>
+                        <!-- End Link HTML for hero home page -->
+                        <div class="module-content">
+                            <div class="hero-content">
+                                <h3 class="headline isFirst">PROCULUS</h3>
+                                <h4 class="headline isSecond">TECHNOLOGIES</h4>
+                                <div class="subhead isThird">Expert in GUIs with Total Solutions in Intelligent TFT LCMs
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- End Link HTML for hero home page -->
+                </div>
+            </div>
+        </div>
         <!--WHO ARE WE START-->
         <section class="module" data-visible="false">
             <div class="module-background">
@@ -261,6 +382,9 @@
                             solution without self-owned invests on research for customer in embedded world.</p>
                         <p>Get a first class GUI from your artist's imagination to the lowest cost hardware in the
                             shortest time with Proculus.</p>
+                    </div>
+                    <div class="learn-more">
+                        <button class="learn-btn">Learn More</button>
                     </div>
                 </div>
             </div>
@@ -533,6 +657,13 @@
 <script src="{{'static/js/shared.js'|base_url}}"></script>
 <script src="{{'static/js/app.js'}}"></script>
 
-<script>window._satellite && _satellite.pageBottom();</script>
+<script type="application/javascript">
+    $(function(){
+        $("#nav-mobile").on("click", function () {
+            $("#nav-level-1").addClass("nav-mobile-level-1");
+
+        })
+    })
+</script>
 </body>
 </html>
