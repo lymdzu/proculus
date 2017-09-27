@@ -260,10 +260,10 @@
     <main id="main-content" class="main-content" tabindex="-1">
         <div class="module hero-list home-tiles" data-loadmodule="HeroList" data-visible="false">
             <div class="hero-list-container">
-                <nav class="hero-list--nav">
+                <nav class="hero-list--nav active just-moved ">
                     <ul class="hero-list--nav--items">
-                        <li class="hero-list--nav--item">
-                            <a class="hero-list--nav--link" href="#hero0">
+                        <li class="hero-list--nav--item ">
+                            <a class="hero-list--nav--link active" href="#hero0">
                                 <span class="hero-list--nav--link--mask">
                                     <span class="hero-list--nav--link--text">
                                         SapientRazorfish
@@ -291,7 +291,7 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="hero-story list-tile light-all has-image" id="hero0">
+                <div class="hero-story list-tile light-all has-image " id="hero0">
                     <div class="module-background"
                          style="background-image:url({{'static/images/banner_big.png'|base_url}});">
                     </div>
@@ -660,9 +660,24 @@
 <script type="application/javascript">
     $(function(){
         $("#nav-mobile").on("click", function () {
-            $("#nav-level-1").addClass("nav-mobile-level-1");
 
-        })
+            if ($(this).hasClass('mobile-close')) {
+                $("#nav-level-1").hide();
+                $("#nav-level-1").removeClass('nav-mobile-level-1');
+                $("#nav-mobile .iconfont").html("&#xe647;");
+                $(this).removeClass("mobile-close");
+            }
+            else {
+                $("#nav-mobile .iconfont").html("&#xe63c;");
+                $(this).addClass("mobile-close");
+                $("#nav-level-1").addClass('nav-mobile-level-1');
+                $("#nav-level-1").show();
+            }
+        });
+        $(".menu-item-has-children").on("click", function () {
+            $("#nav-level-1").find(".w-nav-list").removeClass("mobile_item");
+            $(this).find(".w-nav-list").addClass("mobile_item");
+        });
     })
 </script>
 </body>
