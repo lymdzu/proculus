@@ -100,3 +100,10 @@ class DashboardController extends PublicController
         $this->layout = "dashboard/layout.html";
     }
 }
+class AdController extends PublicController
+{
+    public function __construct() {
+        parent::__construct();
+        $this->layout = "admin/layout.html";
+    }
+}
