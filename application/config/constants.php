@@ -83,3 +83,25 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+/*
+|--------------------------------------------------------------------------
+| json输出状态码
+|--------------------------------------------------------------------------
+|
+*/
+
+defined('REQUEST_SUCCESS')             OR define("REQUEST_SUCCESS", 0);//接口返回成功
+defined('LACK_REQUIRED_PARAMETER')     OR define("LACK_REQUIRED_PARAMETER", 400001);//缺少必要参数
+defined('USER_NOT_FOUND')              OR define("USER_NOT_FOUND", 404002);//查找不到此用户
+defined('TRANS_NOT_SUCCESS')           OR define("TRANS_NOT_SUCCESS", 404003);//数据没有变化
+defined('RECORD_NOT_FOUND')            OR define("RECORD_NOT_FOUND", 404004);//查找不到记录
+defined('PARAMETER_WRONG')             OR define("PARAMETER_WRONG", 404005);//参数错误
+defined('DATA_FORMAT_ERROR')           OR define("DATA_FORMAT_ERROR", 400010);//数据格式不符
+defined('INSERT_DB_ERROR')             OR define("INSERT_DB_ERROR", 500001);//入库失败
+defined('UPDATE_DB_ERROR')             OR define("UPDATE_DB_ERROR", 500002);//入库失败
+defined('NOT_HAVE_PERMISSION')         OR define("NOT_HAVE_PERMISSION", 500003);//没有操作权限
+defined('ALREADY_EXISTS')              OR define("ALREADY_EXISTS", 500005);//已经存在
+defined('API_ERROR')                   OR define("API_ERROR", 500004);//api失败
+defined('SIGN_ERROR')                  OR define("SIGN_ERROR", 500006);//签名错误
+defined('WRITE_FILE_ERROR')            OR define("WRITE_FILE_ERROR", 403301);//文件写入失败
+defined('CURL_ERROR')                  OR define("CURL_ERROR", 500010);//CURL请求错误

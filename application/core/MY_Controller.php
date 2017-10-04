@@ -109,6 +109,7 @@ class AdController extends PublicController
     public function __construct()
     {
         parent::__construct();
+        $this->layout = "admin/layout.html";
         $admin_session = $this->session->userdata("admin_user");
         if (empty($admin_session)) {
             redirect("passport/admin_login", 'auto', 302);
