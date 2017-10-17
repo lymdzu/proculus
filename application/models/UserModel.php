@@ -22,8 +22,9 @@ class UserModel extends CI_Model
      * 获取管理员列表
      * @return mixed
      */
-    public function get_admin_list()
+    public function get_admin_list($offset, $limit)
     {
+        $this->db->limit($limit, $offset);
         $query = $this->db->get("t_admin");
         return $query->result_array();
     }
@@ -68,5 +69,10 @@ class UserModel extends CI_Model
         } else {
             return false;
         }
+    }
+    public function count_admin_list()
+    {
+        $this->db->from("t_admin");
+        return $this->db->count_all_results();
     }
 }

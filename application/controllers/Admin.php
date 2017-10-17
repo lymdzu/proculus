@@ -15,7 +15,12 @@ class Admin extends AdController
     public function index()
     {
         $this->load->model("UserModel", "user", true);
-        $admin_list = $this->user->get_admin_list();
+        $page = $this->input->get("page");
+        $offset = empty($page) ? 0 : (intval($page) - 1) * PAGESIZE;
+        $total = $this->user->count_admin_list();
+        $admin_list = $this->user->get_admin_list($offset, PAGESIZE);
+        $this->load->library("tgpage", array('total' => $total, 'pagesize' => PAGESIZE));
+        $this->vars['pagelist'] = $this->tgpage->showpage();
         $this->vars['admin_list'] = $admin_list;
         $this->page("admin/index.html");
     }

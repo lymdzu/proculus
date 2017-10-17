@@ -23,7 +23,7 @@ class PublicController extends CI_Controller
         $this->smarty->registerPlugin('function', 'base_url', array($this, 'smarty_modifier_base_url'));
         $this->smarty->registerPlugin('modifier', 'site_url', array($this, 'smarty_modifier_site_url'));
         $this->smarty->registerPlugin('modifier', 'base_url', array($this, 'smarty_modifier_base_url'));
-        $this->vars['title'] = "购物导航";
+        $this->vars['title'] = "proculus";
     }
 
     /**

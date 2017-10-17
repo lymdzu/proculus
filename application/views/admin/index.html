@@ -23,7 +23,7 @@
                                             {{foreach $admin_list as $admin}}
                                             <tr>
                                                 <td class="client-avatar">
-                                                    {{$admin.id}}
+                                                    {{$admin.admin_id}}
                                                 </td>
                                                 <td>
                                                     <a data-toggle="tab" href="#contact-1" class="client-link">{{$admin.username}}</a>
@@ -41,6 +41,7 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    {{$pagelist}}
                                 </div>
                             </div>
                         </div>
