@@ -62,7 +62,7 @@ class UserModel extends CI_Model
     public function operate_user($id, $status)
     {
         $this->db->where("admin_id", $id);
-        $upt_res = $this->db->update("t_admin", array("status" => $status));
+        $upt_res = $this->db->update("t_admin", array("user_status" => $status));
         $affected_rows = $this->db->affected_rows();
         if ($upt_res && $affected_rows == 1) {
             return true;
