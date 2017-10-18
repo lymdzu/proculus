@@ -57,4 +57,9 @@ class Admin extends AdController
             $this->json_result(API_ERROR, "", "server wrong");
         }
     }
+    public function upload()
+    {
+        $this->vars['page'] = "upload";
+        $this->page("admin/upload.html");
+    }
 }
