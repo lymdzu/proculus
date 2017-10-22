@@ -61,8 +61,6 @@ class Admin extends AdController
     public function upload()
     {
         if ($this->input->method() == "post") {
-
-
             $targetDir = dirname(APPPATH) . '/public/upload' . DIRECTORY_SEPARATOR . 'file_material_tmp';
             $uploadDir = dirname(APPPATH) . '/public/upload' . DIRECTORY_SEPARATOR . 'file_material';
             $cleanupTargetDir = true; // Remove old files
@@ -138,8 +136,6 @@ class Admin extends AdController
                     break;
                 }
             }
-
-
             if ($done) {
                 $pathInfo = pathinfo($fileName);
                 $hashStr = substr(md5($pathInfo['basename']), 8, 16);
@@ -174,7 +170,6 @@ class Admin extends AdController
 
                 die(json_encode($response));
             }
-
             // Return Success JSON-RPC response
             die('{"jsonrpc" : "2.0", "result" : null, "id" : "id"}');
         }
