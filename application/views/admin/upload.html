@@ -3,7 +3,7 @@
     <div class="col-sm-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>Web Uploader</h5>
+                <h5>Upload File</h5>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>
@@ -26,7 +26,7 @@
             </div>
             <div class="ibox-content">
                 <div class="page-container">
-                    <p>您可以尝试文件拖拽，使用QQ截屏工具，然后激活窗口后粘贴，或者点击添加图片按钮，来体验此demo.</p>
+                    <p>You can upload any fomats and size file. Remember you can choose multiple files at the same time</p>
                     <div id="uploader" class="wu-example">
                         <div class="queueList">
                             <div id="dndArea" class="placeholder">
@@ -40,7 +40,7 @@
                             <div class="info"></div>
                             <div class="btns">
                                 <div id="filePicker2"></div>
-                                <div class="uploadBtn">开始上传</div>
+                                <div class="uploadBtn">Start</div>
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
 
         function i() {
             var e, a = "";
-            "ready" === k ? a = "选中" + m + "个文件，共" + WebUploader.formatSize(h) + "。" : "confirm" === k ? (e = n.getStats(), e.uploadFailNum && (a = "已成功上传" + e.successNum + "个文件，" + e.uploadFailNum + '个文件上传失败，<a class="retry" href="#">重新上传</a>失败文件或<a class="ignore" href="#">忽略</a>')) : (e = n.getStats(), a = "共" + m + "个（" + WebUploader.formatSize(h) + "），已上传" + e.successNum + "个", e.uploadFailNum && (a += "，失败" + e.uploadFailNum + "个")), p.html(a)
+            "ready" === k ? a = "Choosed " + m + " files，Total " + WebUploader.formatSize(h) + "。" : "confirm" === k ? (e = n.getStats(), e.uploadFailNum && (a = "Upload success" + e.successNum + "，" + e.uploadFailNum + 'Failed，<a class="retry" href="#">Repeat upload</a>the failed OR<a class="ignore" href="#">ignore</a>')) : (e = n.getStats(), a = "Total" + m + "（" + WebUploader.formatSize(h) + "），Success " + e.successNum + "", e.uploadFailNum && (a += "，Failed" + e.uploadFailNum + "")), p.html(a)
         }
 
         function t(e) {
@@ -126,13 +126,13 @@
                         o("#filePicker2").addClass("element-invisible"), f.show(), c.text("暂停上传");
                         break;
                     case"paused":
-                        f.show(), c.text("继续上传");
+                        f.show(), c.text("Continue");
                         break;
                     case"confirm":
-                        if (f.hide(), c.text("开始上传").addClass("disabled"), a = n.getStats(), a.successNum && !a.uploadFailNum)return void t("finish");
+                        if (f.hide(), c.text("Start Upload").addClass("disabled"), a = n.getStats(), a.successNum && !a.uploadFailNum)return void t("finish");
                         break;
                     case"finish":
-                        a = n.getStats(), a.successNum ? layer.msg("上传成功") : (k = "done", window.location.reload())
+                        a = n.getStats(), a.successNum ? layer.msg("Upload success") : (k = "done", window.location.reload())
                 }
                 i()
             }
@@ -142,16 +142,16 @@
             var e = document.createElement("p").style, a = "transition" in e || "WebkitTransition" in e || "MozTransition" in e || "msTransition" in e || "OTransition" in e;
             return e = null, a
         }();
-        if (!WebUploader.Uploader.support())throw alert("Web Uploader 不支持您的浏览器！如果你使用的是IE浏览器，请尝试升级 flash 播放器"), new Error("WebUploader does not support the browser you are using.");
+        if (!WebUploader.Uploader.support())throw layer.msg("WebUploader does not support the browser you are using"), new Error("WebUploader does not support the browser you are using.");
         n = WebUploader.create({
-            pick: {id: "#filePicker", label: "点击选择文件"},
+            pick: {id: "#filePicker", label: "Click to choose files"},
             dnd: "#uploader .queueList",
             paste: document.body,
             swf: "{{'static/bsjs/plugins/webuploader/Uploader.swf'|base_url}}",
             disableGlobalDnd: !0,
             chunked: !0,
             server: "{{'admin/upload'|base_url}}",
-        }), n.addButton({id: "#filePicker2", label: "继续添加"}), n.onUploadProgress = function (e, a) {
+        }), n.addButton({id: "#filePicker2", label: "Continue to add "}), n.onUploadProgress = function (e, a) {
             var i = o("#" + e.id), t = i.find(".progress span");
             t.css("width", 100 * a + "%"), w[e.id][1] = a, s()
         }, n.onFileQueued = function (a) {
