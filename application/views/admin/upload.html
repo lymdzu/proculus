@@ -109,7 +109,7 @@
 
         function i() {
             var e, a = "";
-            "ready" === k ? a = "Choosed " + m + " files，Total " + WebUploader.formatSize(h) + "。" : "confirm" === k ? (e = n.getStats(), e.uploadFailNum && (a = "Upload success" + e.successNum + "，" + e.uploadFailNum + 'Failed，<a class="retry" href="#">Repeat upload</a>the failed OR<a class="ignore" href="#">ignore</a>')) : (e = n.getStats(), a = "Total" + m + "（" + WebUploader.formatSize(h) + "），Success " + e.successNum + "", e.uploadFailNum && (a += "，Failed" + e.uploadFailNum + "")), p.html(a)
+            "ready" === k ? a = "Choosed " + m + " files，Total " + WebUploader.formatSize(h) + "。" : "confirm" === k ? (e = n.getStats(), e.uploadFailNum && (a = "Upload success" + e.successNum + "，" + e.uploadFailNum + 'Failed，<a class="retry" href="#">Repeat upload</a>the failed OR<a class="ignore" href="#">ignore</a>')) : (e = n.getStats(), a = "Total" + m + " files（" + WebUploader.formatSize(h) + "），Success " + e.successNum + "", e.uploadFailNum && (a += "，Failed" + e.uploadFailNum + "")), p.html(a)
         }
 
         function t(e) {
