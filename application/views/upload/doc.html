@@ -63,7 +63,9 @@
                                         <th>ID</th>
                                         <th>Filename</th>
                                         <th>Size</th>
+                                        <th>Type</th>
                                         <th>Upload Time</th>
+                                        <th>Delete</th>
                                         </thead>
                                         <tbody>
                                         {{foreach $upload_list as $upload}}
@@ -78,8 +80,13 @@
                                                 {{$upload.size}}Mb
                                             </td>
                                             <td>
+                                                {{$upload.filetype}}
+                                            </td>
+
+                                            <td>{{$upload.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}</td>
+                                            <td>
                                                 <button data-id="{{$upload.id}}"
-                                                        class="btn btn-xs btn-primary operate">Delete
+                                                        class="btn btn-xs btn-danger delete-btn">Delete
                                                 </button>
                                             </td>
                                         </tr>
@@ -98,6 +105,21 @@
 </div>
 <script type="application/javascript">
     jQuery(function () {
+        $(".delete-btn").on("click", function () {
+            var id = $(this).data('id');
+            $.post("{{'upload/delete'|base_url}}", {id: id}, function (res) {
+                if (res.ecode == 0) {
+                    layer.msg(res.result);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 500)
+                }
+                else {
+                    layer.msg(res.emsg);
+                }
+
+            })
+        });
         function e(e) {
             var a = o('<li id="' + e.id + '"><p class="title">' + e.name + '</p><p class="imgWrap"></p><p class="progress"><span></span></p></li>'), s = o('<div class="file-panel"><span class="cancel">删除</span><span class="rotateRight">向右旋转</span><span class="rotateLeft">向左旋转</span></div>').appendTo(a), i = a.find("p.progress span"), t = a.find("p.imgWrap"), r = o('<p class="error"></p>'), d = function (e) {
                 switch (e) {
@@ -203,7 +225,7 @@
             swf: "{{'static/bsjs/plugins/webuploader/Uploader.swf'|base_url}}",
             disableGlobalDnd: !0,
             chunked: !0,
-            server: "{{'admin/upload'|base_url}}",
+            server: "{{'upload/doc'|base_url}}",
         }), n.addButton({id: "#filePicker2", label: "Continue to add "}), n.onUploadProgress = function (e, a) {
             var i = o("#" + e.id), t = i.find(".progress span");
             t.css("width", 100 * a + "%"), w[e.id][1] = a, s()

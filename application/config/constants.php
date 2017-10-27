@@ -105,3 +105,10 @@ defined('API_ERROR')                   OR define("API_ERROR", 500004);//api失�
 defined('SIGN_ERROR')                  OR define("SIGN_ERROR", 500006);//签名错误
 defined('WRITE_FILE_ERROR')            OR define("WRITE_FILE_ERROR", 403301);//文件写入失败
 defined('CURL_ERROR')                  OR define("CURL_ERROR", 500010);//CURL请求错误
+/*
+|--------------------------------------------------------------------------
+| 页面数量
+|--------------------------------------------------------------------------
+|
+*/
+defined("PAGESIZE")                    OR define("PAGESIZE", 10);

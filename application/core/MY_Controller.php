@@ -43,7 +43,7 @@ class PublicController extends CI_Controller
     public function page($view)
     {
         $this->vars['__PAGE__'] = $view;
-        if ($_SESSION['message'] && !$this->vars['message']) {
+        if ((isset($_SESSION['message']) && $_SESSION['message']) && !$this->vars['message']) {
 
             $this->vars['error_message'] = $_SESSION['message'] . '';
             $this->vars['message_code'] = intval($_SESSION['message_code']);
