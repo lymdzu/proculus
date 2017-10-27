@@ -24,6 +24,10 @@
     <link href="{{'static/bscss/webuploader-demo.min.css'|base_url}}?" rel="stylesheet">
     <script type="text/javascript" src="{{'static/bsjs/plugins/webuploader/webuploader.min.js'|base_url}}"></script>
     {{/if}}
+    {{if $page="news"}}
+    <link href="{{'static/bsjs/plugins/wangedit/wangEditor.min.css'|base_url}}?" rel="stylesheet">
+    <script type="text/javascript" src="{{'static/bsjs/plugins/wangedit/wangEditor.min.js'|base_url}}"></script>
+    {{/if}}
 </head>
 
 <body class="fixed-sidebar  gray-bg">
@@ -75,6 +79,18 @@
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="{{'upload/doc'|base_url}}" data-index="0"><i class="fa fa-file-word-o"></i>Document</a>
+                        </li>
+                        <li>
+                            <a href="{{'upload/video'|base_url}}" data-index="0"><i class="fa fa-file-video-o"></i>Video</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-newspaper-o"></i>
+                        <span class="nav-label">Paper</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{'news/index'|base_url}}" data-index="0"><i class="fa fa-edit"></i>Add Paper</a>
                         </li>
                         <li>
                             <a href="{{'upload/video'|base_url}}" data-index="0"><i class="fa fa-file-video-o"></i>Video</a>
