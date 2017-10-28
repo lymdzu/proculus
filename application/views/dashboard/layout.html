@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="{{'static/css/fontface.css'|base_url}}">
     <link rel="stylesheet" type="text/css" href="{{'static/css/fonts.css'|base_url}}"/>
-    <link rel="stylesheet" type="text/css" href="{{'static/css/style.css'|base_url}}"/>
+    <link rel="stylesheet" type="text/css" href="{{'static/css/style.css'|base_url}}?v=20171029"/>
     <link rel="stylesheet" type="text/css" href="{{'static/css/iconfont.css'|base_url}}">
     <script type="application/javascript" src="{{'static/js/jquery-1.11.1.min.js'|base_url}}"></script>
     <noscript>
@@ -336,9 +336,11 @@
 </section>
 <!--页面 footer start-->
 <!-- Page Scripts -->
+{{if $page == 'dashboard'}}
 <input type="hidden" id="refreshed" value="no"/>
 <script src="{{'static/js/shared.js'|base_url}}"></script>
 <script src="{{'static/js/app.js'|base_url}}"></script>
+{{/if}}
 
 <script type="application/javascript">
     $(function(){

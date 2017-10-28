@@ -64,6 +64,7 @@
                                         <th>Filename</th>
                                         <th>Size</th>
                                         <th>Type</th>
+                                        <th>Download Url</th>
                                         <th>Upload Time</th>
                                         <th>Delete</th>
                                         </thead>
@@ -82,6 +83,7 @@
                                             <td>
                                                 {{$upload.filetype}}
                                             </td>
+                                            <td>{{'upload/file/'|base_url}}{{$upload.filename}}</td>
                                             <td>{{$upload.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}</td>
                                             <td>
                                                 <button data-id="{{$upload.id}}"

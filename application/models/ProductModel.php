@@ -18,18 +18,22 @@ class ProductModel extends CI_Model
         }
     }
 
-    public function get_upload_list($filetype, $offset, $limit)
+    public function get_upload_list($offset, $limit, $filetype)
     {
-        $this->db->where("filetype", $filetype);
+        if ($filetype) {
+            $this->db->where("filetype", $filetype);
+        }
         $this->db->limit($limit, $offset);
         $this->db->order_by("create_time", "desc");
         $query = $this->db->get("t_upload");
         return $query->result_array();
     }
 
-    public function count_upload_list($filetype)
+    public function count_upload_list($filetype = false)
     {
-        $this->db->where("filetype", $filetype);
+        if ($filetype) {
+            $this->db->where("filetype", $filetype);
+        }
         $this->db->from("t_upload");
         return $this->db->count_all_results();
     }

@@ -63,6 +63,7 @@
                                         <th>ID</th>
                                         <th>Filename</th>
                                         <th>Size</th>
+                                        <th>Download Url</th>
                                         <th>Upload Time</th>
                                         </thead>
                                         <tbody>
@@ -77,6 +78,7 @@
                                             <td>
                                                 {{$upload.size}}Mb
                                             </td>
+                                            <td>{{'upload/file/'|base_url}}{{$upload.filename}}</td>
                                             <td>
                                                 <button data-id="{{$upload.id}}"
                                                         class="btn btn-xs btn-primary operate">Delete
