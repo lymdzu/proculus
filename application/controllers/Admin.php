@@ -57,4 +57,9 @@ class Admin extends AdController
             $this->json_result(API_ERROR, "", "server wrong");
         }
     }
+    public function news()
+    {
+        $this->vars['page'] = "news";
+        $this->page("news/index.html");
+    }
 }

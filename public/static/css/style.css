@@ -1067,6 +1067,7 @@ body.isOpenSiteNavigation {
     position: fixed;
     z-index: 100;
     width: 100%;
+    top:0;
     margin: 0 auto;
     min-width: 0 !important;
     background: #242529 repeat;
@@ -1222,7 +1223,7 @@ body.isOpenSiteNavigation {
 }
 
 .w-nav.type_desktop:not(.height_full) {
-    line-height: 50px;
+    line-height: 3rem;
 }
 
 .w-nav-list {
@@ -3927,4 +3928,97 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     font-family: OpenSans, sans-serif;
     font-weight: 600;
     margin-bottom: 1.3rem;
+}
+.news-top{
+    margin-top:3rem;
+}
+.news-con{
+    display: flex;
+}
+.news{
+    width: 75%;
+    border: 1px #e6e6e6 solid;
+    font-family: OpenSans, sans-serif;
+}
+.news .banner ul, ol { padding: 0;}
+.banner { position: relative; overflow: auto; text-align: center;}
+.banner li { list-style: none; }
+.banner ul li { float: left; }
+.news .banner { width: 100%;}
+.news .banner .dots { position: absolute; left: 0; right: 0; bottom: 20px;}
+.news .banner .dots li
+{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    text-indent: -999em;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: .4;
+    -webkit-transition: background .5s, opacity .5s;
+    -moz-transition: background .5s, opacity .5s;
+    transition: background .5s, opacity .5s;
+}
+.news .banner .dots li.active
+{
+    background: #fff;
+    opacity: 1;
+}
+.news .banner .arrow { position: absolute; top: 43%;}
+.news .banner li img{width: 100%}
+.news .banner #al { left: 15px;}
+.news .banner #ar { right: 15px;}
+.news-title{
+    color: #28292e;
+}
+.news-title h1{
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 300;
+ }
+.news-paper .icon-left{
+    margin-left: 1.5rem;
+}
+.news-paper{
+    padding: 1.5rem;
+    width: 100%;
+}
+.news-tip p{
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+.news-tip .iconfont{
+    margin-right: 0.3rem;
+    color: #0380c1;
+    font-size: 0.3rem;
+    font-weight: 200;
+
+}
+.news-paper .tag-btn{
+    border: 1px #d9d9d9 solid;
+    border-radius: 1rem;
+    font-weight: 400;
+    color: #d1d1d1;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+}
+.news-paper .share .active {
+    color: #0380c1;
+}
+.news-paper .tag-btn.active{
+    border: 1px #0380c1 solid;
+    color: #0380c1;;
+}
+.tag-title{
+    font-size: 1rem;
+    font-weight: 500;
+    margin-right: 1rem;
+}
+.news-top{
+    margin-top:1rem;
+    margin-bottom: 1rem;
+}
+.category{
+    width: 25%;
 }

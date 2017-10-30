@@ -5,7 +5,7 @@
  * 摘    要:
  * 修改日期: 28/10/17
  */
-class News extends AdController
+class News extends DashboardController
 {
     public function __construct()
     {
@@ -13,8 +13,8 @@ class News extends AdController
         $this->vars['page'] = "news";
     }
 
-    public function index()
+    public function desc()
     {
-        $this->page("news/index.html");
+        $this->page('news/list.html');
     }
 }

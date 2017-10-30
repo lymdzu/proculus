@@ -1,0 +1,77 @@
+<!--content-->
+<div class="news-top">
+    <div class="content_menu">
+        <img src="{{'static/images/single_news.png'|base_url}}"/>
+    </div>
+</div>
+<div class="center news-con">
+
+    <div class="news">
+        <div class="banner">
+            <ul>
+                <li><img src="http://placehold.it/640x320&text=First" alt=""></li>
+                <li><img src="http://placehold.it/640x320&text=Second" alt=""></li>
+                <li><img src="http://placehold.it/640x320&text=Third" alt=""></li>
+                <li><img src="http://placehold.it/640x320&text=Fourth" alt=""></li>
+            </ul>
+            <a href="javascript:void(0);" class="unslider-arrow04 prev"><img class="arrow" id="al"
+                                                                             src="{{'static/images/arrowl.png'|base_url}}"
+                                                                             alt="prev" width="20" height="35"></a>
+            <a href="javascript:void(0);" class="unslider-arrow04 next"><img class="arrow" id="ar"
+                                                                             src="{{'static/images/arrowr.png'|base_url}}"
+                                                                             alt="next" width="20" height="37"></a>
+        </div>
+        <div class="news-paper">
+            <div class="news-title">
+                <h1>Stander Post Format</h1>
+                <a class="icon-left" href="#">
+                    <icon class=" iconfont">&#xe60e;</icon>
+                </a>
+            </div>
+            <div class="news-tip news-top">
+                <p class="tip">
+                    <icon class="iconfont">&#xe6a0;</icon>
+                    admin
+                </p>
+                <p class="tip">
+                    <icon class="iconfont">&#xe60a;</icon>
+                    Transport news
+                </p>
+                <p class="tip">
+                    <icon class="iconfont">&#xe60c;</icon>
+                    6 comments
+                </p>
+            </div>
+            <div class="tags news-top">
+                <span class="tag-title">Tags:</span>
+                <button class="tag-btn">LCD</button>
+                <button class="tag-btn">NEWS</button>
+                <button class="tag-btn">TFT</button>
+                <button class="tag-btn active">Express</button>
+            </div>
+            <div class="share">
+                <span class="tag-title">Shares:</span>
+                <a href="#"><icon class="active iconfont">&#xe606;</icon></a>
+                <a href="#"><icon class="iconfont">&#xe608;</icon></a>
+                <a href="#"><icon class="iconfont">&#xe6c1;</icon></a>
+                <a href="#"><icon class="iconfont">&#xe607;</icon></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+    </div>
+</div>
+<script>
+    $(document).ready(function (e) {
+        var unslider04 = $('.banner').unslider({
+                    dots: true
+                }),
+                data04 = unslider04.data('unslider');
+
+        $('.unslider-arrow04').click(function () {
+            var fn = this.className.split(' ')[1];
+            data04[fn]();
+        });
+    });
+</script>

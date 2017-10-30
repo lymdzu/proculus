@@ -15,6 +15,6 @@ class Dash extends DashboardController
     public function index()
     {
         $this->vars['page'] = "dashboard";
-        $this->display("dashboard/dashboard.html");
+        $this->page("dashboard/dashboard.html");
     }
 }
