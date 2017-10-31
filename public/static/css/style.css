@@ -3767,8 +3767,11 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
 .contact-name{
     display: flex;
 }
-.contact_lastname{
+.mar-left-one{
     margin-left: 1rem;
+}
+.mar-top-one{
+    margin-top: 1rem;
 }
 .content_menu img {
     display: block;
@@ -3937,7 +3940,6 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
 }
 .news{
     width: 75%;
-    border: 1px #e6e6e6 solid;
     font-family: OpenSans, sans-serif;
 }
 .news .banner ul, ol { padding: 0;}
@@ -3982,7 +3984,9 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     margin-left: 1.5rem;
 }
 .news-paper{
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 5rem 1.5rem;
+    border: 1px #e6e6e6 solid;
+    box-shadow: 5px 6px 2px -5px #e6e6e6;
     width: 100%;
 }
 .news-tip p{
@@ -3996,7 +4000,7 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     font-weight: 200;
 
 }
-.news-paper .tag-btn{
+.tag-btn{
     border: 1px #d9d9d9 solid;
     border-radius: 1rem;
     font-weight: 400;
@@ -4015,10 +4019,154 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     font-weight: 500;
     margin-right: 1rem;
 }
-.news-top{
+.p-blank{
     margin-top:1rem;
     margin-bottom: 1rem;
 }
-.category{
-    width: 25%;
+.paper-change{
+    position: relative;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+}
+.paper-change .iconfont{
+    font-size: 26px;
+    font-weight: 300;
+}
+.paper-change .prev {
+    left: 0;
+}
+.paper-change .next{
+    right: 0;
+}
+.ch-arraw span{
+    line-height: 3rem;
+    padding-bottom: 1rem;
+}
+.ch-arraw{
+    position: absolute;
+}
+.ch-arraw .iconfont{
+    line-height: 3rem;
+}
+.comment{
+    margin-top: 2rem;
+}
+h1.bold-title{
+    font-size: 18px;
+    font-weight: 500;
+}
+.com-list li{
+    display: flex;
+    align-items: flex-start ;
+    margin:1.5rem 0
+}
+.com-list .avatar{
+    width: 80%;
+}
+.com-list .com-content{
+    display: flex;
+    flex-direction: column;
+}
+.com-content .com-title{
+    border-bottom: 1px #d9d9d9 solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+}
+.com-content .com-title .com-user{
+    font-size: 14px;
+    font-weight: 500;
+}
+.com-content .com-text{
+    margin-top: 0.5rem;
+    line-height: 1.4rem;
+}
+.date-reply span{
+    margin-right: 0.5rem;
+}
+.date-reply a{
+    font-weight: 500;
+    color: #00a2d4;
+}
+.date-reply a:hover{
+    color: red;
+}
+.avatar img{
+    display: block;
+    height: 4rem;
+    border-radius: 4rem;
+}
+.leave-com{
+    border: 1px #e6e6e6 solid;
+    box-shadow: 5px 6px 2px -5px #e6e6e6;
+    padding: 1rem;
+}
+.leave-com input{
+    line-height: 2rem;
+    border-radius: 0.3rem;
+}
+.leave-com textarea{
+    width: 100%;
+    height: 5rem;
+    border-radius: 0.3rem;
+    border: 1px #e6e6e6 solid;
+}
+
+.leave-com .bold-title{
+    margin-bottom: 2rem;
+}
+.right-side{
+    padding-left: 1.5rem;
+}
+.right-side .search .bold-title{
+    margin-bottom: 1rem;
+}
+.right-side .search input{
+    line-height: 2rem;
+    border-radius: 0.3rem;
+}
+.right-side .block-blank{
+    margin-bottom: 2rem;
+}
+.right-side .cat-list ul li{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px #e5e5e5 dashed;
+}
+.right-side .cat-list ul li:hover{
+    color: #0e9aef;
+}
+.right-side .category .bold-title{
+    padding-bottom: 2rem;
+    border-bottom: 1px #e5e5e5 dashed;
+}
+.right-side .hotnew-pic{
+    width: 100%;
+}
+.right-side .com-content .hotnew-title{
+    line-height: 1.5rem;
+    font-size: 16px;
+    font-weight: 500;
+}
+.right-side .com-content .hotnew-time{
+    margin-top: 0.3rem;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: italic;
+}
+.right-side .keys .bold-title{
+    padding-bottom: 2rem;
+}
+.right-side .keys .tag-btn{
+    margin: 0.4rem 0.5rem 0 0;
+}
+.right-side .keys .tag-btn:hover{
+    color: #0e9aef;
+    border-color: #0e9aef;
 }
