@@ -1176,6 +1176,7 @@ body.isOpenSiteNavigation {
 
     .header .head-margin {
         padding: 0 40px;
+        font-family: OpenSans, sans-serif;
     }
 
     .logo .top-logo {
@@ -3932,6 +3933,7 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     font-weight: 600;
     margin-bottom: 1.3rem;
 }
+/*****news desc page****/
 .news-top{
     margin-top:3rem;
 }
@@ -4169,4 +4171,26 @@ h1.bold-title{
 .right-side .keys .tag-btn:hover{
     color: #0e9aef;
     border-color: #0e9aef;
+}
+/*****news list page****/
+.news-list .news-paper{
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+.news-list .news-title h1{
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 300;
+}
+.news-list .news-omit p{
+    line-height: 1.2rem;
+}
+.news-list .read-more{
+
+}
+.news-list .read-btn{
+    line-height: 1.4rem;
+    border: 1px #000000 solid;
+    border-radius: 0.2rem;
+    font-weight: 400;
 }

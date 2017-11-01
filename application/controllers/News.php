@@ -15,6 +15,10 @@ class News extends DashboardController
 
     public function desc()
     {
-        $this->page('news/list.html');
+        $this->page('news/desc.html');
+    }
+    public function lists()
+    {
+        $this->page('news/lists.html');
     }
 }
