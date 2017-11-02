@@ -3783,7 +3783,7 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     padding-left: 3rem;
     padding-top: 3rem;
     padding-bottom: 4rem;
-    box-shadow: 3px 3px 7px -5px #000;
+    box-shadow: 3px 3px 4px -5px #000;
 }
 .list_title {
     font-family: Roboto, sans-serif;
@@ -3876,9 +3876,14 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     font-weight: 400;
     color: #bcbecc;
     font-family: OpenSans, sans-serif;
-    padding-left: 32px;
     margin-bottom: 1rem;
     line-height: 1.5rem;
+}
+.content_address .sideright-icon{
+    vertical-align: top;
+    color: #bcbecc;
+    line-height: 1.7rem;
+    padding-right: 0.5rem;
 }
 .content_address h2
 {
@@ -3905,22 +3910,6 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     margin-bottom: 40px;
 }
 
-.address_icon01 {
-    background: url(../images/content_icon_01.png) no-repeat left 5px;
-}
-
-.address_icon02 {
-    background: url(../images/content_icon_02.png) no-repeat left 5px;
-}
-
-.address_icon03 {
-    background: url(../images/content_icon_03.png) no-repeat left 5px;
-}
-
-.address_icon04 {
-    background: url(../images/content_icon_04.png) no-repeat left 5px;
-}
-
 .address_worldwide {
     padding-top: 30px;
 }
@@ -3934,8 +3923,8 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     margin-bottom: 1.3rem;
 }
 /*****news desc page****/
-.news-top{
-    margin-top:3rem;
+.nav-padding-top{
+    padding-top:3rem;
 }
 .news-con{
     display: flex;
@@ -4193,4 +4182,130 @@ h1.bold-title{
     border: 1px #000000 solid;
     border-radius: 0.2rem;
     font-weight: 400;
+}
+/*support sofeware*/
+.soft-wapper{
+    height: 19rem;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: repeat-x url("../images/support-software-bg.png");
+}
+.title-top{
+    margin-top: 6rem;
+    height: 3rem;
+    text-align: center;
+}
+.title-top h1{
+    color: #fff;
+    font-size: 2.5rem;
+    text-align: center;
+}
+.soft-cont{
+    font-family: OpenSans, sans-serif;
+    padding-top: calc(3vw);
+    padding-bottom: calc(5vw);
+    padding-left: calc(15vw);
+    padding-right: calc(15vw)
+}
+.soft-toggle-tip{
+    width: 30%;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+}
+.soft-toggle-tip .active:after{
+    content: '';
+    display: block;
+    height: 3px;
+    margin-top: 0.2rem;
+    background-color: #0380c1;
+}
+.soft-toggle-tip .active a{
+    font-weight: 700;
+}
+.soft-toggle-tip li{
+    display: inline-block;
+    margin-right: 1rem;
+    font-weight: 400;
+}
+.down-cont .down-soft{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 3rem;
+}
+.soft-cont .down-left{
+    width: 24%;
+    margin-right: 2rem;
+}
+.soft-cont .down-right{
+    width: 76%;
+}
+.down-left h2{
+    font-size: 1.5rem;
+    margin-bottom: 0.6rem;
+}
+.down-left p{
+    font-size: 14px;
+    line-height: 1.2rem;
+}
+.down-right ul{
+    display: flex;
+    flex-direction: row;
+    line-height: 1rem;
+    padding-left:1rem;
+}
+.down-right li{
+    line-height: 3rem;
+}
+.down-right .down-head{
+    width: 100%;
+    background: #f5f5f6;
+}
+.down-right .filename{
+    width: 30%;
+    line-height: 1.1rem;
+    padding: 1rem 0.5rem 0.5rem 0;
+}
+.down-right .filetype{
+    width: 15%;
+}
+.down-right .filedate{
+    width: 15%;
+}
+.down-right .filesize{
+    width: 15%;
+}
+.down-right .filedown{
+    width: 25%;
+}
+.down-list{
+    border-bottom: 1px #ebebeb solid;
+    font-size: 0.8rem;
+}
+.down-list ul li{
+    line-height: 3rem;
+}
+.down-list .down-btn{
+    line-height: 1.8rem;
+    border-radius: 0.1rem;
+    background: #0d8ddb;
+    color: #fff;
+
+}
+.overview-wapper{
+    height: 28rem;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: repeat-x url("../images/product-overview-bg.png");
+}
+.select-modules{
+    opacity: 0.5;
+    height: 13rem;
+    width: 70%;
+    margin: 0 auto;
+    background-color: rgba(30, 38, 46, 0.2);
+    background-color: rgb(30, 38, 46);
+    filter: alpha(opacity=20);
+    z-index: 3;
 }
