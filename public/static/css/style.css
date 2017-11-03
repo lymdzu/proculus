@@ -4292,7 +4292,7 @@ h1.bold-title {
     width: 100%;
     margin: 0 auto;
     overflow: hidden;
-    background: repeat-x url("../images/support-software-bg.png");
+    background: repeat-x url("../images/support-software-bg.jpg");
 }
 
 .title-top {
@@ -4424,8 +4424,7 @@ h1.bold-title {
     width: 100%;
     margin: 0 auto;
     overflow: hidden;
-    font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: repeat-x url("../images/product-overview-bg.png");
+    background: repeat-x url("../images/product-overview-bg.webp");
 }
 
 .select-modules {
