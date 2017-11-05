@@ -19,8 +19,11 @@
     <link rel="stylesheet" type="text/css" href="{{'static/css/style.css'|base_url}}?v=20171104"/>
     <link rel="stylesheet" type="text/css" href="{{'static/css/iconfont.css'|base_url}}?v=20171104">
     <script type="application/javascript" src="{{'static/js/jquery-1.11.1.min.js'|base_url}}"></script>
-    {{if $page=='news'}}
+    {{if isset($page) && $page=='news'}}
     <script type="application/javascript" src="{{'static/js/plugins/unslider.min.js'|base_url}}"></script>
+    {{/if}}
+    {{if isset($page) && $page == "faqs"}}
+    <script type="application/javascript" src="{{'static/js/bootstrap.min.js'|base_url}}"></script>
     {{/if}}
     <noscript>
         <link rel="stylesheet" type="text/css" href="{{'static/css/no-js.css'|base_url}}"/>
@@ -159,14 +162,14 @@
                                         </a>
                                     </li>
                                     <li class="menu-item  level_2 ">
-                                        <a class="w-nav-anchor level_2" href="#">
+                                        <a class="w-nav-anchor level_2" href="{{'support/tutorials'|base_url}}">
                                             <span class="w-nav-title">Video Tutorial</span>
                                             <span class="w-nav-arrow"></span>
                                             <span class="ripple-container"></span>
                                         </a>
                                     </li>
                                     <li class="menu-item  level_2">
-                                        <a class="w-nav-anchor level_2" href="#">
+                                        <a class="w-nav-anchor level_2" href="{{'support/faqs'|base_url}}">
                                             <span class="w-nav-title">FAQS</span>
                                             <span class="w-nav-arrow"></span>
                                             <span class="ripple-container"></span>
@@ -325,7 +328,7 @@
 </section>
 <!--页面 footer start-->
 <!-- Page Scripts -->
-{{if $page == 'dashboard'}}
+{{if isset($page) && $page == 'dashboard'}}
 <input type="hidden" id="refreshed" value="no"/>
 <script src="{{'static/js/shared.js'|base_url}}"></script>
 <script src="{{'static/js/app.js'|base_url}}"></script>

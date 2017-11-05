@@ -1,0 +1,110 @@
+<div class="row soft-wapper nav-padding-top">
+    <div class="wrapper-top">
+        <div class="title-top">
+            <h1>SUPPORT</h1>
+        </div>
+    </div>
+</div>
+<div class="soft-cont">
+    <div class="soft-toggle-tip">
+        <ul>
+            <li><a href="{{'support/software'|base_url}}">Downloads</a></li>
+            <li><a href="{{'support/tutorials'|base_url}}">Tutorials</a></li>
+            <li class="active"><a href="{{'support/faqs'|base_url}}">FAQ</a></li>
+        </ul>
+    </div>
+    <div class="down-cont">
+        <div class="down-soft faq-cont">
+            <div class="down-left">
+                <h2>FAQ</h2>
+                <p>
+                    Here are some common questions about platform usage
+                </p>
+            </div>
+            <div class="down-right">
+                <div class="ques-list">
+                    <div class="quest-cont">
+                        <a class="quest-link" role="button" data-toggle="collapse" href="#collapse1"
+                           aria-expanded="false" aria-controls="collapse1">
+                            <div class="quest">
+                                What is UNICView Design?
+                            </div>
+                            <div>
+                                <icon class="iconfont">&#xe7d5;</icon>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="collapse quest-ans" id="collapse1">
+                        <div class="well">
+                            The variable of UnicView AD is highly abstracted (e.g.one trend curve display is a
+                            variable),and also considering the graphic variable contains variety of information in
+                            consequence that 10 variables displaying on one page is working enough for general
+                            application. Take a temperature controller as example, only 4 the real variables involved:
+                            current temperature, setting temperature, the upper limit and lower limit of warnings.
+                        </div>
+                    </div>
+                </div>
+                <div class="ques-list">
+                    <div class="quest-cont">
+                        <a class="quest-link" role="button" data-toggle="collapse" href="#collapse2"
+                           aria-expanded="false" aria-controls="collapse2">
+                            <div class="quest">
+                                What is UNICView Design?
+                            </div>
+                            <div>
+                                <icon class="iconfont">&#xe7d5;</icon>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="collapse quest-ans" id="collapse2">
+                        <div class="well">
+                            The variable of UnicView AD is highly abstracted (e.g.one trend curve display is a
+                            variable),and also considering the graphic variable contains variety of information in
+                            consequence that 10 variables displaying on one page is working enough for general
+                            application. Take a temperature controller as example, only 4 the real variables involved:
+                            current temperature, setting temperature, the upper limit and lower limit of warnings.
+                        </div>
+                    </div>
+                </div>
+                <div class="ques-list">
+                    <div class="quest-cont">
+                        <a class="quest-link" role="button" data-toggle="collapse" href="#collapse3"
+                           aria-expanded="false" aria-controls="collapse3">
+                            <div class="quest">
+                                What is UNICView Design?
+                            </div>
+                            <div>
+                                <icon class="iconfont">&#xe7d5;</icon>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="collapse quest-ans" id="collapse3">
+                        <div class="well">
+                            The variable of UnicView AD is highly abstracted (e.g.one trend curve display is a
+                            variable),and also considering the graphic variable contains variety of information in
+                            consequence that 10 variables displaying on one page is working enough for general
+                            application. Take a temperature controller as example, only 4 the real variables involved:
+                            current temperature, setting temperature, the upper limit and lower limit of warnings.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="application/javascript">
+    $(function () {
+        $(".quest-link").on("click", function () {
+            console.log($(this).parent().next(".collapse").hasClass("in"));
+            if ($(this).parent().next(".collapse").hasClass("in")) {
+
+                $(this).find(".iconfont").html("&#xe7d5;");
+            }
+            else {
+                $(this).find(".iconfont").html("&#xe63b;");
+            }
+        })
+    })
+</script>
