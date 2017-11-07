@@ -26,33 +26,10 @@
                     <div class="video-cont">
                         <div class="post wrap-vid">
                             <div class="zoom-container">
-                                <a href="single.html">
 										<span class="zoom-caption">
-											<i class="icon-play iconfont">&#xe611;</i>
+											<i class="icon-play iconfont" data-url="{{'upload/file/test.mp4'|base_url}}">&#xe611;</i>
 										</span>
-                                    <img src="http://placehold.it/200x120">
-                                </a>
-                            </div>
-                            <div class="video-desc">
-                                <h5 class="vid-name">UnicView AD: Getting Started</h5>
-                                <div class="info">
-                                    <span>Quick guide on how start using UnicView AD</span>
-                                </div>
-                            </div>
-                        </div>
-                        <video class="pause" controls poster="images/vedio.jpg" width="663" height="373" style="display: none">
-                            <source src="video/Defone3.8_1.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-cont">
-                        <div class="post wrap-vid">
-                            <div class="zoom-container">
-                                <a href="single.html">
-										<span class="zoom-caption">
-											<i class="icon-play iconfont">&#xe611;</i>
-										</span>
-                                    <img src="http://placehold.it/200x120">
-                                </a>
+                                <img src="http://placehold.it/200x120">
                             </div>
                             <div class="video-desc">
                                 <h5 class="vid-name">UnicView AD: Getting Started</h5>
@@ -65,48 +42,10 @@
                     <div class="video-cont">
                         <div class="post wrap-vid">
                             <div class="zoom-container">
-                                <a href="single.html">
 										<span class="zoom-caption">
-											<i class="icon-play iconfont">&#xe611;</i>
+											<i class="icon-play iconfont" data-url="{{'upload/file/test.mp4'|base_url}}">&#xe611;</i>
 										</span>
-                                    <img src="http://placehold.it/200x120">
-                                </a>
-                            </div>
-                            <div class="video-desc">
-                                <h5 class="vid-name">UnicView AD: Getting Started</h5>
-                                <div class="info">
-                                    <span>Quick guide on how start using UnicView AD Quick guide on how start using UnicView AD Quick guide on how start using UnicView AD Quick guide on how start using UnicView AD</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-cont">
-                        <div class="post wrap-vid">
-                            <div class="zoom-container">
-                                <a href="single.html">
-										<span class="zoom-caption">
-											<i class="icon-play iconfont">&#xe611;</i>
-										</span>
-                                    <img src="http://placehold.it/200x120">
-                                </a>
-                            </div>
-                            <div class="video-desc">
-                                <h5 class="vid-name">UnicView AD: Getting Started</h5>
-                                <div class="info">
-                                    <span>Quick guide on how start using UnicView AD</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-cont">
-                        <div class="post wrap-vid">
-                            <div class="zoom-container">
-                                <a href="single.html">
-										<span class="zoom-caption">
-											<i class="icon-play iconfont">&#xe611;</i>
-										</span>
-                                    <img src="http://placehold.it/200x120">
-                                </a>
+                                <img src="http://placehold.it/200x120">
                             </div>
                             <div class="video-desc">
                                 <h5 class="vid-name">UnicView AD: Getting Started</h5>
@@ -121,11 +60,46 @@
         </div>
     </div>
 </div>
+<video class="video" id="video" controls  style="display: none">
+    <source src="" type="video/mp4">
+</video>
+<div class="bg-black"></div>
 <script>
     $(function () {
         $(".icon-play").on("click", function () {
-            
-            
+            var url = $(this).data("url");
+            var heights=XP_getPageSize().h;
+            $(".bg-black").css("height", heights);
+            $("#video").prop("src", url);
+            var scroll_top = $(document).scrollTop();////获取当前窗口距离页面顶部高度
+            var window_height = $(window).height();
+            $("#video").css("top", scroll_top + window_height * 0.25);
+            $("#video").show();
+            $("#video").trigger("play");
+            $(".bg-black").show();
+
+        });
+        $(".bg-black").on("click", function () {
+            $("#video").trigger("pause").hide();
+            $(".bg-black").hide();
         })
-    })
+    });
+    //获取页面的高度与宽度
+    function XP_getPageSize(){
+        var pt = {w:0,h:0};
+        if (window.innerHeight && window.scrollMaxY){
+            pt.w = document.body.scrollWidth;
+            pt.h = window.innerHeight + window.scrollMaxY;
+        }
+        else if (document.body.scrollHeight > document.body.offsetHeight){ // all but Explorer Mac
+            pt.w = document.body.scrollWidth;
+            pt.h = document.body.scrollHeight;
+        }
+        else { // Explorer Mac...would also work in Explorer 6 Strict, Mozilla and Safari
+            pt.w = document.body.offsetWidth;
+            pt.h = document.body.offsetHeight;
+        }
+        return pt;
+    }
+
 </script>
