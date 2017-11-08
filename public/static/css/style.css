@@ -4708,4 +4708,17 @@ h1.bold-title {
     background: #666666;
     z-index: 10000;
 }
+.developer_cont{
+    height: 22rem;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: repeat-x url("../images/developer_kit_bg.webp");
+}
+.developer_cont .develop-title-top{
+    margin-top: 11rem;
+    height: 3rem;
+    text-align: center;
+}
+
 
