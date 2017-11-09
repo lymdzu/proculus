@@ -5,3 +5,84 @@
         </div>
     </div>
 </div>
+<div class="kit-cont">
+    <div class="kit-left">
+        <div class="quick-title">
+            <h2>QUICK START</h2>
+            <p>For quick start Proculus Technologies offer a starter LCD Evaluation Kit for basic understanding of
+                displays</p>
+        </div>
+        <div class="pic-change dot1 active">
+            <div class="kit-display">
+                <img src="http://placehold.it/64x64">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+            <div class="kit-display">
+                <img src="http://placehold.it/64x64">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+            <div class="kit-display">
+                <img src="http://placehold.it/64x64">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+            <div class="kit-display">
+                <img src="http://placehold.it/64x64">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+            <div class="kit-display">
+                <img src="http://placehold.it/64x64">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+            <div class="kit-display">
+                <img src="http://placehold.it/64x64">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+            <div class="kit-display">
+                <img src="http://placehold.it/64x64">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+            <div class="kit-display">
+                <img src="http://placehold.it/64x64">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+        </div>
+        <div class="pic-change dot2">
+            <div class="kit-display">
+                <img src="">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+            <div class="kit-display">
+                <img src="">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+        </div>
+        <div class="change-dot">
+            <p class="dot1 active"></p>
+            <p class="dot2"></p>
+        </div>
+
+    </div>
+    <div class="kit-right">
+        <img style="width: 100%" src="{{'static/images/kit_right.jpg'|base_url}}">
+    </div>
+</div>
+<script>
+    $(function () {
+        $(".change-dot p").on("click", function () {
+            if (!$(this).hasClass("active")) {
+                $(".change-dot p").each(function () {
+                    $(this).removeClass("actige");
+
+                });
+                $(this).addClass("active");
+            }
+            if ($(this).hasClass("dot1")) {
+                $(".pic-change .dot1").addClass("active")
+            }
+            else {
+                $(".pic-change .dot2").addClass("active")
+            }
+
+        })
+    })
+</script>
