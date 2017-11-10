@@ -28,4 +28,9 @@ class Support extends DashboardController
         $this->vars['page'] = "faqs";
         $this->page("support/faqs.html");
     }
+    public function service()
+    {
+        $this->vars["page"] = "service";
+        $this->page("support/service.html");
+    }
 }
