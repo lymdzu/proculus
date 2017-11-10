@@ -1855,7 +1855,16 @@ ul:last-child {
 .contact {
     width: 40%;
 }
-
+.contact-wapper{
+    height: 19rem;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: repeat-x url(../images/contact_bg.jpg) center top;
+}
+.contact-wapper .title-top{
+    text-transform: uppercase;
+}
 .contact .phone-text {
     font-size: 1rem;
     line-height: 2.8rem;
