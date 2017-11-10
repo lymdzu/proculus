@@ -4802,42 +4802,130 @@ h1.bold-title {
 }
 .service-cont{
     font-family: OpenSans, sans-serif;
-    padding-top: calc(3vw);
-    padding-bottom: calc(5vw);
-    padding-left: calc(15vw);
-    padding-right: calc(15vw)
+    border-top: 0.4rem #0380c1 solid;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
 }
 .service-pic{
     width: 50%;
     height: inherit;
+    overflow: hidden;
 }
 .service-desc{
     width: 50%;
 }
 .service-row{
     width: 100%;
-    height: 20rem;
 }
 .service-row{
     display: flex;
     flex-direction: row;
 }
-.service-row .row1{
-    background:url("../images/service-row1.jpg");
+.service-row img{
+    width: 100%;
+    transition: width 1s, height 1s, transform 1s;
+    -moz-transition: width 1s, height 1s, -moz-transform 1s;
+    -webkit-transition: width 1s, height 1s, -webkit-transform 1s;
+    -o-transition: width 1s, height 1s,-o-transform 1s;
 }
-.service-row .row2{
-    background:url("../images/service-row2.jpg");
-}
-.service-row .row3{
-    background:url("../images/service-row3.jpg");
+.service-row img:hover{
+    transform: scale(1.2);
 }
 .service-desc{
-    padding: 10%;
+    padding: 11rem 4rem;
 }
 .service-desc p{
-    line-height: 1.6rem;
+    line-height: 2rem;
     font-size: 1.2rem;
-    font-weight: 500;
+}
+.process-cont{
 
+}
+.pro-cont{
+    display: flex;
+    flex-direction: row;
+    background: #f5f5f7;
+    width: 100%;
+    align-items: center;
+    padding-left: calc(12vw);
+    padding-right: calc(12vw);
+    padding-top: calc(10vw);
+    padding-bottom: calc(7vw);
+}
+.pro-list{
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pro-list img{
+    width: 7rem;
+    border-radius: 5rem;
+    background: #0380c1;
+}
+.pro-list .pro-title{
+    font-weight: 600;
+    padding: 1rem 0.5rem;
+    border-bottom: 0.2rem #dadada solid;
+}
+.pro-list .pro-text{
+    padding: 1rem 0.5rem;
+    line-height: 1.6rem;
+    font-size: 0.9rem;
+    color: #acacac;
+}
+
+.demo-wapper{
+    height: 25rem;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: repeat-x url(../images/demos_bg.webp) center top;
+}
+.demo-wapper .title-top{
+    margin-top: 10rem;
+    text-align: center;
+}
+.demo-desc{
+    width: 50%;
+}
+.demo-title h2{
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.demo-title h2:after{
+    content: '';
+    display: block;
+    width: 3em;
+    height: 3px;
+    background-color: #0380c1;
+    border: none;
+    margin-top: 1rem;
+    margin-bottom: 1.2em;
+}
+.demo-desc{
+    padding: 9rem ;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.demo-text{
+    line-height: 2rem;
+}
+.demo-btn{
+    margin: 1rem 0;
+
+}
+.learn-btn{
+    border: 0.1rem solid #000;
+    color: #000;
+    display: inline-block;
+    line-height: 1.5rem;
+    border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
 }
 

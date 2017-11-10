@@ -11,8 +11,14 @@ class Product extends DashboardController
     {
         $this->page("product/overview.html");
     }
+
     public function developer_kit()
     {
         $this->page("product/developer_kit.html");
+    }
+
+    public function demos()
+    {
+        $this->page("product/demos.html");
     }
 }
