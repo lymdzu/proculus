@@ -4755,9 +4755,6 @@ h1.bold-title {
     width: 50%;
 }
 .kit-left .pic-change{
-    display: none;
-}
-.kit-left .pic-change.active{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

@@ -46,13 +46,33 @@
                 <p>UnicView AD for Advanced Design firmware LCMs</p>
             </div>
         </div>
-        <div class="pic-change dot2">
+        <div class="pic-change dot2" style="display: none">
             <div class="kit-display">
-                <img src="">
+                <img src="http://placehold.it/64x64">
                 <p>UnicView AD for Advanced Design firmware LCMs</p>
             </div>
             <div class="kit-display">
-                <img src="">
+                <img src="http://placehold.it/64x64">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+            <div class="kit-display">
+                <img src="http://placehold.it/64x64">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+            <div class="kit-display">
+                <img src="http://placehold.it/64x64">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+            <div class="kit-display">
+                <img src="http://placehold.it/64x64">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+            <div class="kit-display">
+                <img src="http://placehold.it/64x64">
+                <p>UnicView AD for Advanced Design firmware LCMs</p>
+            </div>
+            <div class="kit-display">
+                <img src="http://placehold.it/64x64">
                 <p>UnicView AD for Advanced Design firmware LCMs</p>
             </div>
         </div>
@@ -71,17 +91,22 @@
         $(".change-dot p").on("click", function () {
             if (!$(this).hasClass("active")) {
                 $(".change-dot p").each(function () {
-                    $(this).removeClass("actige");
-
+                    $(this).removeClass("active");
                 });
                 $(this).addClass("active");
             }
+            $(".pic-change").each(function () {
+                $(this).removeClass("active");
+            });
             if ($(this).hasClass("dot1")) {
-                $(".pic-change .dot1").addClass("active")
+                $(".pic-change.dot1").addClass("active");
             }
             else {
-                $(".pic-change .dot2").addClass("active")
+
+                $(".pic-change.dot2").addClass("active");
             }
+            $(".pic-change.dot1").slideToggle();
+            $(".pic-change.dot2").slideToggle();
 
         })
     })
