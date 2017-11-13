@@ -9,7 +9,13 @@ class Product extends DashboardController
 {
     public function overview()
     {
+        $this->vars['page'] = "overview";
         $this->page("product/overview.html");
+    }
+
+    public function modules()
+    {
+        $this->page("product/modules.html");
     }
 
     public function developer_kit()
@@ -20,5 +26,9 @@ class Product extends DashboardController
     public function demos()
     {
         $this->page("product/demos.html");
+    }
+    public function modules_show()
+    {
+        $this->page("product/mo_desc.html");
     }
 }
