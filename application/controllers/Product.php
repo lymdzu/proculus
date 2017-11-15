@@ -27,8 +27,14 @@ class Product extends DashboardController
     {
         $this->page("product/demos.html");
     }
-    public function modules_show()
+
+    public function display_view()
     {
         $this->page("product/mo_desc.html");
+    }
+
+    public function unic_view()
+    {
+        $this->page("product/unic_view.html");
     }
 }

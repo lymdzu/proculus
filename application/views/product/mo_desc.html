@@ -6,4 +6,151 @@
         <icon class="iconfont current">&#xe648;</icon>
         <p class="current">TFT MODULES</p>
     </div>
+    <div class="module-cont">
+        <div class="intro-cont">
+            <h2>3.5'' LCD MODULE</h2>
+            <div class="intro-desc">
+                This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her
+                surprise, she lost sight of her in a moment, and found herself walking in at the front-door again.
+            </div>
+            <div class="tip-change">
+                <ul>
+                    <li class="tip-href detail">DETAILS</li>
+                    <li class="tip-href download active">DOWNLOADS</li>
+                    <li class="tip-empty">&nbsp;</li>
+                </ul>
+                <div class="tip-list detail" style="display: none">
+                    <div class="tips">
+                        <div class="tip-title">
+                            LCM SIZE
+                        </div>
+                        <div class="tip-text">
+                            3.5 inch
+                        </div>
+                    </div>
+                    <div class="tips">
+                        <div class="tip-title">
+                            LCM SIZE
+                        </div>
+                        <div class="tip-text">
+                            3.5 inch
+                        </div>
+                    </div>
+                    <div class="tips">
+                        <div class="tip-title">
+                            LCM SIZE
+                        </div>
+                        <div class="tip-text">
+                            3.5 inch
+                        </div>
+                    </div>
+                    <div class="tips">
+                        <div class="tip-title">
+                            LCM SIZE
+                        </div>
+                        <div class="tip-text">
+                            3.5 inch
+                        </div>
+                    </div>
+                    <div class="tips">
+                        <div class="tip-title">
+                            LCM SIZE
+                        </div>
+                        <div class="tip-text">
+                            3.5 inch
+                        </div>
+                    </div>
+                    <div class="tips">
+                        <div class="tip-title">
+                            LCM SIZE
+                        </div>
+                        <div class="tip-text">
+                            3.5 inch
+                        </div>
+                    </div>
+                    <div class="tips">
+                        <div class="tip-title">
+                            LCM SIZE
+                        </div>
+                        <div class="tip-text">
+                            3.5 inch
+                        </div>
+                    </div>
+                </div>
+                <div class="tip-list download">
+                    <a href="#">
+                        <div class="download-list">
+                            <div class="down-icon">
+                                <icon class="iconfont">&#xe68f;</icon>
+                            </div>
+                            <div class="down-cont">
+                                <div class="down-title">
+                                    UnicView AD User Guide
+                                </div>
+                                <div class="down-text">
+                                    Size : 4.81Mb　Revision : 2017-06-02
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="download-list">
+                            <div class="down-icon">
+                                <icon class="iconfont">&#xe68f;</icon>
+                            </div>
+                            <div class="down-cont">
+                                <div class="down-title">
+                                    UnicView AD User Guide
+                                </div>
+                                <div class="down-text">
+                                    Size : 4.81Mb　Revision : 2017-06-02
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="download-list">
+                            <div class="down-icon">
+                                <icon class="iconfont">&#xe68f;</icon>
+                            </div>
+                            <div class="down-cont">
+                                <div class="down-title">
+                                    UnicView AD User Guide
+                                </div>
+                                <div class="down-text">
+                                    Size : 4.81Mb　Revision : 2017-06-02
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="intro-pic">
+            <img src="{{'static/images/modules_desc.jpg'|base_url}}">
+        </div>
+    </div>
 </div>
+<script type="application/javascript">
+    $(function () {
+        $(".tip-href").on("click", function () {
+            $(".tip-href").each(function () {
+                $(this).removeClass("active");
+            });
+            $(this).addClass("active");
+            $(".tip-list").each(function () {
+                $(this).hide();
+            });
+            if ($(this).hasClass("detail")) {
+                $(".tip-list.detail").show();
+            }
+            else {
+                $(".tip-list.download").show();
+            }
+
+        })
+
+    })
+
+</script>
+

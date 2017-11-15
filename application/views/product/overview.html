@@ -13,12 +13,16 @@
 </div>
 <div class="icon-cont">
     <div class="icon-div">
-        <img src="{{'static/images/view_icon_01.png'|base_url}}">
-        <h2>UNIC View</h2>
+        <a href="{{'product/unic_view'|base_url}}">
+            <img src="{{'static/images/view_icon_01.png'|base_url}}">
+            <h2>UNIC View</h2>
+        </a>
     </div>
     <div class="icon-div">
-        <img src="{{'static/images/view_icon_02.png'|base_url}}">
-        <h2>Displays</h2>
+        <a href="{{'product/display_view'|base_url}}">
+            <img src="{{'static/images/view_icon_02.png'|base_url}}">
+            <h2>Displays</h2>
+        </a>
     </div>
     <div class="icon-div">
         <img src="{{'static/images/view_icon_03.png'|base_url}}">
@@ -32,12 +36,14 @@
 <div class="view-cont">
     <div class="left-view">
         <div class="view-img">
-            <a href="">
+            <a href="{{'product/unic_view'|base_url}}">
                 <img src="{{'static/images/over_r1c1.jpg'|base_url}}">
             </a>
             <div class="buy-div">
                 <h3>UNIC VIEW</h3>
-                <a href="#"><button class="buy-btn">Buy</button></a>
+                <a href="#">
+                    <button class="buy-btn">Buy</button>
+                </a>
             </div>
         </div>
         <div class="view-img">
@@ -46,18 +52,22 @@
             </a>
             <div class="buy-div">
                 <h3>DEVELOPER KIT</h3>
-                <a href="#"><button class="buy-btn">Buy</button></a>
+                <a href="#">
+                    <button class="buy-btn">Buy</button>
+                </a>
             </div>
         </div>
     </div>
     <div class="right-view">
         <div class="view-img">
-            <a href="">
+            <a href="{{'product/display_view'|base_url}}">
                 <img src="{{'static/images/over_r1c2.jpg'|base_url}}">
             </a>
             <div class="buy-div">
                 <h3>DISPALYS</h3>
-                <a href="#"><button class="buy-btn">Buy</button></a>
+                <a href="#">
+                    <button class="buy-btn">Buy</button>
+                </a>
             </div>
         </div>
         <div class="view-img">
@@ -66,13 +76,16 @@
             </a>
             <div class="buy-div">
                 <h3>SERVICES</h3>
-                <a href="#"><button class="buy-btn">Buy</button></a>
+                <a href="#">
+                    <button class="buy-btn">Buy</button>
+                </a>
             </div>
         </div>
     </div>
 </div>
 <div class="overview-subscribe">
-    <p>This is is a product development platform with customizable features that accelerates time to market and reduces overall development costs.</p>
+    <p>This is is a product development platform with customizable features that accelerates time to market and reduces
+        overall development costs.</p>
     <button id="sub" class="learn-btn">Subscribe</button>
 </div>
 <script type="application/javascript">
@@ -82,9 +95,9 @@
                 formType: 0,
                 value: 'Please enter your email',
                 title: 'Subscribe',
-                btn:['confirm', 'close'],
+                btn: ['confirm', 'close'],
                 area: ['500px', '20rem'] //自定义文本域宽高
-            }, function(value, index, elem){
+            }, function (value, index, elem) {
                 layer.msg(value);
                 layer.close(index);
             });
