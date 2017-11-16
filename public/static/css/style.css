@@ -5215,14 +5215,19 @@ h1.bold-title {
 }
 .unic-cont{
     padding-top: 5rem;
-    padding-bottom: 5rem;
     padding-left: calc(16vw);
     padding-right: calc(16vw);
+    border-bottom: 1px #c2c2c2 solid;
 }
 .unic-cont .design-list{
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .unic-text{
+    padding-left: 5rem;
+    padding-top: 5rem;
     width: 50%;
 }
 .unic-text h2{
@@ -5241,8 +5246,53 @@ h1.bold-title {
     margin-bottom: 1.2rem;
 }
 .unic-text p{
-    line-height: 1.5rem;
+    line-height: 1.8rem;
 }
 .unic-pic{
     width: 50%;
+    margin: 0 auto;
+}
+.hide-btn{
+    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: calc(16vw);
+    padding-right: calc(16vw);
+}
+.hide-btn .iconfont{
+    margin-right: 1rem;
+}
+.unic-feature{
+    padding-left: calc(16vw);
+    padding-right: calc(16vw);
+}
+.unic-list{
+    display: flex;
+    flex-direction: row;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px #cccccc solid;
+}
+.unic-title{
+    display: flex;
+    flex-direction: row;
+    width: 33%;
+    padding-right: 2rem;
+}
+.unic-title h3{
+    line-height: 1.5rem;
+    font-size: 1.1rem;
+}
+.unic-title img{
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-right: 1.5rem;
+}
+.unic-desc{
+    width: 67%;
+    line-height: 1.5rem;
+}
+.unic-desc p{
+    margin-bottom: 0.5rem;
+
 }
