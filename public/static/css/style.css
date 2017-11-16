@@ -5273,6 +5273,9 @@ h1.bold-title {
     padding-bottom: 2rem;
     border-bottom: 1px #cccccc solid;
 }
+.unic-list.no-boder{
+    border: none;
+}
 .unic-title{
     display: flex;
     flex-direction: row;
@@ -5295,4 +5298,14 @@ h1.bold-title {
 .unic-desc p{
     margin-bottom: 0.5rem;
 
+}
+.close-btn{
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    padding-left: calc(16vw);
+    padding-right: calc(16vw);
+}
+.close-btn .iconfont{
+    font-size: 2rem;
 }
