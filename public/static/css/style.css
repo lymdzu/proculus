@@ -5258,8 +5258,12 @@ h1.bold-title {
     padding-bottom: 5rem;
     padding-left: calc(16vw);
     padding-right: calc(16vw);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
 }
 .hide-btn .iconfont{
+    font-size: 1.2rem;
     margin-right: 1rem;
 }
 .unic-feature{
@@ -5308,4 +5312,38 @@ h1.bold-title {
 }
 .close-btn .iconfont{
     font-size: 2rem;
+    cursor: pointer;
+}
+.and-wapper{
+    height: 22rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    background: repeat-x url(../images/android_bg.webp) center;
+}
+.lcm-tips{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: calc(16vw);
+    padding-right: calc(16vw);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.lcm-list h3{
+    margin: 1rem 0;
+    line-height: 1.5rem;
+    width: 60%;
+}
+.lcm-list p{
+    line-height: 1.5rem;
+    width: 75%;
+}
+.lcm-list{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }

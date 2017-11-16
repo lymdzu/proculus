@@ -46,7 +46,7 @@
     <icon class="iconfont">&#xe7d5;</icon>
     <span>Check all the Features</span>
 </div>
-<div class="unic-feature">
+<div class="unic-feature" style="display: none">
     <div class="unic-list">
         <div class="unic-title">
             <img src="{{'static/images/unic_icon1.png'|base_url}}">
@@ -211,3 +211,16 @@
         <icon class="iconfont">&#xe616;</icon>
     </div>
 </div>
+<script type="application/javascript">
+    $(function () {
+        $(".hide-btn").on("click", function () {
+            $(".unic-feature").slideToggle();
+            $(".hide-btn .iconfont").html("&#xe63b;");
+        });
+        $(".close-btn .iconfont").on("click", function () {
+            $(".unic-feature").slideToggle();
+            $(".hide-btn .iconfont").html("&#xe7d5;");
+        })
+        
+    })
+</script>

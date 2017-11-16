@@ -37,4 +37,8 @@ class Product extends DashboardController
     {
         $this->page("product/unic_view.html");
     }
+    public function android()
+    {
+        $this->page("product/android.html");
+    }
 }
