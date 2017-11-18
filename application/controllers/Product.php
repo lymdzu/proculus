@@ -39,6 +39,7 @@ class Product extends DashboardController
     }
     public function android()
     {
+        $this->vars['page'] = "android";
         $this->page("product/android.html");
     }
 }

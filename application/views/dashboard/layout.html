@@ -28,6 +28,9 @@
     {{if isset($page) && $page == "overview"}}
     <script type="application/javascript" src="{{'static/js/plugins/layer3.0/layer.js'|base_url}}"></script>
     {{/if}}
+    {{if isset($page) && $page == "android"}}
+    <!--<script type="application/javascript" src="{{'static/js/jquery.hotspot.min.js'|base_url}}"></script>-->
+    {{/if}}
     <noscript>
         <link rel="stylesheet" type="text/css" href="{{'static/css/no-js.css'|base_url}}"/>
     </noscript>
@@ -233,16 +236,16 @@
                 <div class="footer-title">
                     <h2>Products</h2>
                     <div class="foot-guide">
-                        <p><a href="#">Overview</a></p>
-                        <p><a href="#">Unicview Design</a></p>
-                        <p><a href="#">Displays</a></p>
+                        <p><a href="{{'product/overview'|base_url}}">Overview</a></p>
+                        <p><a href="{{'product/unic_view'|base_url}}">Unicview Design</a></p>
+                        <p><a href="{{'product/display_view'|base_url}}">Displays</a></p>
                     </div>
                 </div>
                 <div class="footer-title">
                     <h2>Company</h2>
                     <div class="foot-guide">
-                        <p><a href="#">About us</a></p>
-                        <p><a href="#">News</a></p>
+                        <p><a href="{{'product/android'|base_url}}">About us</a></p>
+                        <p><a href="{{'news/lists'|base_url}}">News</a></p>
                     </div>
                 </div>
             </div>
@@ -250,9 +253,9 @@
                 <div class="footer-title">
                     <h2>Support</h2>
                     <div class="foot-guide">
-                        <p><a href="#">Documentation</a></p>
-                        <p><a href="#">View Tutorial</a></p>
-                        <p><a href="#">FAQs</a></p>
+                        <p><a href="{{'support/software'|base_url}}">Documentation</a></p>
+                        <p><a href="{{'support/tutorials'|base_url}}">View Tutorial</a></p>
+                        <p><a href="{{'support/faqs'|base_url}}">FAQs</a></p>
                     </div>
                 </div>
             </div>
@@ -316,7 +319,7 @@
                 <img src="{{'static/images/logo.png'|base_url}}">
             </div>
             <div class="to-top">
-                <a href="###">
+                <a href="javascript:void(0);">
                     <icon class="iconfont">&#xe631;</icon>
                 </a>
             </div>
@@ -357,6 +360,10 @@
         $(".menu-item-has-children").on("click", function () {
             $("#nav-level-1").find(".w-nav-list").removeClass("mobile_item");
             $(this).find(".w-nav-list").addClass("mobile_item");
+        });
+        $(".to-top a").click(function(){
+            $('body,html').animate({scrollTop:0},500);
+            return false;
         });
     })
 </script>
