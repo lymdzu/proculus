@@ -1,0 +1,57 @@
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+            <div class="ibox">
+                <div class="col-sm-12">
+                <div class="ibox-title">
+                    <h5>News List</h5>
+                    <div class="ibox-tools">
+                        <a data-toggle="modal" class="btn btn-primary btn-xs add-btn" href="{{'admin/add_paper'|base_url}}">Add New Paper</a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="clients-list">
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active">
+                                <div class="full-height-scroll">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                            <th>ID</th>
+                                            <th>Title</th>
+                                            <th>Keywords</th>
+                                            <th>News Link</th>
+                                            <th>CreateTime</th>
+                                            </thead>
+                                            <tbody>
+                                            {{foreach $news_list as $new}}
+                                            <tr>
+                                                <td class="client-avatar">
+                                                    {{$new.id}}
+                                                </td>
+                                                <td>
+                                                    {{$new.title}}
+                                                </td>
+                                                <td class="client-status">
+                                                    {{foreach $new.key as $keyword}}
+                                                    <span class="label label-primary">{{$keyword.keyword}}</span>
+                                                    {{/foreach}}
+                                                </td>
+                                                <td><a href="{{'news/desc'|base_url}}?id={{$new.id}}" target="_blank">{{'news/desc'|base_url}}?id={{$new.id}}</a></td>
+                                                <td>
+                                                {{$new.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}
+                                                </td>
+                                            </tr>
+                                            {{/foreach}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    {{$pagelist}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

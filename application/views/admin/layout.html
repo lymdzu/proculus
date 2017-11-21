@@ -16,17 +16,21 @@
     <meta http-equiv="refresh" content="0;ie.html"/><![endif]-->
     <link href="{{'static/bscss/bootstrap.min.css'|base_url}}" rel="stylesheet">
     <link href="{{'static/bscss/font-awesome.css'|base_url}}?v=4.4.0" rel="stylesheet">
-    <link href="{{'static/bscss/bootstrap.min.css'|base_url}}" rel="stylesheet">
     <link href="{{'static/bscss/style.min.css'|base_url}}?v=4.1.0" rel="stylesheet">
     <script type="text/javascript" src="{{'static/bsjs/jquery.min.js'|base_url}}"></script>
-    {{if $page="upload"}}
     <link href="{{'static/bscss/plugins/webuploader/webuploader.css'|base_url}}?" rel="stylesheet">
     <link href="{{'static/bscss/webuploader-demo.min.css'|base_url}}?" rel="stylesheet">
     <script type="text/javascript" src="{{'static/bsjs/plugins/webuploader/webuploader.min.js'|base_url}}"></script>
-    {{/if}}
     {{if $page="news"}}
     <link href="{{'static/bsjs/plugins/wangedit/wangEditor.min.css'|base_url}}?" rel="stylesheet">
     <script type="text/javascript" src="{{'static/bsjs/plugins/wangedit/wangEditor.min.js'|base_url}}"></script>
+    {{/if}}
+    {{if $page = "add_paper"}}
+    <script type="text/javascript" src="{{'static/bsjs/tag.js'|base_url}}"></script>
+    <script type="text/javascript" src="{{'static/bsjs/fileinput.min.js'|base_url}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{'static/bscss/fileinput.min.css'|base_url}}"/>
+    <link rel="stylesheet" type="text/css" href="{{'static/bscss/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css'|base_url}}" />
+    <link rel="stylesheet" type="text/css" href="{{'static/bscss/tag.css'|base_url}}" />
     {{/if}}
 </head>
 
@@ -90,10 +94,16 @@
                         <span class="nav-label">Paper</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="{{'admin/news'|base_url}}" data-index="0"><i class="fa fa-edit"></i>Add Paper</a>
+                            <a href="{{'admin/news'|base_url}}" data-index="0"><i class="fa fa-edit"></i>News list</a>
                         </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-list"></i>
+                        <span class="nav-label">Product</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
                         <li>
-                            <a href="#" data-index="0"><i class="fa fa-file-video-o"></i>Video</a>
+                            <a href="{{'category/lists'|base_url}}" data-index="0"><i class="fa fa-list"></i>Category list</a>
                         </li>
                     </ul>
                 </li>

@@ -6,12 +6,12 @@
 </div>
 <div class="center news-con">
     <div class="news">
+        {{if $news_pic}}
         <div class="banner">
             <ul>
-                <li><img src="http://placehold.it/640x320&text=First" alt=""></li>
-                <li><img src="http://placehold.it/640x320&text=Second" alt=""></li>
-                <li><img src="http://placehold.it/640x320&text=Third" alt=""></li>
-                <li><img src="http://placehold.it/640x320&text=Fourth" alt=""></li>
+                {{foreach $news_pic as $pic}}
+                <li><img src="{{'upload/file'|base_url}}/{{$pic}}" alt=""></li>
+                {{/foreach}}
             </ul>
             <a href="javascript:void(0);" class="unslider-arrow04 prev"><img class="arrow" id="al"
                                                                              src="{{'static/images/arrowl.png'|base_url}}"
@@ -20,9 +20,10 @@
                                                                              src="{{'static/images/arrowr.png'|base_url}}"
                                                                              alt="next" width="20" height="37"></a>
         </div>
+        {{/if}}
         <div class="news-paper">
             <div class="news-title">
-                <h1>Stander Post Format</h1>
+                <h1>{{$desc.title}}</h1>
                 <a class="icon-left" href="#">
                     <icon class=" iconfont">&#xe60e;</icon>
                 </a>
@@ -41,13 +42,17 @@
                     6 comments
                 </p>
             </div>
+            <div class="news-text">
+                {{$desc.content}}
+            </div>
+            {{if $keywords}}
             <div class="tags p-blank">
                 <span class="tag-title">Tags:</span>
-                <button class="tag-btn">LCD</button>
-                <button class="tag-btn">NEWS</button>
-                <button class="tag-btn">TFT</button>
-                <button class="tag-btn active">Express</button>
+                {{foreach $keywords as $keyword}}
+                <button class="tag-btn">{{$keyword.keyword}}</button>
+                {{/foreach}}
             </div>
+            {{/if}}
             <div class="share">
                 <span class="tag-title">Shares:</span>
                 <a href="#">
@@ -64,15 +69,19 @@
                 </a>
             </div>
             <div class="paper-change p-blank">
-                <a href="#" class="ch-arraw prev">
+                {{if $desc.id > 1 }}
+                <a href="{{'news/desc'|base_url}}?id={{$desc.id-1}}" class="ch-arraw prev">
                     <icon class="iconfont">&#xe619;</icon>
                     <span>Previos</span>
 
                 </a>
-                <a href="#" class="ch-arraw next">
+                {{/if}}
+                {{if $desc.id < $max_id}}
+                <a href="{{'news/desc'|base_url}}?id={{$desc.id+1}}" class="ch-arraw next">
                     <span>Next</span>
                     <icon class="iconfont">&#xe613;</icon>
                 </a>
+                {{/if}}
             </div>
         </div>
         <div class="comment">

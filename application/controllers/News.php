@@ -15,8 +15,26 @@ class News extends DashboardController
 
     public function desc()
     {
+        $id = $this->input->get("id");
+        $this->load->model("NewModel", "new", true);
+        $news_desc = $this->new->get_new_desc(trim($id));
+        $max_new = $this->new->max_new_id();
+        $this->vars['max_id'] =$max_new['id'];
+        if ($news_desc['pic']) {
+            $this->vars['news_pic'] = explode(";", $news_desc['pic']);
+        } else {
+            $this->vars['news_pic'] = "";
+        }
+        if ($news_desc['keywords']) {
+            $keywords = $this->new->get_keywords($news_desc['keywords']);
+            $this->vars['keywords'] = $keywords;
+        } else {
+            $this->vars['keywords'] = "";
+        }
+        $this->vars['desc'] = $news_desc;
         $this->page('news/desc.html');
     }
+
     public function lists()
     {
         $this->page('news/lists.html');

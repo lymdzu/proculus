@@ -3965,6 +3965,9 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
 .news .banner ul, ol {
     padding: 0;
 }
+.news-text{
+    line-height: 1.5rem;
+}
 
 .banner {
     position: relative;

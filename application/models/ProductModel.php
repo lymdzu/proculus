@@ -66,4 +66,74 @@ class ProductModel extends CI_Model
             return false;
         }
     }
+
+    /**
+     * add category
+     * @param $name
+     * @param $level
+     * @param $parent
+     * @param $operater
+     * @return bool
+     */
+    public function add_category($name, $level,  $parent, $operater)
+    {
+        $insert_status = $this->db->insert("t_category", array("name" => $name, "level" => $level, "parent" => $parent, "create_time" => time(), "operater" => $operater));
+        $affect_rows = $this->db->affected_rows();
+        if ($insert_status && $affect_rows == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function edit_category($id, $name)
+    {
+        $this->db->where("id", $id);
+        $update_status = $this->db->update("t_category", array("name" => $name));
+        $affect_rows = $this->db->affected_rows();
+        if ($update_status && $affect_rows == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function delete_category($id)
+    {
+        $this->db->trans_start();
+        $this->db->where("id", $id);
+        $this->db->delete("t_category");
+        $this->db->where("parent", $id);
+        $query = $this->db->get("t_category");
+        $children = $query->result_array();
+        $this->db->where("parent", $id);
+        $this->db->delete("t_category");
+        if (!empty($children)) {
+            $child_where = array();
+            foreach ($children as $child) {
+                $child_where[] = $child['id'];
+            }
+            $this->db->where_in("parent", $child_where);
+            $this->db->delete("t_category");
+        }
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    /**
+     * 获取商品分类列表
+     * @param $level
+     * @param bool $parent
+     * @return mixed
+     */
+    public function get_category_list($level, $parent = false)
+    {
+        $this->db->where("level", $level);
+        if ($parent) {
+            $this->db->where("parent", $parent);
+        }
+        $query = $this->db->get("t_category");
+        return $query->result_array();
+    }
 }
