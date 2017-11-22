@@ -3949,6 +3949,12 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
 }
 
 /*****news desc page****/
+.single-new{
+    height: 19rem;
+    width: 100%;
+    overflow: hidden;
+    background: repeat-x url(../images/single_news_bg.jpg) center top;
+}
 .nav-padding-top {
     margin-top: 3rem;
 }
