@@ -19,6 +19,7 @@ class NewModel extends CI_Model
         $key_id = implode(",", $ids);
         $news = array("title" => $title, "keywords" => $key_id, "pic" => $pic, "content" => $content, "status" => 2, "create_time" => $time, "creater" => $creater);
         $this->db->insert("t_news", $news);
+        $new_id = $this->db->insert_id();
         $this->db->trans_complete();
         if($this->db->trans_status() === false)
         {
