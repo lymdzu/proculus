@@ -1,0 +1,58 @@
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="ibox">
+            <div class="col-sm-12">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Category list</h5>
+                        <div class="ibox-tools">
+                            <a  class="btn btn-primary btn-xs add-btn" href="{{'category/add_product'|base_url}}">Add Product Category</a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="project-list">
+
+                            <table class="table table-hover">
+                                <thead>
+                                <th>ID</th>
+                                <th>Product Category</th>
+                                <th>Create Time</th>
+                                <th>Delete</th>
+                                </thead>
+                                <tbody>
+                                {{foreach $product_list as $product_info}}
+                                <tr>
+                                    <td class="cate-id">{{$product_info.id}}</td>
+                                    <td class="cate-name">{{$product_info.name}}</td>
+                                    <td class="has_child" style="display: none;">{{$product_info.has_child}}</td>
+                                    <td class="project-completion">
+                                        <small>{{$product_info.create_time|date_format:"%Y-%m-%d %H:%m:%S"}} by
+                                            {{$product_info.operater}}
+                                        </small>
+                                    </td>
+                                    <td>{{if $product < 2}}
+                                        <a href="{{'category/lists'|base_url}}?product={{$next_product}}&parent={{$product_info.id}}"
+                                           class="btn btn-primary btn-sm"><i class="fa fa-folder-open-o"></i>
+                                            Complete this category
+                                        </a>
+                                        {{/if}}
+                                        <a href="#edit-product" data-toggle="modal" class="btn btn-white btn-sm edit-btn"><i
+                                                class="fa fa-pencil"></i>
+                                            Edit
+                                        </a>
+                                        <a href="javascript:void(0)" class="btn btn-danger btn-sm delete-btn"><i
+                                                class="fa fa-close"></i>
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                                {{/foreach}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -20,6 +20,23 @@ class Category extends AdController
         $this->vars['next_level'] = $level + 1;
         $this->page("product/category.html");
     }
+    public function product()
+    {
+        $this->page("product/product.html");
+    }
+    public function add_product()
+    {
+        $this->load->model("ProductModel", "product", true);
+        $type_list = $this->product->get_category_list(1);
+        $select = array();
+        foreach ($type_list as $item)
+        {
+            $cate = $this->product->get_category_list(2, $item['id']);
+            $select[$item['name']] = $cate;
+        }
+        $this->vars['category'] = $select;
+        $this->page("product/add_product.html");
+    }
 
     /**
      * add new category
