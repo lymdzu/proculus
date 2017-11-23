@@ -1673,8 +1673,8 @@ ul:last-child {
     flex-wrap: nowrap;
     padding-top: calc(2vw * 1);
     padding-bottom: calc(5vw * 1);
-    padding-left: calc(20vw);
-    padding-right: calc(20vw);
+    padding-left: calc(15vw);
+    padding-right: calc(15vw);
     overflow: hidden;
 }
 
@@ -1708,6 +1708,7 @@ ul:last-child {
     width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     flex-wrap: nowrap;
     padding-top: calc(2vw);
     padding-left: calc(12vw);
@@ -3459,7 +3460,7 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     }
 
     .feed.curated-feed .feed-item-content-copy .headline .left-show-text {
-        font-size: 1.2154rem
+        font-size: 1rem
     }
 
     .feed.curated-feed .feed-item:nth-of-type(12n+2).has-image .feed-item-content-copy .eyebrow, .feed.curated-feed .feed-item:nth-of-type(12n+3).has-image .feed-item-content-copy .eyebrow, .feed.curated-feed .feed-item:nth-of-type(12n+4).has-image .feed-item-content-copy .eyebrow, .feed.curated-feed .feed-item:nth-of-type(12n+5).has-image .feed-item-content-copy .eyebrow, .feed.curated-feed .feed-item:nth-of-type(12n+8).has-image .feed-item-content-copy .eyebrow, .feed.curated-feed .feed-item:nth-of-type(12n+9).has-image .feed-item-content-copy .eyebrow, .feed.curated-feed .feed-item:nth-of-type(12n+10).has-image .feed-item-content-copy .eyebrow, .feed.curated-feed .feed-item:nth-of-type(12n+11).has-image .feed-item-content-copy .eyebrow {

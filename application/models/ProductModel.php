@@ -75,7 +75,7 @@ class ProductModel extends CI_Model
      * @param $operater
      * @return bool
      */
-    public function add_category($name, $level,  $parent, $operater)
+    public function add_category($name, $level, $parent, $operater)
     {
         $insert_status = $this->db->insert("t_category", array("name" => $name, "level" => $level, "parent" => $parent, "create_time" => time(), "operater" => $operater));
         $affect_rows = $this->db->affected_rows();
@@ -85,6 +85,7 @@ class ProductModel extends CI_Model
             return false;
         }
     }
+
     public function edit_category($id, $name)
     {
         $this->db->where("id", $id);
@@ -96,6 +97,7 @@ class ProductModel extends CI_Model
             return false;
         }
     }
+
     public function delete_category($id)
     {
         $this->db->trans_start();
@@ -121,6 +123,7 @@ class ProductModel extends CI_Model
             return true;
         }
     }
+
     /**
      * 获取商品分类列表
      * @param $level
@@ -134,6 +137,37 @@ class ProductModel extends CI_Model
             $this->db->where("parent", $parent);
         }
         $query = $this->db->get("t_category");
+        return $query->result_array();
+    }
+
+    public function insert_product($product, $pro_cat)
+    {
+        $this->db->trans_start();
+        $this->db->insert("t_product", $product);
+        $product_id = $this->db->insert_id();
+        foreach ($pro_cat as $key => $cat) {
+            $cat['product_id'] = $product_id;
+            $pro_cat[$key] = $cat;
+        }
+        $this->db->insert_batch("t_product_type", $pro_cat);
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === false) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    public function get_product_list()
+    {
+        $this->db->select("*");
+        $this->db->from("t_product");
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    public function get_product_cate($id)
+    {
+        $this->db->where("product_id", $id);
+        $query = $this->db->get("t_product_type");
         return $query->result_array();
     }
 }

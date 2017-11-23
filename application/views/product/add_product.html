@@ -7,11 +7,11 @@
                         <h5>Add Product</h5>
                     </div>
                     <div class="ibox-content">
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" onsubmit="return false;">
                             <div class="form-group">
                                 <label class="col-sm-offset-2 col-sm-2 control-label">Product Name</label>
                                 <div class="col-sm-4">
-                                    <input class="form-control" placeholder="please enter product name">
+                                    <input class="form-control" name="name" placeholder="please enter product name">
                                 </div>
                             </div>
                             {{foreach $category as $key => $item}}
@@ -19,16 +19,16 @@
                                 <label class="col-sm-offset-2 col-sm-2 control-label">{{$key}}</label>
                                 <div class="col-sm-4">
                                     <select class="form-control m-b" name="{{$key}}">
-                                        <option>Please select product attributes</option>
+                                        <option value="">Please select product attributes</option>
                                         {{foreach $item as $cate_info}}
-                                        <option value="{{$cate_info.id}}">{{$cate_info.name}}</option>
+                                        <option value="{{$cate_info.name}}">{{$cate_info.name}}</option>
                                         {{/foreach}}
                                     </select>
                                 </div>
                             </div>
                             {{/foreach}}
                             <div class="row">
-                                <div id="uploader" class="wu-example col-sm-offset-3 col-sm-6">
+                                <div id="uploader" class="wu-example col-sm-offset-2 col-sm-6">
                                     <div class="queueList">
                                         <div id="dndArea" class="placeholder">
                                             <div id="filePicker"></div>
@@ -46,8 +46,11 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                <button class="btn btn-primary save-product col-sm-2 col-sm-offset-4">Save</button>
+                            </div>
                         </form>
+
                     </div>
                 </div>
             </div>
@@ -55,6 +58,21 @@
     </div>
 </div>
 <script type="application/javascript">
+    $(function () {
+        $(".save-product").on("click", function () {
+            $.post("{{'category/save_prodcut'|base_url}}", $(".form-horizontal").serialize(), function (response) {
+                if (response.ecode == 0) {
+                    layer.msg(response.result);
+                    setTimeout(function () {
+                        window.location.href = "{{'category/product'|base_url}}";
+                    }, 1000)
+                }
+                else {
+                    layer.msg(response.emsg);
+                }
+            });
+        });
+    });
     function e(e) {
         var a = o('<li id="' + e.id + '"><p class="title">' + e.name + '</p><p class="imgWrap"></p><p class="progress"><span></span></p></li>'), s = o('<div class="file-panel"><span class="cancel">删除</span><span class="rotateRight">向右旋转</span><span class="rotateLeft">向左旋转</span></div>').appendTo(a), i = a.find("p.progress span"), t = a.find("p.imgWrap"), r = o('<p class="error"></p>'), d = function (e) {
             switch (e) {
@@ -184,7 +202,7 @@
             return false;
         }
         else {
-            $(".form-horizontal").append("<input type='hidden' class='news-pic' value='" + response.result + "'>");
+            $(".form-horizontal").append("<input type='hidden' class='product-pic' name='product-pic' value='" + response.result + "'>");
         }
 
     }), n.onError = function (e) {
