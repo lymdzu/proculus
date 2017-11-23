@@ -10,7 +10,7 @@ html {
 
 body {
     margin: 0;
-    font: 16px/1 "Roboto"
+    font: 1rem/1 "Roboto"
 }
 
 h1, h2, h3, h4, p, blockquote, figure, ol, ul {
@@ -1673,8 +1673,8 @@ ul:last-child {
     flex-wrap: nowrap;
     padding-top: calc(2vw * 1);
     padding-bottom: calc(5vw * 1);
-    padding-left: calc(12vw);
-    padding-right: calc(12vw);
+    padding-left: calc(20vw);
+    padding-right: calc(20vw);
     overflow: hidden;
 }
 
@@ -2706,7 +2706,7 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
 }
 
 .who-content .who-text-cont {
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 2rem;
     font-weight: 300;
 }
@@ -3467,7 +3467,7 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     }
 
     .feed.curated-feed .feed-item:nth-of-type(12n+2).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+3).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+4).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+5).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+8).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+9).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+10).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+11).has-image .feed-item-content-copy .headline {
-        font-size: 1.3077rem;
+        font-size: 1rem;
     }
 
     .feed.curated-feed .feed-item:nth-of-type(12n+2).has-image .feed-item-content-copy .arrow, .feed.curated-feed .feed-item:nth-of-type(12n+3).has-image .feed-item-content-copy .arrow, .feed.curated-feed .feed-item:nth-of-type(12n+4).has-image .feed-item-content-copy .arrow, .feed.curated-feed .feed-item:nth-of-type(12n+5).has-image .feed-item-content-copy .arrow, .feed.curated-feed .feed-item:nth-of-type(12n+8).has-image .feed-item-content-copy .arrow, .feed.curated-feed .feed-item:nth-of-type(12n+9).has-image .feed-item-content-copy .arrow, .feed.curated-feed .feed-item:nth-of-type(12n+10).has-image .feed-item-content-copy .arrow, .feed.curated-feed .feed-item:nth-of-type(12n+11).has-image .feed-item-content-copy .arrow {
@@ -3703,7 +3703,7 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     }
 
     .feed.curated-feed .feed-item:nth-of-type(12n+2).has-image .feed-item-content-copy .eyebrow, .feed.curated-feed .feed-item:nth-of-type(12n+3).has-image .feed-item-content-copy .eyebrow, .feed.curated-feed .feed-item:nth-of-type(12n+4).has-image .feed-item-content-copy .eyebrow, .feed.curated-feed .feed-item:nth-of-type(12n+5).has-image .feed-item-content-copy .eyebrow, .feed.curated-feed .feed-item:nth-of-type(12n+8).has-image .feed-item-content-copy .eyebrow, .feed.curated-feed .feed-item:nth-of-type(12n+9).has-image .feed-item-content-copy .eyebrow, .feed.curated-feed .feed-item:nth-of-type(12n+10).has-image .feed-item-content-copy .eyebrow, .feed.curated-feed .feed-item:nth-of-type(12n+11).has-image .feed-item-content-copy .eyebrow {
-        font-size: .8077rem
+        font-size: 1.3rem
     }
 
     .feed.curated-feed .feed-item:nth-of-type(12n+2).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+3).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+4).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+5).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+8).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+9).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+10).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+11).has-image .feed-item-content-copy .headline {
@@ -4836,9 +4836,33 @@ h1.bold-title {
 .service-cont{
     font-family: OpenSans, sans-serif;
     border-top: 0.4rem #0380c1 solid;
-    max-width: 1600px;
     width: 100%;
     margin: 0 auto;
+}
+.service-desc.right-desc{
+    padding-left: calc(5vw);
+    padding-right: calc(15vw);
+}
+.service-desc.left-desc{
+    padding-left: calc(15vw);
+    padding-right: calc(5vw);
+
+}
+@media screen and (min-width: 1600px) {
+    .service-cont{
+        font-family: OpenSans, sans-serif;
+        border-top: 0.4rem #0380c1 solid;
+        padding-left: calc(15vw);
+        padding-right: calc(15vw);
+        margin: 0;
+
+    }
+    .service-desc.right-desc{
+        padding: 11rem 4rem;
+    }
+    .service-desc.left-desc{
+        padding: 11rem 4rem;
+    }
 }
 .service-pic{
     width: 50%;
@@ -4854,6 +4878,7 @@ h1.bold-title {
 .service-row{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .service-row img{
     width: 100%;
@@ -4865,10 +4890,8 @@ h1.bold-title {
 .service-row img:hover{
     transform: scale(1.2);
 }
-.service-desc{
-    padding: 11rem 4rem;
-}
 .service-desc p{
+    vertical-align: middle;
     line-height: 2rem;
     font-size: 1.2rem;
 }
@@ -4881,8 +4904,8 @@ h1.bold-title {
     background: #f5f5f7;
     width: 100%;
     align-items: center;
-    padding-left: calc(12vw);
-    padding-right: calc(12vw);
+    padding-left: calc(15vw);
+    padding-right: calc(15vw);
     padding-top: calc(10vw);
     padding-bottom: calc(7vw);
 }
@@ -5021,6 +5044,7 @@ h1.bold-title {
     flex-direction: row;
     justify-content: center;
     max-width: 1600px;
+    margin: 0 auto;
 }
 .left-view{
     width: 50%;
@@ -5368,6 +5392,9 @@ h1.bold-title {
 }
 .android-pic{
     position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
 }
 .android-pic .android-bg{
     position: relative;
