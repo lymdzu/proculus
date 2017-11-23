@@ -37,6 +37,14 @@ class News extends DashboardController
 
     public function lists()
     {
+        $this->load->model("NewModel", "new", true);
+        $newlist = $this->new->get_news();
+        foreach($newlist as $key => $new)
+        {
+            $new['content'] = mb_substr(strip_tags($new['content']), 0, 300) . "...";
+            $newlist[$key] = $new;
+        }
+        $this->vars['newslist'] = $newlist;
         $this->page('news/lists.html');
     }
 }

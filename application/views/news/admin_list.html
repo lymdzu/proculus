@@ -20,6 +20,7 @@
                                             <th>Title</th>
                                             <th>Keywords</th>
                                             <th>News Link</th>
+                                            <th>Creater</th>
                                             <th>CreateTime</th>
                                             </thead>
                                             <tbody>
@@ -37,6 +38,7 @@
                                                     {{/foreach}}
                                                 </td>
                                                 <td><a href="{{'news/desc'|base_url}}?id={{$new.id}}" target="_blank">{{'news/desc'|base_url}}?id={{$new.id}}</a></td>
+                                                <td>{{$new.creater}}</td>
                                                 <td>
                                                 {{$new.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}
                                                 </td>

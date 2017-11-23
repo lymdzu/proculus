@@ -6,7 +6,7 @@
  */
 class NewModel extends CI_Model
 {
-    public function create_new($title, $keywords, $content, $pic)
+    public function create_new($title, $keywords, $content, $pic, $creater)
     {
         $ids = array();
         $this->db->trans_start();
@@ -17,7 +17,7 @@ class NewModel extends CI_Model
             $ids[] = $this->db->insert_id();
         }
         $key_id = implode(",", $ids);
-        $news = array("title" => $title, "keywords" => $key_id, "pic" => $pic, "content" => $content, "status" => 2, "create_time" => $time);
+        $news = array("title" => $title, "keywords" => $key_id, "pic" => $pic, "content" => $content, "status" => 2, "create_time" => $time, "creater" => $creater);
         $this->db->insert("t_news", $news);
         $this->db->trans_complete();
         if($this->db->trans_status() === false)

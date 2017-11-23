@@ -4293,8 +4293,8 @@ h1.bold-title {
     font-weight: 300;
 }
 
-.news-list .news-omit p {
-    line-height: 1.2rem;
+.news-list .news-omit {
+    line-height: 1.5rem;
 }
 
 .news-list .read-more {

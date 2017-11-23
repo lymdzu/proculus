@@ -92,8 +92,9 @@ class Admin extends AdController
                 $news_pic = "";
             }
             $keyword_lists = explode(",", $keywords);
+            $creater = $this->session->userdata("admin_user");
             $this->load->model("NewModel", "new", true);
-            $status = $this->new->create_new($title, $keyword_lists, $content, $news_pic);
+            $status = $this->new->create_new($title, $keyword_lists, $content, $news_pic, $creater);
             if ($status) {
                 $this->json_result(REQUEST_SUCCESS, "SAVE SUCCESSS");
             } else {
