@@ -7,48 +7,16 @@
             <div class="select-modules">
                 <div class="select-cont">
                     <ul>
+                        {{foreach $cate_list as $catename => $cate}}
                         <li>
-                            <h2>Display</h2>
+                            <h2>{{$catename}}</h2>
                             <select>
-                                <option value="0">All</option>
-                                <option value="0">3.5''</option>
+                                {{foreach $cate as $cate_info}}
+                                <option value="{{$cate_info}}">{{$cate_info}}</option>
+                                {{/foreach}}
                             </select>
                         </li>
-                        <li>
-                            <h2>Application Use</h2>
-                            <select>
-                                <option value="0">All</option>
-                                <option value="0">3.5''</option>
-                            </select>
-                        </li>
-                        <li>
-                            <h2>Resolution</h2>
-                            <select>
-                                <option value="0">All</option>
-                                <option value="0">3.5''</option>
-                            </select>
-                        </li>
-                        <li>
-                            <h2>Brightness(nits)</h2>
-                            <select>
-                                <option value="0">All</option>
-                                <option value="0">3.5''</option>
-                            </select>
-                        </li>
-                        <li>
-                            <h2>Interface</h2>
-                            <select>
-                                <option value="0">All</option>
-                                <option value="0">3.5''</option>
-                            </select>
-                        </li>
-                        <li>
-                            <h2>Input Voltage</h2>
-                            <select>
-                                <option value="0">All</option>
-                                <option value="0">3.5''</option>
-                            </select>
-                        </li>
+                        {{/foreach}}
                     </ul>
                 </div>
                 <div class="select-submit-btn">

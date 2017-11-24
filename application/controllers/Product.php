@@ -15,6 +15,15 @@ class Product extends DashboardController
 
     public function modules()
     {
+        $this->load->model("ProductModel", "product", true);
+        $category = $this->product->get_category_list(1);
+        foreach ($category as $cate) {
+            $level_second = $this->product->get_category_list(2, $cate['id']);
+            foreach ($level_second as $level) {
+                $new_cate[$cate['name']][] = $level['name'];
+            }
+        }
+        $this->vars['cate_list'] = $new_cate;
         $this->page("product/modules.html");
     }
 
@@ -37,6 +46,7 @@ class Product extends DashboardController
     {
         $this->page("product/unic_view.html");
     }
+
     public function android()
     {
         $this->vars['page'] = "android";

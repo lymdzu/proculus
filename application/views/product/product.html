@@ -28,7 +28,7 @@
                                 <tr>
                                     {{foreach $product_info as $key => $item}}
                                     {{if $key == "pic"}}
-                                    <td  class="pro-pic" data-pic="{{$product_info.id}}"><i class="fa fa-image"></i></td>
+                                    <td  class="pro-pic" data-pic="{{'upload/file/'|base_url}}{{$product_info.pic}}"><i class="fa fa-image"></i></td>
                                     {{else if $key == "create_time"}}
                                     <td>{{$item|date_format:"%Y-%m-%d %H:%m:%S"}}</td>
                                     {{else}}
@@ -47,3 +47,25 @@
         </div>
     </div>
 </div>
+<div id="show-pic" class="pop-porduct-pic">
+    <img style="width: 100%" src="">
+</div>
+<script type="application/javascript">
+    $(function () {
+        $(".pro-pic").on("click", function () {
+            var url = $(this).data("pic");
+            $("#show-pic img").prop("src", url);
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 0,
+                area: '516px',
+                skin: 'layui-layer-nobg', //没有背景色
+                shadeClose: true,
+                content: $("#show-pic")
+            });
+
+        });
+
+    })
+</script>

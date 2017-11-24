@@ -4458,8 +4458,8 @@ h1.bold-title {
     opacity: 0.8;
     height: 13rem;
     padding: 1.5rem 1.5rem 1.5rem 2rem;
-    width: 76%;
-    margin: 0 auto;
+    margin-left: calc(15vw);
+    margin-right: calc(15vw);
     background-color: rgba(30, 38, 46, 0.8);
     background-color: rgb(30, 38, 46);
     filter: alpha(opacity=80);
