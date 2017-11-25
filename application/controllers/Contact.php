@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 文件名称:Contact.php
  * 摘    要:
@@ -6,11 +7,38 @@
  */
 class Contact extends DashboardController
 {
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
+
     public function index()
     {
         $this->page("contact/contact.html");
+    }
+
+    public function save()
+    {
+        $first = $this->input->post("first_name", true);
+        $last = $this->input->post("last_name", true);
+        $email = $this->input->post("email", true);
+        $contact_number = $this->input->post("contact_number", true);
+        $contacting_department = $this->input->post("contacting_department", true);
+        $message = $this->input->post("message", true);
+        $this->load->model("ContactModel", "contact", true);
+        $contact = array(
+            "first_name"     => $first,
+            "last_name"      => $last,
+            "email"          => $email,
+            "contact_number" => $contact_number,
+            "department"     => $contacting_department,
+            "message"        => $message
+        );
+        $status = $this->contact->save_contact($contact);
+        if ($status) {
+            $this->json_result(REQUEST_SUCCESS, "Save Success! Thanks for your message");
+        } else {
+            $this->json_result(API_ERROR, "", "Something maybe wrong");
+        }
     }
 }
