@@ -16,4 +16,13 @@ class ContactModel extends CI_Model
             return false;
         }
     }
+    public function leave_comments($comments)
+    {
+        $insert_status = $this->db->insert("t_comments", $comments);
+        if ($insert_status && $this->db->affected_rows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

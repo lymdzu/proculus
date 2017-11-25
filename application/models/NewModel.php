@@ -53,4 +53,10 @@ class NewModel extends CI_Model
         $query = $this->db->get("t_news");
         return $query->row_array();
     }
+    public function get_new_comments($new_id)
+    {
+        $this->db->where("new_id", $new_id);
+        $query = $this->db->get("t_comments");
+        return $query->result_array();
+    }
 }

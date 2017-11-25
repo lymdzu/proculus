@@ -88,72 +88,45 @@
         </div>
         <div class="comment">
             <div class="com-title">
-                <h1 class="bold-title">Commonts(6)</h1>
+                <h1 class="bold-title">Commonts({{$comment_num}})</h1>
             </div>
             <div class="com-list">
                 <ul>
+                    {{foreach $comments as $comment}}
                     <li>
-                        <div class="avatar"><img src="http://placehold.it/64x64&text=First"></div>
+                        <div class="avatar"><img src="{{$comment.pic}}"></div>
                         <div class="com-content">
                             <div class="com-title">
-                                <div class="com-user">John Doce</div>
+                                <div class="com-user">{{$comment.name}}</div>
                                 <div class="date-reply">
-                                    <span>3 days</span>
-                                    <a href=#"">Replay</a>
+                                    <span>{{$comment.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}</span>
                                 </div>
                             </div>
                             <div class="com-text">
-                                <p>Baidu translation open platform is an open service platform for Baidu developers to
-                                    provide multilingual translation services for the majority of developers. You only
-                                    need to call by Baidu Translate API, introduced the content to be translated, and
-                                    specify the translation of the source language (source language language support
-                                    automatic detection) and target language, we can obtain the corresponding
-                                    translation result. Any third party applications or websites can use Baidu translate
-                                    API to provide users with real-time high-quality multilingual translation services,
-                                    enhance product experience.</p>
+                                <p>{{$comment.message}}</p>
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div class="avatar"><img src="http://placehold.it/64x64&text=First"></div>
-                        <div class="com-content">
-                            <div class="com-title">
-                                <div class="com-user">John Doce</div>
-                                <div class="date-reply">
-                                    <span>3 days</span>
-                                    <a href=#"">Replay</a>
-                                </div>
-                            </div>
-                            <div class="com-text">
-                                <p>Baidu translation open platform is an open service platform for Baidu developers to
-                                    provide multilingual translation services for the majority of developers. You only
-                                    need to call by Baidu Translate API, introduced the content to be translated, and
-                                    specify the translation of the source language (source language language support
-                                    automatic detection) and target language, we can obtain the corresponding
-                                    translation result. Any third party applications or websites can use Baidu translate
-                                    API to provide users with real-time high-quality multilingual translation services,
-                                    enhance product experience.</p>
-                            </div>
-                        </div>
-                    </li>
+                    {{/foreach}}
                 </ul>
             </div>
         </div>
         <div class="leave-com">
-            <form action="" method="post">
+            <form action="" id="comments" method="post" onsubmit="return false;">
                 <h1 class="bold-title">Leave a comment</h1>
+                <input type="hidden" name="news_id" value="{{$desc.id}}">
                 <div class="contact-name mar-top-one">
                     <div class="contact_firstname">
                         <p class="list_title">Your Name*</p>
-                        <input type="text" name="first_name" value="" class="input_name"/>
+                        <input type="text" name="name" value="" class="input_name"/>
                     </div>
                     <div class="mar-left-one">
                         <p class="list_title">Your Email*</p>
-                        <input type="text" name="last_name" value="" class="input_name"/>
+                        <input type="text" name="email" value="" class="input_name"/>
                     </div>
                     <div class="mar-left-one">
                         <p class="list_title">Your Website*</p>
-                        <input type="text" name="last_name" value="" class="input_name"/>
+                        <input type="text" name="website" value="" class="input_name"/>
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -161,138 +134,138 @@
                     <p class="list_title">Enter Your Message*</p>
                     <textarea name="message" rows="" cols=""></textarea>
                 </div>
-                <button class="contact-sub mar-top-one">Leave a comment</button>
             </form>
+            <button class="contact-sub mar-top-one">Leave a comment</button>
         </div>
     </div>
     <div class="right-side">
-        <div class="search block-blank">
-            <h1 class="bold-title">News search</h1>
-            <input placeholder="search..."/>
-        </div>
-        <div class="category block-blank">
-            <h1 class="bold-title">Categories</h1>
-            <div class="cat-list">
-                <ul>
-                    <li>
-                        <div class="cat-name">
-                            LCD
-                        </div>
-                        <div class="num">
-                            24
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cat-name">
-                            LCD
-                        </div>
-                        <div class="num">
-                            24
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cat-name">
-                            LCD
-                        </div>
-                        <div class="num">
-                            24
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cat-name">
-                            LCD
-                        </div>
-                        <div class="num">
-                            24
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cat-name">
-                            LCD
-                        </div>
-                        <div class="num">
-                            24
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="category block-blank">
-            <h1 class="bold-title">Archive</h1>
-            <div class="cat-list">
-                <ul>
-                    <li>
-                        <div class="cat-name">
-                            May 2015
-                        </div>
-                        <div class="num">
-                            5
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cat-name">
-                            May 2015
-                        </div>
-                        <div class="num">
-                            5
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cat-name">
-                            May 2015
-                        </div>
-                        <div class="num">
-                            5
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cat-name">
-                            May 2015
-                        </div>
-                        <div class="num">
-                            5
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cat-name">
-                            May 2015
-                        </div>
-                        <div class="num">
-                            5
-                        </div>
-                    </li>
+        <!--<div class="search block-blank">-->
+        <!--<h1 class="bold-title">News search</h1>-->
+        <!--<input placeholder="search..."/>-->
+        <!--</div>-->
+        <!--<div class="category block-blank">-->
+        <!--<h1 class="bold-title">Categories</h1>-->
+        <!--<div class="cat-list">-->
+        <!--<ul>-->
+        <!--<li>-->
+        <!--<div class="cat-name">-->
+        <!--LCD-->
+        <!--</div>-->
+        <!--<div class="num">-->
+        <!--24-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="cat-name">-->
+        <!--LCD-->
+        <!--</div>-->
+        <!--<div class="num">-->
+        <!--24-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="cat-name">-->
+        <!--LCD-->
+        <!--</div>-->
+        <!--<div class="num">-->
+        <!--24-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="cat-name">-->
+        <!--LCD-->
+        <!--</div>-->
+        <!--<div class="num">-->
+        <!--24-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="cat-name">-->
+        <!--LCD-->
+        <!--</div>-->
+        <!--<div class="num">-->
+        <!--24-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="category block-blank">-->
+        <!--<h1 class="bold-title">Archive</h1>-->
+        <!--<div class="cat-list">-->
+        <!--<ul>-->
+        <!--<li>-->
+        <!--<div class="cat-name">-->
+        <!--May 2015-->
+        <!--</div>-->
+        <!--<div class="num">-->
+        <!--5-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="cat-name">-->
+        <!--May 2015-->
+        <!--</div>-->
+        <!--<div class="num">-->
+        <!--5-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="cat-name">-->
+        <!--May 2015-->
+        <!--</div>-->
+        <!--<div class="num">-->
+        <!--5-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="cat-name">-->
+        <!--May 2015-->
+        <!--</div>-->
+        <!--<div class="num">-->
+        <!--5-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="cat-name">-->
+        <!--May 2015-->
+        <!--</div>-->
+        <!--<div class="num">-->
+        <!--5-->
+        <!--</div>-->
+        <!--</li>-->
 
-                </ul>
-            </div>
-        </div>
-        <div class="category block-blank">
-            <h1 class="bold-title">Hot news</h1>
-            <div class="cat-list">
-                <ul>
-                    <li>
-                        <div class="hotnew-pic"><img src="http://placehold.it/64x64&text=First"></div>
-                        <div class="com-content">
-                            <div class="hotnew-title">content to be translated content translated</div>
-                            <div class="hotnew-time">3 days ago</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hotnew-pic"><img src="http://placehold.it/64x64&text=First"></div>
-                        <div class="com-content">
-                            <div class="hotnew-title">content to be translated content translated</div>
-                            <div class="hotnew-time">3 days ago</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hotnew-pic"><img src="http://placehold.it/64x64&text=First"></div>
-                        <div class="com-content">
-                            <div class="hotnew-title">content to be translated content translated</div>
-                            <div class="hotnew-time">3 days ago</div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="category block-blank">-->
+        <!--<h1 class="bold-title">Hot news</h1>-->
+        <!--<div class="cat-list">-->
+        <!--<ul>-->
+        <!--<li>-->
+        <!--<div class="hotnew-pic"><img src="http://placehold.it/64x64&text=First"></div>-->
+        <!--<div class="com-content">-->
+        <!--<div class="hotnew-title">content to be translated content translated</div>-->
+        <!--<div class="hotnew-time">3 days ago</div>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="hotnew-pic"><img src="http://placehold.it/64x64&text=First"></div>-->
+        <!--<div class="com-content">-->
+        <!--<div class="hotnew-title">content to be translated content translated</div>-->
+        <!--<div class="hotnew-time">3 days ago</div>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="hotnew-pic"><img src="http://placehold.it/64x64&text=First"></div>-->
+        <!--<div class="com-content">-->
+        <!--<div class="hotnew-title">content to be translated content translated</div>-->
+        <!--<div class="hotnew-time">3 days ago</div>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
         <div class="keys block-blank">
             <h1 class="bold-title">Keywords</h1>
             <div class="tags">
@@ -319,5 +292,18 @@
             var fn = this.className.split(' ')[1];
             data04[fn]();
         });
+        $(".contact-sub").on("click", function () {
+            $.post("{{'news/save_comments'|base_url}}", $("#comments").serialize(), function (res) {
+                if (res.ecode == 0) {
+                    layer.msg(res.result);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1000)
+                }
+                else {
+                    layer.msg(res.emsg);
+                }
+            })
+        })
     });
 </script>

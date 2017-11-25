@@ -25,6 +25,18 @@ class Contact extends DashboardController
         $contact_number = $this->input->post("contact_number", true);
         $contacting_department = $this->input->post("contacting_department", true);
         $message = $this->input->post("message", true);
+        if (empty($first)) {
+            $this->json_result(LACK_REQUIRED_PARAMETER, "", "Please enter your first name");
+        }
+        if (empty($last)) {
+            $this->json_result(LACK_REQUIRED_PARAMETER, "", "Please enter your last name");
+        }
+        if (empty($email)) {
+            $this->json_result(LACK_REQUIRED_PARAMETER, "", "Please enter your email");
+        }
+        if (empty($contact_number)) {
+            $this->json_result(LACK_REQUIRED_PARAMETER, "", "Please enter your contact number");
+        }
         $this->load->model("ContactModel", "contact", true);
         $contact = array(
             "first_name"     => $first,
