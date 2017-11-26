@@ -5222,7 +5222,6 @@ h1.bold-title {
     margin-right: 1rem;
 }
 .down-cont{
-    text-transform: uppercase;
     font-weight: 500;
 }
 .down-title{
@@ -5398,10 +5397,12 @@ h1.bold-title {
     display: flex;
     justify-content: center;
     margin: 0 auto;
+    height: 35rem;
 }
 .android-pic .android-bg{
     position: relative;
     z-index: 100;
+    height: 100%;
 }
 .android-pic .circle_1{
     position: absolute;

@@ -19,6 +19,9 @@ class Support extends DashboardController
 
     public function tutorials()
     {
+        $this->load->model("ProductModel", "product", true);
+        $videos = $this->product->get_type_document("Video");
+        $this->product->
         $this->vars['page'] = "video";
         $this->page("support/tutorials.html");
     }

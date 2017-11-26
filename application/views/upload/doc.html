@@ -17,23 +17,41 @@
                     <div class="page-container">
                         <p>You can upload any fomats and size file. Remember you can choose multiple files at the same
                             time</p>
-                        <div id="uploader" class="wu-example">
-                            <div class="queueList">
-                                <div id="dndArea" class="placeholder">
-                                    <div id="filePicker"></div>
+                        <form method="post" class="form-horizontal doc-form">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Document Category</label>
+                                <div class="col-sm-5">
+                                    <select class="form-control m-b" name="doc-cat">
+                                        <option value="">Please select document category</option>
+                                        {{foreach $doc_cat as $cat}}
+                                        <option value="{{$cat}}">{{$cat}}</option>
+                                        {{/foreach}}
+                                    </select>
                                 </div>
                             </div>
-                            <div class="statusBar" style="display:none;">
-                                <div class="progress">
-                                    <span class="text">0%</span> <span class="percentage"></span>
-                                </div>
-                                <div class="info"></div>
-                                <div class="btns">
-                                    <div id="filePicker2"></div>
-                                    <div class="uploadBtn">Start</div>
+                            <div class="form-group">
+                                <div id="uploader" class="wu-example col-sm-7">
+                                    <div class="queueList">
+                                        <div id="dndArea" class="placeholder">
+                                            <div id="filePicker"></div>
+                                        </div>
+                                    </div>
+                                    <div class="statusBar" style="display:none;">
+                                        <div class="progress">
+                                            <span class="text">0%</span> <span class="percentage"></span>
+                                        </div>
+                                        <div class="info"></div>
+                                        <div class="btns">
+                                            <div id="filePicker2"></div>
+                                            <div class="uploadBtn">Start</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <button class="btn-primary btn col-sm-offset-1 col-md-2 save-doc">SAVE</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -107,6 +125,19 @@
 </div>
 <script type="application/javascript">
     jQuery(function () {
+        $(".save-doc").on("click", function () {
+            $.post("{{'upload/save_doc'|base_url}}", $(".doc-form").serialize(), function (res) {
+                if (res.ecode == 0) {
+                    layer.msg(res.result);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1000);
+                }
+                else {
+                    layer.msg(res.emsg);
+                }
+            });
+        });
         $(".delete-btn").on("click", function () {
             var id = $(this).data('id');
             $.post("{{'upload/delete'|base_url}}", {id: id}, function (res) {
@@ -206,9 +237,6 @@
                         a = n.getStats();
                         if (a.successNum) {
                             layer.msg("Upload success");
-                            setTimeout(function () {
-                                window.location.reload();
-                            }, 1000)
                         }
                 }
                 i()
@@ -227,7 +255,7 @@
             swf: "{{'static/bsjs/plugins/webuploader/Uploader.swf'|base_url}}",
             disableGlobalDnd: !0,
             chunked: !0,
-            server: "{{'upload/doc'|base_url}}",
+            server: "{{'upload/upload_doc'|base_url}}",
         }), n.addButton({id: "#filePicker2", label: "Continue to add "}), n.onUploadProgress = function (e, a) {
             var i = o("#" + e.id), t = i.find(".progress span");
             t.css("width", 100 * a + "%"), w[e.id][1] = a, s()
@@ -246,6 +274,14 @@
                 case"stopUpload":
                     t("paused")
             }
+        }), n.on("uploadAccept", function (file, response) {
+            if (response.ecode != 0) {
+                return false;
+            }
+            else {
+                $(".form-horizontal").append("<input type='hidden' name='doc-name'  value='" + response.result.filename + "'><input type='hidden' name='doc-size' value='" + response.result.size + "'><input type='hidden' name='doc-type' value='" + response.result.filetype + "'>");
+            }
+
         }), n.onError = function (e) {
             alert("Eroor: " + e)
         }, c.on("click", function () {

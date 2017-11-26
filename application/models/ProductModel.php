@@ -7,9 +7,9 @@
  */
 class ProductModel extends CI_Model
 {
-    public function insert_upload($file, $size, $filetype)
+    public function insert_upload($document)
     {
-        $insert_status = $this->db->insert("t_upload", array("filename" => $file, "filetype" => $filetype, "size" => $size, "create_time" => time()));
+        $insert_status = $this->db->insert("t_upload", $document);
         $affected_rows = $this->db->affected_rows();
         if ($insert_status && $affected_rows == 1) {
             return true;
