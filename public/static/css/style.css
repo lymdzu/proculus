@@ -139,7 +139,8 @@ body {
 }
 
 .eyebrow {
-    font-size: .6154rem;
+    /* font-size: .6154rem; */
+    font-size: .8077rem;
     line-height: 1.5;
     letter-spacing: 0em;
     font-family: "Roboto", Helvetica, Arial, sans-serif;
@@ -1679,7 +1680,7 @@ ul:last-child {
 }
 
 .why-us-title .title {
-    width: 30%;
+    width: 100%;
 }
 
 .why-us-title .title h2 {
@@ -1844,7 +1845,7 @@ ul:last-child {
 
 .foot-guide a:hover {
     color: #fff;
-    font-size: 1rem;
+    /* font-size: 1rem; */
     line-height: 1.5rem;
     font-weight: 600;
 }
@@ -1866,8 +1867,8 @@ ul:last-child {
     text-transform: uppercase;
 }
 .contact .phone-text {
-    font-size: 1rem;
-    line-height: 2.8rem;
+    /* font-size: 1rem; */
+    /* line-height: 2.8rem; */
     padding-left: 0.5rem;
 }
 
@@ -2963,7 +2964,8 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
 .feed-item-content-copy .eyebrow {
     -ms-flex-order: 1;
     order: 1;
-    font-size: .6154rem;
+    /* font-size: .6154rem; */
+    font-size: .8077rem;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     width: 100%;
@@ -3216,7 +3218,8 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
 
 .feed-filter .icon-arrow:before {
     line-height: 0.7;
-    font-size: .6154rem
+    /* font-size: .6154rem */
+    font-size: .8077rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -3561,7 +3564,8 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     }
 
     .feed-item-content-copy .eyebrow {
-        font-size: .6154rem
+        /* font-size: .6154rem  */
+        font-size: .8077rem
     }
 
     .feed-item-content-copy .headline {
@@ -3668,7 +3672,8 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     }
 
     .feed-item:nth-of-type(12n+2).has-image .feed-item-content-copy .eyebrow, .feed-item:nth-of-type(12n+3).has-image .feed-item-content-copy .eyebrow, .feed-item:nth-of-type(12n+4).has-image .feed-item-content-copy .eyebrow, .feed-item:nth-of-type(12n+5).has-image .feed-item-content-copy .eyebrow, .feed-item:nth-of-type(12n+8).has-image .feed-item-content-copy .eyebrow, .feed-item:nth-of-type(12n+9).has-image .feed-item-content-copy .eyebrow, .feed-item:nth-of-type(12n+10).has-image .feed-item-content-copy .eyebrow, .feed-item:nth-of-type(12n+11).has-image .feed-item-content-copy .eyebrow {
-        font-size: .6154rem
+        /* font-size: .6154rem */
+        font-size: .8077rem
     }
 
     .feed-item:nth-of-type(12n+2).has-image .feed-item-content-copy .headline, .feed-item:nth-of-type(12n+3).has-image .feed-item-content-copy .headline, .feed-item:nth-of-type(12n+4).has-image .feed-item-content-copy .headline, .feed-item:nth-of-type(12n+5).has-image .feed-item-content-copy .headline, .feed-item:nth-of-type(12n+8).has-image .feed-item-content-copy .headline, .feed-item:nth-of-type(12n+9).has-image .feed-item-content-copy .headline, .feed-item:nth-of-type(12n+10).has-image .feed-item-content-copy .headline, .feed-item:nth-of-type(12n+11).has-image .feed-item-content-copy .headline {
@@ -3676,7 +3681,8 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     }
 
     .feed-item:nth-of-type(12n+2).has-image .feed-item-content-copy .arrow, .feed-item:nth-of-type(12n+3).has-image .feed-item-content-copy .arrow, .feed-item:nth-of-type(12n+4).has-image .feed-item-content-copy .arrow, .feed-item:nth-of-type(12n+5).has-image .feed-item-content-copy .arrow, .feed-item:nth-of-type(12n+8).has-image .feed-item-content-copy .arrow, .feed-item:nth-of-type(12n+9).has-image .feed-item-content-copy .arrow, .feed-item:nth-of-type(12n+10).has-image .feed-item-content-copy .arrow, .feed-item:nth-of-type(12n+11).has-image .feed-item-content-copy .arrow {
-        font-size: .6154rem;
+        /* font-size: .6154rem; */
+        font-size: .8077rem;
         margin-left: 0
     }
 
@@ -3708,7 +3714,8 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     }
 
     .feed.curated-feed .feed-item:nth-of-type(12n+2).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+3).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+4).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+5).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+8).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+9).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+10).has-image .feed-item-content-copy .headline, .feed.curated-feed .feed-item:nth-of-type(12n+11).has-image .feed-item-content-copy .headline {
-        font-size: 1.6154rem
+        /* font-size: 1.6154rem */
+        font-size: 0.9rem
     }
 
     .feed.curated-feed .feed-item:nth-of-type(12n+2).has-image .feed-item-content-copy .arrow, .feed.curated-feed .feed-item:nth-of-type(12n+3).has-image .feed-item-content-copy .arrow, .feed.curated-feed .feed-item:nth-of-type(12n+4).has-image .feed-item-content-copy .arrow, .feed.curated-feed .feed-item:nth-of-type(12n+5).has-image .feed-item-content-copy .arrow, .feed.curated-feed .feed-item:nth-of-type(12n+8).has-image .feed-item-content-copy .arrow, .feed.curated-feed .feed-item:nth-of-type(12n+9).has-image .feed-item-content-copy .arrow, .feed.curated-feed .feed-item:nth-of-type(12n+10).has-image .feed-item-content-copy .arrow, .feed.curated-feed .feed-item:nth-of-type(12n+11).has-image .feed-item-content-copy .arrow {
@@ -3889,7 +3896,7 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
 
 .content_address {
     width: 30%;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-left: 2rem;
     padding: 48px 30px 70px 27px;
     background-color: #28292e;
@@ -4934,6 +4941,7 @@ h1.bold-title {
     line-height: 1.6rem;
     font-size: 0.9rem;
     color: #acacac;
+    text-align: center;
 }
 
 .demo-wapper{
@@ -5032,6 +5040,7 @@ h1.bold-title {
     flex-direction: column;
     align-items: center;
     width: 10rem;
+    text-align: center;
 }
 .icon-div img{
     width: 6rem;
