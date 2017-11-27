@@ -263,7 +263,11 @@
             m++, h += a.size, 1 === m && (u.addClass("element-invisible"), d.show()), e(a), t("ready"), s()
         }, n.onFileDequeued = function (e) {
             m--, h -= e.size, m || t("pedding"), a(e), s()
-        }, n.on("all", function (e) {
+        }, n.on("uploadAccept", function (file, response) {
+            if (response.ecode == 0) {
+                $(".form-horizontal").append("<input type='hidden' name='doc-name'  value='" + response.result.filename + "'><input type='hidden' name='doc-size' value='" + response.result.size + "'><input type='hidden' name='doc-type' value='" + response.result.filetype + "'>");
+            }
+        }), n.on("all", function (e) {
             switch (e) {
                 case"uploadFinished":
                     t("confirm");
@@ -274,14 +278,6 @@
                 case"stopUpload":
                     t("paused")
             }
-        }), n.on("uploadAccept", function (file, response) {
-            if (response.ecode != 0) {
-                return false;
-            }
-            else {
-                $(".form-horizontal").append("<input type='hidden' name='doc-name'  value='" + response.result.filename + "'><input type='hidden' name='doc-size' value='" + response.result.size + "'><input type='hidden' name='doc-type' value='" + response.result.filetype + "'>");
-            }
-
         }), n.onError = function (e) {
             alert("Eroor: " + e)
         }, c.on("click", function () {
