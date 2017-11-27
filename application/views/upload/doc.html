@@ -80,6 +80,7 @@
                                         <thead>
                                         <th>ID</th>
                                         <th>Filename</th>
+                                        <th>Category</th>
                                         <th>Size</th>
                                         <th>File Type</th>
                                         <th>Download Url</th>
@@ -95,13 +96,14 @@
                                             <td>
                                                 <a data-toggle="tab" href="#contact-1" class="client-link">{{$upload.filename}}</a>
                                             </td>
+                                            <td>{{$upload.category}}</td>
                                             <td>
                                                 {{$upload.size}}Mb
                                             </td>
                                             <td>
                                                 {{$upload.filetype}}
                                             </td>
-                                            <td>{{'upload/file/'|base_url}}{{$upload.filename}}</td>
+                                            <td><a class="btn btn-primary btn-sm" href="{{'upload/file/'|base_url}}{{$upload.filename}}">Download</a> </td>
 
                                             <td>{{$upload.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}</td>
                                             <td>

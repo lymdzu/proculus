@@ -18,10 +18,13 @@ class ProductModel extends CI_Model
         }
     }
 
-    public function get_upload_list($offset, $limit, $filetype)
+    public function get_upload_list($offset, $limit, $filetype, $category = false)
     {
         if ($filetype) {
             $this->db->where("filetype", $filetype);
+        }
+        if ($category) {
+            $this->db->where("category", $category);
         }
         $this->db->limit($limit, $offset);
         $this->db->order_by("create_time", "desc");
@@ -29,10 +32,13 @@ class ProductModel extends CI_Model
         return $query->result_array();
     }
 
-    public function count_upload_list($filetype = false)
+    public function count_upload_list($filetype = false, $category = false)
     {
         if ($filetype) {
             $this->db->where("filetype", $filetype);
+        }
+        if ($category) {
+            $this->db->where("category", $category);
         }
         $this->db->from("t_upload");
         return $this->db->count_all_results();
@@ -157,6 +163,7 @@ class ProductModel extends CI_Model
             return true;
         }
     }
+
     public function get_product_list()
     {
         $this->db->select("*");
@@ -164,10 +171,21 @@ class ProductModel extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+
     public function get_product_cate($id)
     {
         $this->db->where("product_id", $id);
         $query = $this->db->get("t_product_type");
         return $query->result_array();
+    }
+    public function save_video($video)
+    {
+        $insert_status = $this->db->insert("t_video", $video);
+        $affect_rows = $this->db->affected_rows();
+        if ($insert_status && $affect_rows == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
