@@ -183,4 +183,38 @@ class Upload extends AdController
             $this->json_result(API_ERROR, "", "Delete Failed");
         }
     }
+
+    public function video()
+    {
+        $this->page("upload/video.html");
+    }
+
+    public function save_video()
+    {
+        $name = $this->input->post("video-name", true);
+        $title = $this->input->post("title", true);
+        $description = $this->input->post("description", true);
+        $this->load->model("ProductModel", "upload", true);
+        $video = array("name" => $name, "title" => $title, "description" => $description);
+        $status = $this->upload->save_video($video);
+        if ($status) {
+            $this->json_result(REQUEST_SUCCESS, "Save Success");
+        } else {
+            $this->json_result(API_ERROR, "", "Something maybe wrong");
+        }
+
+    }
+
+    public function show_video()
+    {
+        $this->load->model("ProductModel", "upload", true);
+        $page = $this->input->get("page");
+        $offset = empty($page) ? 0 : (intval($page) - 1) * PAGESIZE;
+        $total = $this->upload->count_upload_list(false, "Video");
+        $upload_list = $this->upload->get_upload_list($offset, PAGESIZE, false, "Video");
+        $this->load->library("tgpage", array('total' => $total, 'pagesize' => PAGESIZE));
+        $this->vars['pagelist'] = $this->tgpage->showpage();
+        $this->vars['video_list'] = $upload_list;
+        $this->display("upload/show_video.html");
+    }
 }

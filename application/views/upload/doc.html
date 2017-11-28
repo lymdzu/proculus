@@ -17,7 +17,7 @@
                     <div class="page-container">
                         <p>You can upload any fomats and size file. Remember you can choose multiple files at the same
                             time</p>
-                        <form method="post" class="form-horizontal doc-form">
+                        <form method="post" class="form-horizontal doc-form" onsubmit="return false;">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Document Category</label>
                                 <div class="col-sm-5">
@@ -80,6 +80,7 @@
                                         <thead>
                                         <th>ID</th>
                                         <th>Filename</th>
+                                        <th>Category</th>
                                         <th>Size</th>
                                         <th>File Type</th>
                                         <th>Download Url</th>
@@ -95,13 +96,14 @@
                                             <td>
                                                 <a data-toggle="tab" href="#contact-1" class="client-link">{{$upload.filename}}</a>
                                             </td>
+                                            <td>{{$upload.category}}</td>
                                             <td>
                                                 {{$upload.size}}Mb
                                             </td>
                                             <td>
                                                 {{$upload.filetype}}
                                             </td>
-                                            <td>{{'upload/file/'|base_url}}{{$upload.filename}}</td>
+                                            <td><a class="btn btn-primary btn-sm" href="{{'upload/file/'|base_url}}{{$upload.filename}}">Download</a> </td>
 
                                             <td>{{$upload.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}</td>
                                             <td>
@@ -225,7 +227,7 @@
                         u.addClass("element-invisible"), o("#filePicker2").removeClass("element-invisible"), l.parent().addClass("filled"), l.show(), d.removeClass("element-invisible"), n.refresh();
                         break;
                     case"uploading":
-                        o("#filePicker2").addClass("element-invisible"), f.show(), c.text("暂停上传");
+                        o("#filePicker2").addClass("element-invisible"), f.show(), c.text("Pause");
                         break;
                     case"paused":
                         f.show(), c.text("Continue");
