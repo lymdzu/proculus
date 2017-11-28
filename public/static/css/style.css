@@ -4670,6 +4670,11 @@ h1.bold-title {
     -o-transition: all .5s ease; /* Opera */
     transition: all .5s ease;
 }
+.zoom-container .video-bg{
+    width: 13rem;
+    height: 7rem;
+    background: #e5f5ff;
+}
 
 .zoom-container .zoom-caption i.icon-play {
     display: block;

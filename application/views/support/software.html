@@ -30,34 +30,15 @@
                     <li class="filesize">Size</li>
                     <li class="filedown"></li>
                 </ul>
+                {{foreach $soft_list as $software}}
                 <ul class="down-list">
-                    <li class="filename"><span>UnicView AD UnicView AD UnicView AD UnicView AD UnicView AD</span></li>
-                    <li class="filetype">PDF</li>
-                    <li class="filedate">19/10/2017</li>
-                    <li class="filesize">12.1Mb</li>
-                    <li class="filedown"><a href="#"><button class="down-btn">DOWNLOAD</button></a></li>
+                    <li class="filename"><span>{{$software.filename|strstr:".":"TRUE"}}</span></li>
+                    <li class="filetype" style="text-transform: uppercase">{{$software.filetype}}</li>
+                    <li class="filedate">{{$software.create_time|date_format:"%d/%m/%Y"}}</li>
+                    <li class="filesize">{{$software.size}}Mb</li>
+                    <li class="filedown"><a href="{{'upload/file/'|base_url}}{{$software.filename}}"><button class="down-btn">DOWNLOAD</button></a></li>
                 </ul>
-                <ul class="down-list">
-                    <li class="filename">UnicView AD</li>
-                    <li class="filetype">PDF</li>
-                    <li class="filedate">19/10/2017</li>
-                    <li class="filesize">12.1Mb</li>
-                    <li class="filedown"><a href="#"><button class="down-btn">DOWNLOAD</button></a></li>
-                </ul>
-                <ul class="down-list">
-                    <li class="filename">UnicView AD</li>
-                    <li class="filetype">PDF</li>
-                    <li class="filedate">19/10/2017</li>
-                    <li class="filesize">12.1Mb</li>
-                    <li class="filedown"><a href="#"><button class="down-btn">DOWNLOAD</button></a></li>
-                </ul>
-                <ul class="down-list">
-                    <li class="filename">UnicView AD</li>
-                    <li class="filetype">PDF</li>
-                    <li class="filedate">19/10/2017</li>
-                    <li class="filesize">12.1Mb</li>
-                    <li class="filedown"><a href="#"><button class="down-btn">DOWNLOAD</button></a></li>
-                </ul>
+                {{/foreach}}
             </div>
         </div>
         <div class="down-soft">
@@ -76,20 +57,15 @@
                     <li class="filesize">Size</li>
                     <li class="filedown"></li>
                 </ul>
+                {{foreach $guide_list as $guide}}
                 <ul class="down-list">
-                    <li class="filename">UnicView AD</li>
-                    <li class="filetype">PDF</li>
-                    <li class="filedate">19/10/2017</li>
-                    <li class="filesize">12.1Mb</li>
-                    <li class="filedown"><a href="#"><button class="down-btn">DOWNLOAD</button></a></li>
+                    <li class="filename"><span>{{$guide.filename|strstr:".":"TRUE"}}</span></li>
+                    <li class="filetype" style="text-transform: uppercase">{{$guide.filetype}}</li>
+                    <li class="filedate">{{$guide.create_time|date_format:"%d/%m/%Y"}}</li>
+                    <li class="filesize">{{$guide.size}}Mb</li>
+                    <li class="filedown"><a href="{{'upload/file/'|base_url}}{{$guide.filename}}"><button class="down-btn">DOWNLOAD</button></a></li>
                 </ul>
-                <ul class="down-list">
-                    <li class="filename">UnicView AD</li>
-                    <li class="filetype">PDF</li>
-                    <li class="filedate">19/10/2017</li>
-                    <li class="filesize">12.1Mb</li>
-                    <li class="filedown"><a href="#"><button class="down-btn">DOWNLOAD</button></a></li>
-                </ul>
+                {{/foreach}}
             </div>
         </div>
         <div class="down-soft">
@@ -108,20 +84,15 @@
                     <li class="filesize">Size</li>
                     <li class="filedown"></li>
                 </ul>
+                {{foreach $com_list as $command}}
                 <ul class="down-list">
-                    <li class="filename">UnicView AD</li>
-                    <li class="filetype">PDF</li>
-                    <li class="filedate">19/10/2017</li>
-                    <li class="filesize">12.1Mb</li>
-                    <li class="filedown"><a href="#"><button class="down-btn">DOWNLOAD</button></a></li>
+                    <li class="filename"><span>{{$command.filename|strstr:".":"TRUE"}}</span></li>
+                    <li class="filetype" style="text-transform: uppercase">{{$command.filetype}}</li>
+                    <li class="filedate">{{$command.create_time|date_format:"%d/%m/%Y"}}</li>
+                    <li class="filesize">{{$command.size}}Mb</li>
+                    <li class="filedown"><a href="{{'upload/file/'|base_url}}{{$command.filename}}"><button class="down-btn">DOWNLOAD</button></a></li>
                 </ul>
-                <ul class="down-list">
-                    <li class="filename">UnicView AD</li>
-                    <li class="filetype">PDF</li>
-                    <li class="filedate">19/10/2017</li>
-                    <li class="filesize">12.1Mb</li>
-                    <li class="filedown"><a href="#"><button class="down-btn">DOWNLOAD</button></a></li>
-                </ul>
+                {{/foreach}}
             </div>
         </div>
         <div class="down-soft">
@@ -140,20 +111,15 @@
                     <li class="filesize">Size</li>
                     <li class="filedown"></li>
                 </ul>
+                {{foreach $data_list as $datasheet}}
                 <ul class="down-list">
-                    <li class="filename">UnicView AD</li>
-                    <li class="filetype">PDF</li>
-                    <li class="filedate">19/10/2017</li>
-                    <li class="filesize">12.1Mb</li>
-                    <li class="filedown"><a href="#"><button class="down-btn">DOWNLOAD</button></a></li>
+                    <li class="filename"><span>{{$datasheet.filename|strstr:".":"TRUE"}}</span></li>
+                    <li class="filetype" style="text-transform: uppercase">{{$datasheet.filetype}}</li>
+                    <li class="filedate">{{$datasheet.create_time|date_format:"%d/%m/%Y"}}</li>
+                    <li class="filesize">{{$datasheet.size}}Mb</li>
+                    <li class="filedown"><a href="{{'upload/file/'|base_url}}{{$datasheet.filename}}"><button class="down-btn">DOWNLOAD</button></a></li>
                 </ul>
-                <ul class="down-list">
-                    <li class="filename">UnicView AD</li>
-                    <li class="filetype">PDF</li>
-                    <li class="filedate">19/10/2017</li>
-                    <li class="filesize">12.1Mb</li>
-                    <li class="filedown"><a href="#"><button class="down-btn">DOWNLOAD</button></a></li>
-                </ul>
+                {{/foreach}}
             </div>
         </div>
     </div>

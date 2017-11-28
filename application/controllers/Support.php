@@ -14,14 +14,23 @@ class Support extends DashboardController
 
     public function software()
     {
+        $this->load->model("ProductModel", "video", true);
+        $soft_list = $this->video->get_upload_list(0, 10000, false, "Software");
+        $guide_list = $this->video->get_upload_list(0, 10000, false, "Userguide");
+        $com_list = $this->video->get_upload_list(0, 10000, false, "Command Set");
+        $data_list = $this->video->get_upload_list(0, 10000, false, "Datasheet");
+        $this->vars['soft_list'] = $soft_list;
+        $this->vars['guide_list'] = $guide_list;
+        $this->vars['com_list'] = $com_list;
+        $this->vars['data_list'] = $data_list;
         $this->page("support/software.html");
     }
 
     public function tutorials()
     {
-        $this->load->model("ProductModel", "product", true);
-//        $videos = $this->product->get_type_document("Video");
-//        $this->product->
+        $this->load->model("ProductModel", "video", true);
+        $video_list = $this->video->get_video_list(0, 10000);
+        $this->vars['video_list'] = $video_list;
         $this->vars['page'] = "video";
         $this->page("support/tutorials.html");
     }
