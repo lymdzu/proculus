@@ -5156,7 +5156,7 @@ h1.bold-title {
     flex-direction: row;
 }
 .intro-cont{
-    width: 75%;
+    width: 90%;
     margin-right: 2rem;
 }
 .intro-cont h2{
@@ -5224,12 +5224,32 @@ h1.bold-title {
     font-weight: 600;
 }
 .tip-list.download{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     margin-top: 2rem;
+}
+.download .data{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .download .download-list{
     display: flex;
     flex-direction: row;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+}
+.download .left-data{
+    width: 50%;
+}
+.data .data-box{
+    margin-bottom: 2rem;
+}
+.data h4{
+    font-size: 0.7rem;
+    color: #dcdcdc;
+    text-transform: uppercase;
 }
 .down-icon{
     line-height: 2rem;
