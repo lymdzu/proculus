@@ -4115,7 +4115,7 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
 }
 
 .paper-change .iconfont {
-    font-size: 26px;
+    font-size: 1rem;
     font-weight: 300;
 }
 
@@ -4182,10 +4182,12 @@ h1.bold-title {
 .com-content .com-text {
     margin-top: 0.5rem;
     line-height: 1.4rem;
+    font-size: 0.6rem;
 }
 
 .date-reply span {
     margin-right: 0.5rem;
+    font-size: 0.6rem;
 }
 
 .date-reply a {
