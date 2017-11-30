@@ -8,7 +8,7 @@
 </div>
 <div class="unic-ask">
     <p>UnicView AD (Advanced Design) is a GUI Designer used to create the configuration project for AD LCMs. It provides
-        an intuitive environment to create quickly create Human-Machine Graphical Interfaces. Developers just drag and
+        an intuitive environment to create quickly Human-Machine Graphical Interfaces. Developers just drag and
         drop the Interface Objects, configure their parameters and the LCM will communicate in a simple 5-command
         protocol with the external controller.</p>
 </div>
@@ -215,6 +215,12 @@
     $(function () {
         $(".hide-btn").on("click", function () {
             $(".unic-feature").slideToggle();
+var icon = $(".hide-btn .iconfont").html().replace(/./gim, function (i) {
+				return '&#' + i.charCodeAt(0).toString(16) + ';';
+			});
+			if (icon.indexOf("e63b") > 0)
+				$(".hide-btn .iconfont").html("&#xe7d5;");
+			else
             $(".hide-btn .iconfont").html("&#xe63b;");
         });
         $(".close-btn .iconfont").on("click", function () {

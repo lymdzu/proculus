@@ -43,6 +43,18 @@ class ProductModel extends CI_Model
         $this->db->from("t_upload");
         return $this->db->count_all_results();
     }
+    public function count_video_list()
+    {
+        $this->db->from("t_video");
+        return $this->db->count_all_results();
+    }
+    public function get_video_list($offset, $limit)
+    {
+        $this->db->limit($limit, $offset);
+        $this->db->order_by("create_time", "desc");
+        $query = $this->db->get("t_video");
+        return $query->result_array();
+    }
 
     /**
      * 根据id获取上传记录
@@ -65,6 +77,17 @@ class ProductModel extends CI_Model
     {
         $this->db->where("id", $id);
         $delete_status = $this->db->delete("t_upload");
+        $affected_row = $this->db->affected_rows();
+        if ($delete_status && $affected_row == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function delete_video($id)
+    {
+        $this->db->where("id", $id);
+        $delete_status = $this->db->delete("t_video");
         $affected_row = $this->db->affected_rows();
         if ($delete_status && $affected_row == 1) {
             return true;

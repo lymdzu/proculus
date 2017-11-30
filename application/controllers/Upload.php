@@ -155,7 +155,7 @@ class Upload extends AdController
                 }
                 @fclose($out);
                 $pathInfo = pathinfo($fileName);
-                $filetype = strtoupper($pathInfo['extension']);
+                $filetype = $pathInfo['extension'];
                 $size = sprintf("%.2f", $_REQUEST['size'] / 1024 / 1024);
                 //                $this->upload->insert_upload($oldName, $size, $filetype);
                 $this->json_result(REQUEST_SUCCESS, array("filename" => $fileName, "size" => $size, "filetype" => $filetype));
@@ -186,6 +186,14 @@ class Upload extends AdController
 
     public function video()
     {
+        $this->load->model("ProductModel", "video", true);
+        $page = $this->input->get("page");
+        $offset = empty($page) ? 0 : (intval($page) - 1) * PAGESIZE;
+        $total = $this->video->count_video_list();
+        $video_list = $this->video->get_video_list($offset, PAGESIZE);
+        $this->load->library("tgpage", array('total' => $total, 'pagesize' => PAGESIZE));
+        $this->vars['pagelist'] = $this->tgpage->showpage();
+        $this->vars['video_list'] = $video_list;
         $this->page("upload/video.html");
     }
 
@@ -195,7 +203,7 @@ class Upload extends AdController
         $title = $this->input->post("title", true);
         $description = $this->input->post("description", true);
         $this->load->model("ProductModel", "upload", true);
-        $video = array("name" => $name, "title" => $title, "description" => $description);
+        $video = array("name" => $name, "title" => $title, "description" => $description, "create_time" => time());
         $status = $this->upload->save_video($video);
         if ($status) {
             $this->json_result(REQUEST_SUCCESS, "Save Success");
@@ -216,5 +224,19 @@ class Upload extends AdController
         $this->vars['pagelist'] = $this->tgpage->showpage();
         $this->vars['video_list'] = $upload_list;
         $this->display("upload/show_video.html");
+    }
+    /**
+     * 删除上传记录和文件
+     */
+    public function delete_video()
+    {
+        $id = $this->input->post("id");
+        $this->load->model("ProductModel", "video", true);
+        $delete_status = $this->video->delete_video($id);
+        if ($delete_status) {
+            $this->json_result(REQUEST_SUCCESS, "Delete Success");
+        } else {
+            $this->json_result(API_ERROR, "", "Delete Failed");
+        }
     }
 }

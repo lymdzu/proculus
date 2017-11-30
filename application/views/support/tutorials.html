@@ -18,43 +18,29 @@
             <div class="down-left">
                 <h2>Tutorials</h2>
                 <p>
-                    Quickly learn how to use the tules and instanly create you best produt.
+                    Quickly learn how to use the tools and instanly create you best produt.
                 </p>
             </div>
             <div class="down-right">
                 <div class="video-list">
+                    {{foreach $video_list as $video}}
                     <div class="video-cont">
                         <div class="post wrap-vid">
                             <div class="zoom-container">
 										<span class="zoom-caption">
-											<i class="icon-play iconfont" data-url="{{'upload/file/test.mp4'|base_url}}">&#xe611;</i>
+											<i class="icon-play iconfont" data-url="{{'upload/file/'|base_url}}{{$video.name}}">&#xe611;</i>
 										</span>
-                                <img src="http://placehold.it/200x120">
+                                <div class="video-bg"></div>
                             </div>
                             <div class="video-desc">
-                                <h5 class="vid-name">UnicView AD: Getting Started</h5>
+                                <h5 class="vid-name">{{$video.title}}</h5>
                                 <div class="info">
-                                    <span>Quick guide on how start using UnicView AD</span>
+                                    <span>{{$video.description}}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="video-cont">
-                        <div class="post wrap-vid">
-                            <div class="zoom-container">
-										<span class="zoom-caption">
-											<i class="icon-play iconfont" data-url="{{'upload/file/test.mp4'|base_url}}">&#xe611;</i>
-										</span>
-                                <img src="http://placehold.it/200x120">
-                            </div>
-                            <div class="video-desc">
-                                <h5 class="vid-name">UnicView AD: Getting Started</h5>
-                                <div class="info">
-                                    <span>Quick guide on how start using UnicView AD</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {{/foreach}}
                 </div>
             </div>
         </div>

@@ -86,6 +86,7 @@
                 {{/if}}
             </div>
         </div>
+        {{if $comments}}
         <div class="comment">
             <div class="com-title">
                 <h1 class="bold-title">Commonts({{$comment_num}})</h1>
@@ -111,6 +112,7 @@
                 </ul>
             </div>
         </div>
+        {{/if}}
         <div class="leave-com">
             <form action="" id="comments" method="post" onsubmit="return false;">
                 <h1 class="bold-title">Leave a comment</h1>
