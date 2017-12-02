@@ -5409,7 +5409,7 @@ h1.bold-title {
     cursor: pointer;
 }
 .and-wapper{
-    height: 22rem;
+    height: 27rem;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -5428,7 +5428,8 @@ h1.bold-title {
 .lcm-list h3{
     margin: 1rem 0;
     line-height: 1.5rem;
-    width: 60%;
+    width: 60%; 
+    text-align: center;
 }
 .lcm-list p{
     line-height: 1.5rem;
