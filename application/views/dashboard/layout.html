@@ -16,8 +16,8 @@
     <link rel="shortcut icon" href="/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="{{'static/css/fontface.css'|base_url}}">
     <link rel="stylesheet" type="text/css" href="{{'static/css/fonts.css'|base_url}}"/>
-    <link rel="stylesheet" type="text/css" href="{{'static/css/style.css'|base_url}}?v=20171123"/>
-    <link rel="stylesheet" type="text/css" href="{{'static/css/iconfont.css'|base_url}}?v=20171123">
+    <link rel="stylesheet" type="text/css" href="{{'static/css/style.css'|base_url}}"/>
+    <link rel="stylesheet" type="text/css" href="{{'static/css/iconfont.css'|base_url}}">
     <script type="application/javascript" src="{{'static/js/jquery-1.11.1.min.js'|base_url}}"></script>
     {{if isset($page) && $page=='news'}}
     <script type="application/javascript" src="{{'static/js/plugins/unslider.min.js'|base_url}}"></script>
@@ -108,7 +108,7 @@
                                 </a>
                             </li>
                             <li class="menu-item  menu-item-has-children level_1 togglable">
-                                <a class="w-nav-anchor level_1" href="#">
+                                <a class="w-nav-anchor level_1">
                                     <span class="w-nav-title">Products</span>
                                     <span class="w-nav-arrow"><icon class="iconfont">&#xe603;</icon></span>
                                     <span class="ripple-container"></span>
@@ -128,8 +128,15 @@
                                             <span class="ripple-container"></span>
                                         </a>
                                     </li>
+                                    <li class="menu-item  level_2">
+                                        <a class="w-nav-anchor level_2" href="{{'product/android'|base_url}}">
+                                            <span class="w-nav-title">Android LCM</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
                                     <li class="menu-item  level_2 ">
-                                        <a class="w-nav-anchor level_2" href="{{'product/display_view'|base_url}}">
+                                        <a class="w-nav-anchor level_2" href="{{'product/modules'|base_url}}">
                                             <span class="w-nav-title">Displays</span>
                                             <span class="w-nav-arrow"></span>
                                             <span class="ripple-container"></span>
@@ -145,7 +152,7 @@
                                 </ul>
                             </li>
                             <li class="menu-item  menu-item-has-children level_1 togglable">
-                                <a class="w-nav-anchor level_1" href="#">
+                                <a class="w-nav-anchor level_1">
                                     <span class="w-nav-title">Support</span>
                                     <span class="w-nav-arrow"><icon class="iconfont">&#xe603;</icon></span>
                                     <span class="ripple-container"></span>
@@ -182,22 +189,23 @@
                                 </ul>
                             </li>
                             <li class="menu-item  menu-item-has-children level_1 togglable">
-                                <a class="w-nav-anchor level_1" href="#">
+                                <a class="w-nav-anchor level_1">
                                     <span class="w-nav-title">Company</span>
                                     <span class="w-nav-arrow"><icon class="iconfont">&#xe603;</icon></span>
                                     <span class="ripple-container"></span>
                                 </a>
                                 <ul class="w-nav-list level_2" style="">
                                     <li class="menu-item  level_2">
-                                        <a class="w-nav-anchor level_2" href="{{'product/android'|base_url}}">
-                                            <span class="w-nav-title">Technology</span>
+                                        <a class="w-nav-anchor level_2" href="{{'news/lists'|base_url}}">
+                                            <span class="w-nav-title">News</span>
                                             <span class="w-nav-arrow"></span>
                                             <span class="ripple-container"></span>
                                         </a>
                                     </li>
-                                    <li class="menu-item  level_2 ">
-                                        <a class="w-nav-anchor level_2" href="{{'news/lists'|base_url}}">
-                                            <span class="w-nav-title">News</span>
+
+                                    <li class="menu-item  level_2">
+                                        <a class="w-nav-anchor level_2" href="{{'aboutus/index'|base_url}}">
+                                            <span class="w-nav-title">About US</span>
                                             <span class="w-nav-arrow"></span>
                                             <span class="ripple-container"></span>
                                         </a>
@@ -205,10 +213,29 @@
                                 </ul>
                             </li>
                             <li class="menu-item  menu-item-has-children level_1 togglable">
-                                <a class="w-nav-anchor level_1" href="{{'contact/index'|base_url}}">
+                                <a class="w-nav-anchor level_1" >
                                     <span class="w-nav-title">Contact Us</span>
+                                    <span class="w-nav-arrow"><icon class="iconfont">&#xe603;</icon></span>
                                     <span class="ripple-container"></span>
                                 </a>
+                                <ul class="w-nav-list level_2" style="">
+                                    
+                                    <li class="menu-item  level_2 ">
+                                        <a class="w-nav-anchor level_2" href="{{'contact/index'|base_url}}">
+                                            <span class="w-nav-title">Contact</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
+
+                                    <li class="menu-item  level_2">
+                                        <a class="w-nav-anchor level_2" href="{{'order/index'|base_url}}">
+                                            <span class="w-nav-title">Order Now</span>
+                                            <span class="w-nav-arrow"></span>
+                                            <span class="ripple-container"></span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </nav>
@@ -297,10 +324,10 @@
                     <div class="footer-title">
                         <h2>Follow Us</h2>
                         <div class="foot-guide">
-                            <a>
+                            <a href="www.facebook.com/ProculusTechnologies">
                                 <icon class="iconfont">&#xe649;</icon>
                             </a>
-                            <a>
+                            <a href="https://dev.twitter.com">
                                 <icon class="iconfont">&#xe638;</icon>
                             </a>
                         </div>
