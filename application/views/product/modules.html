@@ -3,16 +3,17 @@
         <div class="title-top" style="margin-bottom: 3rem">
             <h1>TFT & LCD MODULES</h1>
         </div>
-        <form>
+        <form id="modules" name="modules" action="{{'product/modules'|base_url}}" method="get">
             <div class="select-modules">
                 <div class="select-cont">
                     <ul>
-                        {{foreach $cate_list as $catename => $cate}}
+                        {{foreach $category_list as $catename => $cate}}
                         <li>
                             <h2>{{$catename}}</h2>
-                            <select>
+                            <select name="{{$catename}}">
+                                <option value="">Search {{$catename}}</option>
                                 {{foreach $cate as $cate_info}}
-                                <option value="{{$cate_info}}">{{$cate_info}}</option>
+                                <option value="{{$cate_info.name}}">{{$cate_info.name}}</option>
                                 {{/foreach}}
                             </select>
                         </li>
@@ -20,7 +21,7 @@
                     </ul>
                 </div>
                 <div class="select-submit-btn">
-                    <button class="select-btn">APPLY</button>
+                    <button type="submit" class="select-btn">APPLY</button>
                 </div>
             </div>
         </form>
@@ -44,28 +45,32 @@
                 <li class="downfile">Interface</li>
                 <li class="downfile">Input Voltage</li>
             </ul>
-            <a href="{{'product/display_view'|base_url}}">
+            {{foreach $product_list as $product}}
+            <a href="{{'product/display_view'|base_url}}?id={{$product.id}}">
                 <ul class="down-list">
-                    <li class="downfile">P32240V35C_T07</li>
-                    <li class="filetype">3.5''</li>
-                    <li class="downfile">Consumer</li>
-                    <li class="downfile">320x240</li>
-                    <li class="downfile">400</li>
-                    <li class="downfile">TTL</li>
-                    <li class="downfile">5V</li>
+                    <li class="downfile">{{$product.Part_Number}}</li>
+                    <li class="filetype">{{$product.Size}}</li>
+                    <li class="downfile">{{$product.Catalog}}</li>
+                    <li class="downfile">{{$product.Resolution}}</li>
+                    <li class="downfile">{{$product.Brightness}}</li>
+                    <li class="downfile">{{$product.Interface}}</li>
+                    <li class="downfile">{{$product.Input_Voltage}}</li>
+
                 </ul>
             </a>
+            {{/foreach}}
         </div>
-        <div class="dataTables_paginate paging_simple_numbers text-center">
-            <ul class="pagination">
-                <li><a href="">Home</a></li>
-                <li><a href="">Previous</a></li>
-                <li class="active"><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-                <li><a href="">Next</a></li>
-                <li><a href="">End</a></li>
-            </ul>
-        </div>
+        <!--<div class="dataTables_paginate paging_simple_numbers text-center">-->
+            <!--<ul class="pagination">-->
+                <!--<li><a href="">Home</a></li>-->
+                <!--<li><a href="">Previous</a></li>-->
+                <!--<li class="active"><a href="">2</a></li>-->
+                <!--<li><a href="">3</a></li>-->
+                <!--<li><a href="">4</a></li>-->
+                <!--<li><a href="">Next</a></li>-->
+                <!--<li><a href="">End</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        {{$pagelist}}
     </div>
 </div>

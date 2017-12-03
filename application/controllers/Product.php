@@ -15,17 +15,32 @@ class Product extends DashboardController
 
     public function modules()
     {
+        $size = $this->input->get("Size", true);
+        $catelog = $this->input->get("Catalog", true);
+        $resolution = $this->input->get("Resolution(pixel)", true);
+        $bright = $this->input->get("Brightness(nits)", true);
+        $interface = $this->input->get("Interface", true);
+        $input = $this->input->get("Input_Voltage", true);
         $this->load->model("ProductModel", "product", true);
-        $category = $this->product->get_category_list(1);
-        foreach ($category as $cate) {
-            $level_second = $this->product->get_category_list(2, $cate['id']);
-            foreach ($level_second as $level) {
-                $new_cate[$cate['name']][] = $level['name'];
+        $type_list = $this->config->item("prop");
+        $select = array();
+        foreach ($type_list as $proporty => $item) {
+            if ($item) {
+                $cate = $this->product->get_property_list($proporty);
+                $select[$proporty] = $cate;
             }
         }
-        $this->vars['cate_list'] = $new_cate;
+        $page = $this->input->get("page");
+        $offset = empty($page) ? 0 : (intval($page) - 1) * PAGESIZE;
+        $total = $this->product->count_product_list();
+        $product_list = $this->product->get_product_list($offset, PAGESIZE, $size, $catelog, $resolution, $bright, $interface, $input);
+        $this->vars['product_list'] = $product_list;
+        $this->vars['category_list'] = $select;
+        $this->load->library("tgpage", array('total' => $total, 'pagesize' => PAGESIZE));
+        $this->vars['pagelist'] = $this->tgpage->showpage();
         $this->page("product/modules.html");
     }
+
 
     public function developer_kit()
     {

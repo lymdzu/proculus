@@ -6,19 +6,19 @@
                     <div class="ibox-title">
                         <h5>Category list</h5>
                         <div class="ibox-tools">
-                            <a  class="btn btn-primary btn-xs add-btn" href="{{'category/add_product'|base_url}}">Add Product Category</a>
+                            <a  class="btn btn-primary btn-xs add-btn" href="{{'category/add_product'|base_url}}">Add New Product</a>
                         </div>
                     </div>
                     <div class="ibox-content">
                         <div class="project-list">
 
-                            <table class="table table-hover table-bordered table-responsive">
+                            <table class="table table-hover table-responsive">
                                 <thead>
                                 <th>ID</th>
                                 <th>Product Name</th>
                                 <th>Pic</th>
-                                {{foreach $category_list as $category}}
-                                <th>{{$category.name}}</th>
+                                {{foreach $category_list as $category => $item}}
+                                <th>{{$category}}</th>
                                 {{/foreach}}
                                 <th>Create Time</th>
                                 <th>Action</th>
@@ -26,21 +26,27 @@
                                 <tbody>
                                 {{foreach $product_list as $product_info}}
                                 <tr>
-                                    {{foreach $product_info as $key => $item}}
-                                    {{if $key == "pic"}}
+                                    <td>{{$product_info.id}}</td>
+                                    <td>{{$product_info.name}}</td>
                                     <td  class="pro-pic" data-pic="{{'upload/file/'|base_url}}{{$product_info.pic}}"><i class="fa fa-image"></i></td>
-                                    {{else if $key == "create_time"}}
-                                    <td>{{$item|date_format:"%Y-%m-%d %H:%m:%S"}}</td>
-                                    {{else}}
-                                    <td>{{$item}}</td>
-                                    {{/if}}
-                                    {{/foreach}}
+                                    <td>{{$product_info.Part_Number}}</td>
+                                    <td>{{$product_info.Size}}</td>
+                                    <td>{{$product_info.Catalog}}</td>
+                                    <td>{{$product_info.Resolution}}</td>
+                                    <td>{{$product_info.Brightness}}</td>
+                                    <td>{{$product_info.Interface}}</td>
+                                    <td>{{$product_info.Input_Voltage}}</td>
+                                    <td>{{$product_info.Working_Platform}}</td>
+                                    <td>{{$product_info.Download_Method}}</td>
+                                    <td>{{$product_info.Cable&Connector}}</td>
+                                    <td>{{$product_info.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}</td>
                                     <td><button class="btn-danger btn delete-product" data-id="{{$product_info.id}}">Delete</button></td>
                                 </tr>
                                 {{/foreach}}
                                 </tbody>
                             </table>
                         </div>
+                        {{$pagelist}}
                     </div>
                 </div>
             </div>
@@ -66,6 +72,17 @@
             });
 
         });
-
+        $(".delete-product").on("click", function () {
+            var id = $(this).data("id");
+            $.post("{{'category/delete_product'}}", {id:id}, function (res) {
+                if(res.ecode == 0)
+                {
+                    layer.msg(res.result);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1000)
+                }
+            });
+        })
     })
 </script>
