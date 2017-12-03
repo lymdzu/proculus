@@ -5574,6 +5574,7 @@ h1.bold-title {
 }
 .and-icon{
     width: 27%;
+    position: relative;
     text-align: center;
     margin-right: 1rem;
     margin-bottom: 1rem;
@@ -5587,6 +5588,32 @@ h1.bold-title {
     line-height: 2rem;
     font-weight: 400;
     margin-top: 0.5rem;
+}
+.and-icon p{
+    line-height: 2rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+.and-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #fff;
+}
+.and-icon:hover .and-overlay{
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.and-overlay .and-desc{
+    position: relative;
+    align-items:center;
 }
 
 /******************************  About Us Page  ***********************************************/
