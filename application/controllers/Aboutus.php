@@ -4,7 +4,7 @@
  * 文件名称:AboutUs.php
 
  */
-class AboutUs extends DashboardController
+class Aboutus extends DashboardController
 {
     public function __construct()
     {
