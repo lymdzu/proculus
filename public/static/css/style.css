@@ -1250,6 +1250,9 @@ body.isOpenSiteNavigation {
     position: relative;
     color: inherit;
 }
+.w-nav-arrow .iconfont{
+    font-size: 0.8rem;
+}
 
 .ripple-container {
     display: block;
@@ -4376,6 +4379,7 @@ h1.bold-title {
     display: inline-block;
     margin-right: 1rem;
     font-weight: 400;
+    font-family: OpenSans, sans-serif;
 }
 
 .down-cont .down-soft {

@@ -21,11 +21,11 @@
     <link href="{{'static/bscss/plugins/webuploader/webuploader.css'|base_url}}?" rel="stylesheet">
     <link href="{{'static/bscss/webuploader-demo.min.css'|base_url}}?" rel="stylesheet">
     <script type="text/javascript" src="{{'static/bsjs/plugins/webuploader/webuploader.min.js'|base_url}}"></script>
-    {{if $page="news"}}
+    {{if $nav=="news"}}
     <link href="{{'static/bsjs/plugins/wangedit/wangEditor.min.css'|base_url}}?" rel="stylesheet">
     <script type="text/javascript" src="{{'static/bsjs/plugins/wangedit/wangEditor.min.js'|base_url}}"></script>
     {{/if}}
-    {{if $page = "add_paper"}}
+    {{if $page == "add_paper"}}
     <script type="text/javascript" src="{{'static/bsjs/tag.js'|base_url}}"></script>
     <script type="text/javascript" src="{{'static/bsjs/fileinput.min.js'|base_url}}"></script>
     <link rel="stylesheet" type="text/css" href="{{'static/bscss/fileinput.min.css'|base_url}}"/>
@@ -54,10 +54,6 @@
                                 </span>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <!--<li>-->
-                                <!--<a class="J_menuItem" href="form_avatar.html">e</a>-->
-                            <!--</li>-->
-                            <!--<li class="divider"></li>-->
                             <li>
                                 <a href="{{'passport/logout'|base_url}}">Sign Out</a>
                             </li>
@@ -85,28 +81,34 @@
                             <a href="{{'upload/doc'|base_url}}" data-index="0"><i class="fa fa-file-word-o"></i>Document</a>
                         </li>
                         <li>
-                            <a href="{{'upload/video'|base_url}}" data-index="0"><i class="fa fa-file-video-o"></i>Video</a>
+                            <a href="{{'upload/video'|base_url}}" data-index="1"><i class="fa fa-file-video-o"></i>Video</a>
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li {{if $nav == "news"}}class="active"{{/if}}>
                     <a href="#"><i class="fa fa-newspaper-o"></i>
                         <span class="nav-label">Paper</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li>
-                            <a href="{{'admin/news'|base_url}}" data-index="0"><i class="fa fa-edit"></i>News list</a>
+                        <li {{if $page == "news"}}class="active"{{/if}}>
+                            <a href="{{'admin/news'|base_url}}" data-index="0"><i class="fa fa-list-alt"></i>News list</a>
+                        </li>
+                        <li {{if $page == "add_paper"}}class="active"{{/if}}>
+                            <a href="{{'admin/add_paper'|base_url}}" data-index="1"><i class="fa fa-edit"></i>Add News</a>
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li {{if $nav == "product"}}class="active"{{/if}}>
                     <a href="#"><i class="fa fa-list"></i>
                         <span class="nav-label">Product</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li>
-                            <a href="{{'category/lists'|base_url}}" data-index="0"><i class="fa fa-list"></i>Category list</a>
+                        <li {{if $page == "property"}}class="active"{{/if}}>
+                            <a href="{{'category/lists'|base_url}}" data-index="0"><i class="fa fa-shopping-cart"></i>Product Property</a>
+                        </li>
+                        <li {{if $page == "add_product"}}class="active"{{/if}}>
+                            <a href="{{'category/add_product'|base_url}}" data-index="1"><i class="fa fa-plus-square"></i>Add Product</a>
                         </li>
                         <li>
-                            <a href="{{'category/product'|base_url}}" data-index="1"><i class="fa fa-list"></i>Product list</a>
+                            <a href="{{'category/product'|base_url}}" data-index="2"><i class="fa fa-cubes"></i>Product list</a>
                         </li>
                     </ul>
                 </li>

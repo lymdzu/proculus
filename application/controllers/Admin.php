@@ -60,6 +60,7 @@ class Admin extends AdController
 
     public function news()
     {
+        $this->vars['nav'] = "news";
         $this->vars['page'] = "news";
         $this->load->model("NewModel", "new", true);
         $news_list = $this->new->get_news();
@@ -72,6 +73,7 @@ class Admin extends AdController
 
     public function add_paper()
     {
+        $this->vars['nav'] = "news";
         $this->vars['page'] = "add_paper";
         $this->page("news/add_new.html");
     }

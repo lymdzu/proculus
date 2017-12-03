@@ -4,9 +4,8 @@
             <div class="col-sm-12">
                 <div class="ibox">
                     <div class="ibox-title">
-                        <h5>Category list</h5>
+                        <h5>Product Property</h5>
                         <div class="ibox-tools">
-                            <a data-toggle="modal" class="btn btn-primary btn-xs add-btn" href="#modal-form">Add Product Category</a>
                         </div>
                     </div>
                     <div class="ibox-content">
@@ -14,35 +13,17 @@
 
                             <table class="table table-hover">
                                 <thead>
-                                <th>ID</th>
-                                <th>Product Category</th>
-                                <th>Create Time</th>
-                                <th>Delete</th>
+                                <th>Property</th>
+                                <th>Operater</th>
                                 </thead>
                                 <tbody>
-                                {{foreach $level_list as $level_info}}
+                                {{foreach $category_list as $category}}
                                 <tr>
-                                    <td class="cate-id">{{$level_info.id}}</td>
-                                    <td class="cate-name">{{$level_info.name}}</td>
-                                    <td class="has_child" style="display: none;">{{$level_info.has_child}}</td>
-                                    <td class="project-completion">
-                                        <small>{{$level_info.create_time|date_format:"%Y-%m-%d %H:%m:%S"}} by
-                                            {{$level_info.operater}}
-                                        </small>
-                                    </td>
-                                    <td>{{if $level < 2}}
-                                        <a href="{{'category/lists'|base_url}}?level={{$next_level}}&parent={{$level_info.id}}"
+                                    <td class="cate-name">{{$category}}</td>
+                                    <td>
+                                        <a href="{{'category/product_property'|base_url}}?parent={{$category}}"
                                            class="btn btn-primary btn-sm"><i class="fa fa-folder-open-o"></i>
-                                            Complete this category
-                                        </a>
-                                        {{/if}}
-                                        <a href="#edit-level" data-toggle="modal" class="btn btn-white btn-sm edit-btn"><i
-                                                class="fa fa-pencil"></i>
-                                            Edit
-                                        </a>
-                                        <a href="javascript:void(0)" class="btn btn-danger btn-sm delete-btn"><i
-                                                class="fa fa-close"></i>
-                                            Delete
+                                            Complete The Property
                                         </a>
                                     </td>
                                 </tr>
@@ -56,72 +37,6 @@
         </div>
     </div>
 </div>
-<div id="modal-form" class="modal fade" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h3 class="m-t-none m-b">New Category</h3>
-                        <form role="form" id="add-level" class="add-level" onsubmit="return false;">
-                            <div class="form-group">
-                                <label>Category Name：</label>
-                                <input type="text" name="name" placeholder="Please enter this category name"
-                                       class="form-control">
-                            </div>
-                            <div class="form-group" style="display: none">
-                                <label>Level：</label>
-                                <input type="text" name="level"  class="form-control"
-                                       value="{{$level}}">
-                            </div>
-                            <div class="form-group" style="display: none;">
-                                <label>Parent level：</label>
-                                <input type="text" name="parent"  class="form-control" value="{{$parent}}">
-                            </div>
-                            <div>
-                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="menu-level"
-                                        type="submit">
-                                    <strong>Save</strong>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="edit-level" class="modal fade" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h3 class="m-t-none m-b">Edit Category</h3>
-                        <form role="form" id="edit-form" class="edit-level" onsubmit="return false;">
-                            <div class="form-group">
-                                <label>Category Name：</label>
-                                <input type="text" name="name" placeholder="Please enter this category name"
-                                       class="form-control">
-                            </div>
-                            <div class="form-group" style="display: none">
-                                <label>菜单编号：</label>
-                                <input type="text" name="id" placeholder="请输入菜单级别" class="form-control">
-                            </div>
-                            <div>
-                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="edit-submit"
-                                        type="submit">
-                                    <strong>Save</strong>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <style>
     .jstree-default .jstree-icon.none {
         width: 0
