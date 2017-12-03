@@ -99,20 +99,26 @@ class ProductModel extends CI_Model
     /**
      * add category
      * @param $name
-     * @param $level
      * @param $parent
      * @param $operater
      * @return bool
      */
-    public function add_category($name, $level, $parent, $operater)
+    public function add_category($name, $parent, $operater)
     {
-        $insert_status = $this->db->insert("t_category", array("name" => $name, "level" => $level, "parent" => $parent, "create_time" => time(), "operater" => $operater));
-        $affect_rows = $this->db->affected_rows();
-        if ($insert_status && $affect_rows == 1) {
-            return true;
-        } else {
+        try{
+            $insert_status = $this->db->insert("t_category", array("name" => $name, "parent" => $parent, "create_time" => time(), "operater" => $operater));
+            $affect_rows = $this->db->affected_rows();
+            if ($insert_status && $affect_rows == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catch (Exception $e)
+        {
             return false;
         }
+
     }
 
     public function edit_category($id, $name)
@@ -129,27 +135,13 @@ class ProductModel extends CI_Model
 
     public function delete_category($id)
     {
-        $this->db->trans_start();
         $this->db->where("id", $id);
-        $this->db->delete("t_category");
-        $this->db->where("parent", $id);
-        $query = $this->db->get("t_category");
-        $children = $query->result_array();
-        $this->db->where("parent", $id);
-        $this->db->delete("t_category");
-        if (!empty($children)) {
-            $child_where = array();
-            foreach ($children as $child) {
-                $child_where[] = $child['id'];
-            }
-            $this->db->where_in("parent", $child_where);
-            $this->db->delete("t_category");
-        }
-        $this->db->trans_complete();
-        if ($this->db->trans_status() === FALSE) {
-            return false;
-        } else {
+        $delete_status = $this->db->delete("t_category");
+        $affect_rows = $this->db->affected_rows();
+        if ($delete_status && $affect_rows == 1) {
             return true;
+        } else {
+            return false;
         }
     }
 
@@ -165,6 +157,12 @@ class ProductModel extends CI_Model
         if ($parent) {
             $this->db->where("parent", $parent);
         }
+        $query = $this->db->get("t_category");
+        return $query->result_array();
+    }
+    public function get_property_list($parent)
+    {
+        $this->db->where("parent", $parent);
         $query = $this->db->get("t_category");
         return $query->result_array();
     }

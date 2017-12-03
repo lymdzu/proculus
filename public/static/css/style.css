@@ -1250,6 +1250,9 @@ body.isOpenSiteNavigation {
     position: relative;
     color: inherit;
 }
+.w-nav-arrow .iconfont{
+    font-size: 0.8rem;
+}
 
 .ripple-container {
     display: block;
@@ -1767,7 +1770,7 @@ ul:last-child {
     font-weight: 600;
 }
 
-.three-cont .adv-text {
+.three-cont .adv2-text {
     order: 4;
     width: 65%;
     margin-top: 0.5rem;
@@ -2072,7 +2075,7 @@ ul:last-child {
 
 .hero-story .module-content {
     position: absolute;
-    bottom: 40vh;
+    /* bottom: 40vh; */
     z-index: 300;
     transition: opacity 2s, z-index 2s;
     pointer-events: none
@@ -4376,6 +4379,7 @@ h1.bold-title {
     display: inline-block;
     margin-right: 1rem;
     font-weight: 400;
+    font-family: OpenSans, sans-serif;
 }
 
 .down-cont .down-soft {
@@ -4816,6 +4820,11 @@ h1.bold-title {
     width: 30%;
     margin-bottom: 2rem;
 }
+.kit-display .kitimg{
+    width: 64px;
+    height: 64px;
+}
+
 .kit-display p{
     line-height: 1rem;
     font-size: 12px;
@@ -4935,8 +4944,8 @@ h1.bold-title {
 }
 .pro-list img{
     width: 7rem;
-    border-radius: 5rem;
-    background: #0380c1;
+    /* border-radius: 5rem; */
+    /* background: #0380c1; */
 }
 .pro-list .pro-title{
     font-weight: 600;
@@ -4961,9 +4970,7 @@ h1.bold-title {
     margin-top: 10rem;
     text-align: center;
 }
-.demo-desc{
-    width: 50%;
-}
+
 .demo-title h2{
     font-size: 1.2rem;
     font-weight: 700;
@@ -4980,13 +4987,23 @@ h1.bold-title {
     margin-bottom: 1.2em;
 }
 .demo-desc{
-    padding: 9rem ;
+    width: 50%;
+    line-height: 1.5rem;
+    /* padding: 9rem ; */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
+.demo-desc.right-desc{
+    padding-left: calc(5vw);
+    padding-right: calc(15vw);
+}
+.demo-desc.left-desc{
+    padding-left: calc(15vw);
+    padding-right: calc(5vw);
+}
 .demo-text{
-    line-height: 2rem;
+    line-height: 1.8rem;
 }
 .demo-btn{
     margin: 1rem 0;
@@ -5396,7 +5413,7 @@ h1.bold-title {
     cursor: pointer;
 }
 .and-wapper{
-    height: 22rem;
+    height: 27rem;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -5415,7 +5432,8 @@ h1.bold-title {
 .lcm-list h3{
     margin: 1rem 0;
     line-height: 1.5rem;
-    width: 60%;
+    width: 60%; 
+    text-align: center;
 }
 .lcm-list p{
     line-height: 1.5rem;
@@ -5570,3 +5588,184 @@ h1.bold-title {
     font-weight: 400;
     margin-top: 0.5rem;
 }
+
+/******************************  About Us Page  ***********************************************/
+
+.about-wapper{
+    height: 27rem;
+    width: 100%;
+    overflow: hidden;
+    background: repeat-x url(../images/about_bg.webp) center top;
+}
+
+.img-top {
+	display: block;
+	margin: 5rem auto 0 auto;
+}
+
+.title-bottom {
+    margin-top: 2rem;
+    height: 3rem;
+    text-align: center;
+}
+
+.title-bottom h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.about-top{
+	/* margin: 4rem auto; */
+    /* text-align: center; */
+    background: #f5f5f7;
+    padding-left: calc(20vw);
+    padding-right: calc(20vw);
+}
+
+.about-top h2{
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.about-desc{
+    width: 50%;
+    /* padding: 9rem ; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.about-desc.right-desc{
+    padding-left: calc(5vw);
+    padding-right: calc(15vw);
+}
+.about-desc.left-desc{
+    padding-left: calc(15vw);
+    padding-right: calc(5vw);
+}
+
+.about-title h2, .our-service h2{
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.about-title h2:after{
+    content: '';
+    display: block;
+    width: 3em;
+    height: 3px;
+    background-color: #0380c1;
+    border: none;
+    margin-top: 1rem;
+    margin-bottom: 1.2em;
+}
+
+.about-text, .our-text{
+    line-height: 1.8rem;
+}
+
+.our-service{
+	width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-left: calc(15vw);
+    padding-right: calc(15vw);
+    padding-top: calc(5vw);
+    padding-bottom: calc(7vw);
+}
+
+.our-service{
+	display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.our-service h2{
+	margin: 0 auto;
+}
+
+.our-service h2:after{
+    content: '';
+    display: block;
+    width: 3em;
+    height: 3px;
+    background-color: #0380c1;
+    border: none;
+    margin: 1rem auto 1.2em auto;
+}
+
+.our-text{
+	column-count:2;
+	-moz-column-count:2; /* Firefox */
+	-webkit-column-count:2; /* Safari and Chrome */
+}
+
+.three-cont02 {
+    display: flex;
+    flex-direction: column;
+    width: 33.33%;
+    align-items: center;
+}
+
+.three-cont02 .icon {
+    order: 1;
+    width: 30%;
+
+}
+
+.three-cont02 .icon:hover {
+    transition: background 0.2s, color 0.2s;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.5rem rgba(201, 201, 201, 1);
+}
+
+.three-cont02 .icon:hover:before {
+    animation: spinAround 2s linear infinite;
+}
+
+@keyframes spinAround {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.three-cont02 .line {
+    order: 3;
+    content: '';
+    display: block;
+    width: 9em;
+    height: 0.12rem;
+    background-color: #c9c9c9;
+    border: none;
+    margin-top: 1rem;
+    margin-bottom: 1.2em;
+}
+
+.three-cont02 .adv-title {
+    order: 2;
+    text-align: center;
+    font-size: 1.5rem;
+    height: 3rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.three-cont02 .adv2-text {
+    order: 4;
+    width: 65%;
+    margin-top: 0.5rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+}
+

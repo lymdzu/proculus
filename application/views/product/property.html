@@ -1,0 +1,193 @@
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="ibox">
+            <div class="col-sm-12">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Product Property</h5>
+                        <div class="ibox-tools">
+                            {{if $parent}}
+                            <a data-toggle="modal" class="btn btn-primary btn-xs add-btn" href="#modal-form">Add {{$parent}}</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="project-list">
+
+                            <table class="table table-hover">
+                                <thead>
+                                <th>{{$parent}}</th>
+                                <th>CreateTime</th>
+                                <th>Action</th>
+                                </thead>
+                                <tbody>
+                                {{foreach $property_list as $property}}
+                                <tr>
+                                    <input type="hidden" class="cate-id" value="{{$property.id}}">
+                                    <td class="cate-name">{{$property.name}}</td>
+                                    <td>{{$property.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}</td>
+                                    <td>
+                                        <a href="#edit-level" data-toggle="modal" class="btn btn-white btn-sm edit-btn"><i
+                                                class="fa fa-pencil"></i>
+                                            Edit
+                                        </a>
+                                        <a href="javascript:void(0)" class="btn btn-danger btn-sm delete-btn"><i
+                                                class="fa fa-close"></i>
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                                {{/foreach}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-form" class="modal fade" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="m-t-none m-b">New {{$parent}}</h3>
+                        <form role="form" id="add-level" class="add-level" onsubmit="return false;">
+                            <div class="form-group">
+                                <label>{{$parent}}：</label>
+                                <input type="text" name="name" placeholder="Please enter this property name"
+                                       class="form-control">
+                            </div>
+                            <div class="form-group" style="display: none;">
+                                <label>Parent level：</label>
+                                <input type="text" name="parent"  class="form-control" value="{{$parent}}">
+                            </div>
+                            <div>
+                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="add-btn"
+                                        type="submit">
+                                    <strong>Save</strong>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="edit-level" class="modal fade" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="m-t-none m-b">Edit Category</h3>
+                        <form role="form" id="edit-form" class="edit-level" onsubmit="return false;">
+                            <input type="hidden" name="id" value="">
+                            <div class="form-group">
+                                <label>Property Name：</label>
+                                <input type="text" name="name" placeholder="Please enter this category name"
+                                       class="form-control">
+                            </div>
+                            <div>
+                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="edit-submit"
+                                        type="submit">
+                                    <strong>Save</strong>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .jstree-default .jstree-icon.none {
+        width: 0
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $(".add-btn").on("click", function () {
+            console.log($("#add-level").find("input[name='name']"));
+            $("#add-level").find("input[name='name']").trigger("click").focus();
+        });
+        $(".edit-btn").on("click", function () {
+            var id = $(this).parents("tr").find(".cate-id").val();
+            var name = $(this).parents("tr").find(".cate-name").text();
+            var has_child = $(this).parents("tr").find(".has_child").text();
+            console.log(has_child);
+            $("#edit-level").find("input[name='name']").val(name);
+            $("#edit-level").find("input[name='id']").val(id);
+            $("#edit-level select[name='has_child'] option").each(function () {
+                if ($(this).val() == has_child) {
+                    console.log($(this).val());
+                    $(this).prop("selected", "selected");
+                    if (has_child == 1) {
+                        $("#edit-form .div-href").hide();
+                    }
+                }
+            })
+
+        });
+        $("#edit-form select[name='has_child']").on("change", function () {
+            $("#edit-form input[name='href']").val("");
+            if ($(this).val() == "1") {
+
+                $("#edit-form .div-href").hide();
+            }
+            else {
+                $("#edit-form .div-href").show();
+            }
+        });
+        $(".delete-btn").on("click", function () {
+            var id = $(this).parents("tr").find(".cate-id").val();
+            layer.confirm('Do you want to delete this product property？', {
+                btn: ['confirm', 'cancle'], //按钮
+                title:'Delete Confirm'
+            }, function () {
+                $.post("{{'category/delete_cate'|base_url}}", {id: id}, function (res) {
+                    if (res.ecode == 0) {
+                        layer.msg(res.result);
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1000)
+                    }
+                    else {
+                        layer.msg(res.emsg);
+                    }
+                })
+            }, function () {
+            });
+        });
+        $("#edit-submit").on("click", function () {
+            $.post("{{'category/edit_cate'|base_url}}", $(".edit-level").serialize(), function (res) {
+                if (res.ecode == 0) {
+                    layer.msg(res.result);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1000)
+                }
+                else {
+                    layer.msg(res.emsg);
+                }
+            });
+        });
+        $("#add-btn").on("click", function () {
+            $.post("{{'category/add_cate'|base_url}}", $(".add-level").serialize(), function (res) {
+                if (res.ecode == 0) {
+                    layer.msg(res.result);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1000)
+                }
+                else {
+                    layer.msg(res.emsg);
+                }
+            });
+        });
+    });
+</script>
