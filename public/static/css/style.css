@@ -1861,7 +1861,7 @@ ul:last-child {
     width: 40%;
 }
 .contact-wapper{
-    height: 19rem;
+    height: 27rem;
     width: 100%;
     overflow: hidden;
     background: repeat-x url(../images/contact_bg.jpg) center top;
@@ -4330,7 +4330,7 @@ h1.bold-title {
 
 /*support sofeware*/
 .soft-wapper {
-    height: 19rem;
+    height: 27rem;
     width: 100%;
     overflow: hidden;
     background: repeat-x url("../images/support-software-bg.jpg");
@@ -4863,7 +4863,7 @@ h1.bold-title {
     border: 1px #00aeef solid;
 }
 .service-wapper{
-    height: 25rem;
+    height: 27rem;
     width: 100%;
     overflow: hidden;
     background: repeat-x url(../images/custom_service_bg.webp);
@@ -4975,7 +4975,7 @@ h1.bold-title {
 }
 
 .demo-wapper{
-    height: 25rem;
+    height: 27rem;
     width: 100%;
     overflow: hidden;
     background: repeat-x url(../images/demos_bg.webp) center top;
@@ -5810,3 +5810,161 @@ h1.bold-title {
     text-align: center;
 }
 
+/******************************  order page ***********************************************/
+
+.order-wapper{
+    height: 27rem;
+    width: 100%;
+    overflow: hidden;
+    background: repeat-x url(../images/order_bg.webp) center top;
+}
+
+.order-cont{
+    font-family: OpenSans, sans-serif;
+    padding-top: calc(5vw);
+    padding-left: calc(15vw);
+    padding-right: calc(5vw);
+    margin-bottom: 6rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.order-left{
+	width: 70%;
+}
+
+.order-right{
+	width: 30%;
+}
+
+.order-left .item-change{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-bottom: 4rem;
+}
+
+.item-change .item-image{
+    width: 30%;
+	padding-right: 1.5rem;
+}
+
+.item-change .item-desc{
+	width: 66%;
+}
+
+.item-title h2{
+	font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+
+.item-price{
+	color: #208bc6;
+	font-size: 1.2rem;
+	margin-bottom: 1.2rem;
+}
+
+.price-num::before{
+	content: "\0024";
+	padding-right: .4rem;
+}
+
+.item-text{
+	line-height: 1.8rem;
+	margin-bottom: 1.2rem;
+}
+
+.cancel-btn{
+	color: #208bc6;
+	font-size: 1.2rem;
+}
+
+.cancel-btn u{
+	cursor: pointer;
+}
+
+.order-right .categories-title{
+	padding-bottom: 2rem;
+}
+
+.categories-title h2{
+	font-size: 1.2rem;
+	font-weight: normal;
+}
+
+.list-opt{
+	padding-bottom: 1.5rem;
+}
+
+.list-opt input{
+	width: auto;
+	display: none;
+}
+
+.list-opt label{
+	color: #208bc6;
+	cursor: pointer;
+}
+
+.list-opt label span{
+	margin-left: 6rem;
+}
+
+.list-opt label::before{
+	content: "";
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin-right: .5rem;
+	vertical-align: middle;
+	border: 1px solid #b6b6b6;
+	border-radius: 20%;	
+	cursor: pointer;
+}
+
+.list-opt input[type="checkbox"]:checked+label::before{
+	content: "\2714"; /*tick*/
+	color: #28abe3;
+}
+
+.list-opt input[type="checkbox"]:checked+label{
+	color: #999;
+}
+
+
+.checkout{
+    width:70%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.checkout-btn {
+    width:25%;
+	height: 3rem;
+	border-radius: 0.4rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #fff;
+	background-color: #208bc6;
+	cursor: pointer;
+	position: relative;
+}
+
+.checkout-btn:active{
+	top: 2px;
+}
+
+.checkout .checkout-total{
+	padding-left: 6rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.price-total::before{
+	content: "\0024";
+	padding-right: .4rem;
+}
