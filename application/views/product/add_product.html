@@ -9,26 +9,51 @@
                     <div class="ibox-content">
                         <form class="form-horizontal" onsubmit="return false;">
                             <div class="form-group">
-                                <label class="col-sm-offset-2 col-sm-2 control-label">Product Name</label>
+                                <label class=" col-sm-2 control-label">Product Name</label>
                                 <div class="col-sm-4">
                                     <input class="form-control" name="name" placeholder="please enter product name">
                                 </div>
                             </div>
-                            {{foreach $category as $key => $item}}
-                            <div class="form-group">
-                                <label class="col-sm-offset-2 col-sm-2 control-label">{{$key}}</label>
+                            <div class="product-select">
+                            {{foreach $category as $key => $propertys}}
+                                <label class=" col-sm-2 control-label">{{$key}}</label>
                                 <div class="col-sm-4">
                                     <select class="form-control m-b" name="{{$key}}">
-                                        <option value="">Please select product attributes</option>
-                                        {{foreach $item as $cate_info}}
+                                        <option value="">Please Choose {{$key}}</option>
+                                        {{foreach $propertys as $cate_info}}
                                         <option value="{{$cate_info.name}}">{{$cate_info.name}}</option>
                                         {{/foreach}}
                                     </select>
                                 </div>
-                            </div>
                             {{/foreach}}
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">DataSheet</label>
+                                <div id="DataSheet">
+                                    <button class="choose-file btn btn-primary btn-rounded btn-sm"><i
+                                            class="fa fa-plus-circle"></i>&nbsp;&nbsp;Choose DataSheet
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Driver DataSheet</label>
+                                <div id="Driver">
+                                    <button class="choose-file btn btn-primary btn-rounded btn-sm"><i
+                                            class="fa fa-plus-circle"></i>&nbsp;&nbsp;Choose Dirver
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">EXTRAS DataSheet</label>
+                                <div id="Extras">
+                                    <button class="choose-file btn btn-primary btn-rounded btn-sm"><i
+                                            class="fa fa-plus-circle"></i>&nbsp;&nbsp;Choose Extras
+                                    </button>
+                                </div>
+                            </div>
+
                             <div class="row">
-                                <div id="uploader" class="wu-example col-sm-offset-2 col-sm-6">
+                                <div id="uploader" class="wu-example  col-sm-6">
                                     <div class="queueList">
                                         <div id="dndArea" class="placeholder">
                                             <div id="filePicker"></div>
@@ -47,7 +72,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary save-product col-sm-2 col-sm-offset-4">Save</button>
+                                <button class="btn btn-primary save-product col-sm-2 col-sm-offset-2">Save</button>
                             </div>
                         </form>
 
@@ -59,6 +84,19 @@
 </div>
 <script type="application/javascript">
     $(function () {
+        $(document).on("click", ".choose-file", function () {
+            var file_type = $(this).parent().prop("id");
+            layer.open({
+                type: 2,
+                title: "CHOOSE FILE",
+                shadeClose: true,
+                shade: 0.3,
+                closeBtn:"2",
+                maxmin: true, //开启最大化最小化按钮
+                area: ['800px', "calc(40vw)"],
+                content: "{{'upload/show_datasheet'|base_url}}?file="+file_type
+            });
+        });
         $(".save-product").on("click", function () {
             $.post("{{'category/save_prodcut'|base_url}}", $(".form-horizontal").serialize(), function (response) {
                 if (response.ecode == 0) {

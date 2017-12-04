@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <title>Proculus</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html"/><![endif]-->
+    <link href="{{'static/bscss/bootstrap.min.css'|base_url}}" rel="stylesheet">
+    <link href="{{'static/bscss/font-awesome.css'|base_url}}?v=4.4.0" rel="stylesheet">
+    <link href="{{'static/bscss/style.min.css'|base_url}}?v=4.1.0" rel="stylesheet">
+    <link href="{{'static/bscss/plugins/iCheck/custom.css'|base_url}}" rel="stylesheet">
+    <script type="text/javascript" src="{{'static/bsjs/jquery.min.js'|base_url}}"></script>
+    <script type="text/javascript" src="{{'static/bsjs/bootstrap.min.js'|base_url}}"></script>
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <div class="table-responsive">
+                            <input type="hidden" id="file" value="{{$file_type}}">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+
+                                    <th></th>
+                                    <th>FILE NAME</th>
+                                    <th>SIZE</th>
+                                    <th>FILE TYPE</th>
+                                    <th>CREATE TIME</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{foreach $data_list as $data}}
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" class="i-checks" name="input[]" value="{{$data.filename}}">
+                                    </td>
+                                    <td>{{$data.filename}}</td>
+                                    <td>{{$data.size}}</td>
+                                    <td>{{$data.filetype}}</td>
+                                    <td>{{$data.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}</td>
+                                </tr>
+                                {{/foreach}}
+                                </tbody>
+                            </table>
+                            <button class="btn btn-primary btn-sm select-video">Confirm</button>
+                        </div>
+                        {{$pagelist}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="{{'static/js/plugins/iCheck/icheck.min.js'|base_url}}"></script>
+<script src="{{'static/bsjs/content.min.js'|base_url}}"></script>
+<script type="application/javascript">
+    $(document).ready(function () {
+        $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",});
+        $(".select-video").on("click", function () {
+            var file_type = $("#file").val();
+            var html = "";
+            var file = $("input.i-checks:checked").each(function () {
+                html += "<label class='label label-primary'>"+$(this).val()+"</label>&nbsp;&nbsp;<input type='hidden' name="+file_type+"[] value="+$(this).val()+">"
+            });
+            html += "<button class='choose-file btn btn-primary btn-rounded btn-sm'><i class='fa fa-plus-circle'></i>&nbsp;&nbsp;Choose"+ file_type +" </button>";
+            console.log(file_type);
+            console.log(html);
+            $("#"+file_type, window.parent.document).html(html);
+            parent.layer.closeAll();
+
+        })
+    });
+</script>
+</html>

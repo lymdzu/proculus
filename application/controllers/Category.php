@@ -7,7 +7,8 @@
  */
 class Category extends AdController
 {
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model("ProductModel", "product", true);
     }
@@ -19,6 +20,7 @@ class Category extends AdController
         $this->vars['category_list'] = array_keys($this->config->item("prop"));
         $this->page("product/category.html");
     }
+
     public function product_property()
     {
         $this->vars['nav'] = "product";
@@ -29,6 +31,7 @@ class Category extends AdController
         $this->vars['property_list'] = $property_list;
         $this->page("product/property.html");
     }
+
     /**
      * add new category
      */
@@ -51,6 +54,7 @@ class Category extends AdController
             $this->json_result(API_ERROR, "", "Add Property Wrong");
         }
     }
+
     /**
      * edit category
      */
@@ -94,22 +98,14 @@ class Category extends AdController
     {
         $this->load->model("ProductModel", "product", true);
         $category = $this->config->item("prop");
-        $product_list = $this->product->get_product_list();
-        foreach ($product_list as $key => $product)
-        {
-            $new_product = array("id" => $product['id'], "name" => $product['name'], "pic" => $product['pic']);
-            $cate_list = $this->product->get_product_cate($product['id']);
-            $product_cate = array();
-            foreach ($cate_list as $cate)
-            {
-                $product_cate[$cate['cate']] = $cate['cate_val'];
-            }
-            $new_product = array_merge($new_product, $product_cate);
-            $new_product['create_time'] = $product['create_time'];
-            $product_list[$key] = $new_product;
-        }
+        $page = $this->input->get("page");
+        $offset = empty($page) ? 0 : (intval($page) - 1) * PAGESIZE;
+        $total = $this->product->count_product_list();
+        $product_list = $this->product->get_product_list($offset);
         $this->vars['product_list'] = $product_list;
         $this->vars['category_list'] = $category;
+        $this->load->library("tgpage", array('total' => $total, 'pagesize' => PAGESIZE));
+        $this->vars['pagelist'] = $this->tgpage->showpage();
         $this->page("product/product.html");
     }
 
@@ -119,9 +115,9 @@ class Category extends AdController
         $this->vars['page'] = "add_product";
         $type_list = $this->config->item("prop");
         $select = array();
-        foreach ($type_list as $item) {
-            $cate = $this->product->get_property_list($item);
-            $select[$item['name']] = $cate;
+        foreach ($type_list as $proporty => $item) {
+            $cate = $this->product->get_property_list($proporty);
+            $select[$proporty] = $cate;
         }
         $this->vars['category'] = $select;
         $this->page("product/add_product.html");
@@ -131,19 +127,53 @@ class Category extends AdController
     {
         $name = $this->input->post("name", true);
         $product_pic = $this->input->post("product-pic", true);
-        $this->load->model("ProductModel", "product", true);
+        $partnum = $this->input->post("Part_Number", true);
+        $size = $this->input->post("Size", true);
+        $catelog = $this->input->post("Catalog", true);
+        $resolution = $this->input->post("Resolution(pixel)", true);
+        $bright = $this->input->post("Brightness(nits)", true);
+        $interface = $this->input->post("Interface", true);
+        $input = $this->input->post("Input_Voltage", true);
+        $working = $this->input->post("Working_Platform", true);
+        $download = $this->input->post("Download_Methond", true);
+        $cable = $this->input->post("Cable&Connector", true);
+        $datasheet = $this->input->post("DataSheet", true);
+        $driver = $this->input->post("Driver", true);
+        $extras = $this->input->post("Extras", true);
         if (empty($name)) {
             $this->json_result(LACK_REQUIRED_PARAMETER, "", "Please enter product name");
         }
-        foreach ($_POST as $key => $item) {
-            if ($key == "name" || $key == "product-pic") {
-                continue;
-            } else {
-                $cate_list[] = array("cate" => $key, "cate_val" => $item);
+        if (empty($product_pic)) {
+            $this->json_result(LACK_REQUIRED_PARAMETER, "", "Please enter product picture");
+        }
+        $search_keys = $this->config->item("prop");
+        foreach ($_POST as $postkey => $postvalue) {
+            if (in_array($postkey, $search_keys) && $search_keys[$postkey]) {
+                if (empty($postvalue)) {
+                    $this->json_result(LACK_REQUIRED_PARAMETER, "", "Please select " . $postkey);
+                }
             }
         }
-        $product = array("name" => $name, "pic" => $product_pic, "create_time" => time(), "status" => 1);
-        $insert_status = $this->product->insert_product($product, $cate_list);
+        $product = array(
+            "name"             => $name,
+            "Part_Number"      => $partnum,
+            "Size"             => $size,
+            "Catalog"          => $catelog,
+            "Resolution"       => $resolution,
+            "Brightness"       => $bright,
+            "Interface"        => $interface,
+            "Input_Voltage"    => $input,
+            "Working_Platform" => $working,
+            "Download_Method"  => $download,
+            "Cable&Connector"  => $cable,
+            "DataSheet"        => implode(";", $datasheet),
+            "Driver"           => implode(";", $driver),
+            "Extras"           => implode(";", $extras),
+            "pic"              => $product_pic,
+            "create_time"      => time(),
+            "status"           => 1
+        );
+        $insert_status = $this->product->insert_product($product);
         if ($insert_status) {
             $this->json_result(REQUEST_SUCCESS, "Add Success");
         } else {
@@ -151,7 +181,16 @@ class Category extends AdController
         }
     }
 
-
+    public function delete_product()
+    {
+        $id = $this->input->post('id');
+        $status = $this->product->delete_product($id);
+        if ($status) {
+            $this->json_result(REQUEST_SUCCESS, "DELETE Success");
+        } else {
+            $this->json_result(API_ERROR, "", "Server Error");
+        }
+    }
 
 
 }

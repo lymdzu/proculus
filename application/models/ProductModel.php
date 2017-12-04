@@ -18,7 +18,7 @@ class ProductModel extends CI_Model
         }
     }
 
-    public function get_upload_list($offset, $limit, $filetype, $category = false)
+    public function get_upload_list($offset, $limit, $filetype = false, $category = false)
     {
         if ($filetype) {
             $this->db->where("filetype", $filetype);
@@ -43,11 +43,13 @@ class ProductModel extends CI_Model
         $this->db->from("t_upload");
         return $this->db->count_all_results();
     }
+
     public function count_video_list()
     {
         $this->db->from("t_video");
         return $this->db->count_all_results();
     }
+
     public function get_video_list($offset, $limit)
     {
         $this->db->limit($limit, $offset);
@@ -84,6 +86,7 @@ class ProductModel extends CI_Model
             return false;
         }
     }
+
     public function delete_video($id)
     {
         $this->db->where("id", $id);
@@ -105,7 +108,7 @@ class ProductModel extends CI_Model
      */
     public function add_category($name, $parent, $operater)
     {
-        try{
+        try {
             $insert_status = $this->db->insert("t_category", array("name" => $name, "parent" => $parent, "create_time" => time(), "operater" => $operater));
             $affect_rows = $this->db->affected_rows();
             if ($insert_status && $affect_rows == 1) {
@@ -113,9 +116,7 @@ class ProductModel extends CI_Model
             } else {
                 return false;
             }
-        }
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             return false;
         }
 
@@ -145,6 +146,25 @@ class ProductModel extends CI_Model
         }
     }
 
+    public function delete_product($id)
+    {
+
+        $this->db->where("id", $id);
+        $delete_status = $this->db->delete("t_product");
+        $affect_rows = $this->db->affected_rows();
+        if ($delete_status && $affect_rows == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function count_product_list()
+    {
+        $this->db->from("t_product");
+        return $this->db->count_all_results();
+    }
+
     /**
      * 获取商品分类列表
      * @param $level
@@ -160,6 +180,7 @@ class ProductModel extends CI_Model
         $query = $this->db->get("t_category");
         return $query->result_array();
     }
+
     public function get_property_list($parent)
     {
         $this->db->where("parent", $parent);
@@ -167,27 +188,40 @@ class ProductModel extends CI_Model
         return $query->result_array();
     }
 
-    public function insert_product($product, $pro_cat)
+    public function insert_product($product)
     {
-        $this->db->trans_start();
-        $this->db->insert("t_product", $product);
-        $product_id = $this->db->insert_id();
-        foreach ($pro_cat as $key => $cat) {
-            $cat['product_id'] = $product_id;
-            $pro_cat[$key] = $cat;
-        }
-        $this->db->insert_batch("t_product_type", $pro_cat);
-        $this->db->trans_complete();
-        if ($this->db->trans_status() === false) {
-            return false;
-        } else {
+        $insert_status = $this->db->insert("t_product", $product);
+        $affect = $this->db->affected_rows();
+        if ($insert_status && $affect > 0) {
             return true;
+
+        } else {
+            return false;
         }
     }
 
-    public function get_product_list()
+    public function get_product_list($offset, $limit, $size = false, $catelog = false, $resolution = false, $bright = false, $interface = false, $input = false)
     {
-        $this->db->select("*");
+        if ($size) {
+            $this->db->where("Size", $size);
+        }
+        if ($catelog) {
+            $this->db->where("Catalog", $size);
+        }
+        if ($resolution) {
+            $this->db->where("Resolution", $size);
+        }
+        if ($bright) {
+            $this->db->where("Brightness", $size);
+        }
+        if ($interface) {
+            $this->db->where("Interface", $size);
+        }
+        if ($input) {
+            $this->db->where("Input_Voltage", $size);
+        }
+        $this->db->limit($limit, $offset);
+        $this->db->order_by("create_time", "desc");
         $this->db->from("t_product");
         $query = $this->db->get();
         return $query->result_array();
@@ -199,6 +233,7 @@ class ProductModel extends CI_Model
         $query = $this->db->get("t_product_type");
         return $query->result_array();
     }
+
     public function save_video($video)
     {
         $insert_status = $this->db->insert("t_video", $video);

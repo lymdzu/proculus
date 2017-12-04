@@ -225,6 +225,20 @@ class Upload extends AdController
         $this->vars['video_list'] = $upload_list;
         $this->display("upload/show_video.html");
     }
+    public function show_datasheet()
+    {
+        $file_type = $this->input->get("file");
+        $this->load->model("ProductModel", "upload", true);
+        $page = $this->input->get("page");
+        $offset = empty($page) ? 0 : (intval($page) - 1) * PAGESIZE;
+        $total = $this->upload->count_upload_list(false, "Video");
+        $upload_list = $this->upload->get_upload_list($offset, PAGESIZE);
+        $this->load->library("tgpage", array('total' => $total, 'pagesize' => PAGESIZE));
+        $this->vars['pagelist'] = $this->tgpage->showpage();
+        $this->vars['data_list'] = $upload_list;
+        $this->vars['file_type'] = $file_type;
+        $this->display("upload/show_datasheet.html");
+    }
     /**
      * 删除上传记录和文件
      */
