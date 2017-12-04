@@ -69,6 +69,12 @@ class ProductModel extends CI_Model
         $query = $this->db->get("t_upload");
         return $query->row_array();
     }
+    public function get_upload_by_name($name)
+    {
+        $this->db->where("filename", $name);
+        $query = $this->db->get("t_upload");
+        return $query->row_array();
+    }
 
     /**
      * 根据id删除上传记录
@@ -225,6 +231,13 @@ class ProductModel extends CI_Model
         $this->db->from("t_product");
         $query = $this->db->get();
         return $query->result_array();
+    }
+    public function get_product_desc($id)
+    {
+        $this->db->where("id", $id);
+        $query = $this->db->get("t_product");
+        return $query->row_array();
+
     }
 
     public function get_product_cate($id)
