@@ -15,147 +15,98 @@
             </div>
             <div class="tip-change">
                 <ul>
-                    <li class="tip-href detail">DETAILS</li>
-                    <li class="tip-href download active">DOWNLOADS</li>
+                    <li class="tip-href detail active">DETAILS</li>
+                    <li class="tip-href download">DOWNLOADS</li>
                     <li class="tip-empty">&nbsp;</li>
                 </ul>
-                <div class="tip-list detail" style="display: none">
-                    <div class="tips">
+                <div class="tip-list detail">
+                    {{foreach $desc as $key => $item}}
+                    <div class="tips{{if $key == "DOWNLOAD METHOD"}} long-title{{/if}}">
                         <div class="tip-title">
-                            LCM SIZE
+                            {{$key}}
                         </div>
                         <div class="tip-text">
-                            3.5 inch
+                            {{$item}}
                         </div>
                     </div>
-                    <div class="tips">
-                        <div class="tip-title">
-                            LCM SIZE
-                        </div>
-                        <div class="tip-text">
-                            3.5 inch
-                        </div>
-                    </div>
-                    <div class="tips">
-                        <div class="tip-title">
-                            LCM SIZE
-                        </div>
-                        <div class="tip-text">
-                            3.5 inch
-                        </div>
-                    </div>
-                    <div class="tips">
-                        <div class="tip-title">
-                            LCM SIZE
-                        </div>
-                        <div class="tip-text">
-                            3.5 inch
-                        </div>
-                    </div>
-                    <div class="tips">
-                        <div class="tip-title">
-                            LCM SIZE
-                        </div>
-                        <div class="tip-text">
-                            3.5 inch
-                        </div>
-                    </div>
-                    <div class="tips">
-                        <div class="tip-title">
-                            LCM SIZE
-                        </div>
-                        <div class="tip-text">
-                            3.5 inch
-                        </div>
-                    </div>
-                    <div class="tips">
-                        <div class="tip-title">
-                            LCM SIZE
-                        </div>
-                        <div class="tip-text">
-                            3.5 inch
-                        </div>
-                    </div>
+                    {{/foreach}}
                 </div>
-                <div class="tip-list download">
+                <div class="tip-list download" style="display: none">
                     <div class="left-data data">
+                        {{if $download.DATASHEET}}
                         <div class="data-box">
                             <h4>DATASHEET</h4>
-                            <a href="#">
+                            {{foreach $download.DATASHEET as $down}}
+                            <a target="_blank" href="{{'upload/file/'|base_url}}{{$down.filename}}">
                                 <div class="download-list">
                                     <div class="down-icon">
                                         <icon class="iconfont">&#xe68f;</icon>
                                     </div>
                                     <div class="down-cont">
                                         <div class="down-title">
-                                            UnicView AD User Guide
+                                            {{$down.filename|strstr:".":"TRUE"}}
                                         </div>
                                         <div class="down-text">
-                                            Size : 4.81Mb　Revision : 2017-06-02
+                                            Size : {{$down.size}}Mb　Revision : {{$down.create_time|date_format:"%Y-%m-%d"}}
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="#">
-                                <div class="download-list">
-                                    <div class="down-icon">
-                                        <icon class="iconfont">&#xe68f;</icon>
-                                    </div>
-                                    <div class="down-cont">
-                                        <div class="down-title">
-                                            UnicView AD User Guide
-                                        </div>
-                                        <div class="down-text">
-                                            Size : 4.81Mb　Revision : 2017-06-02
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                            {{/foreach}}
                         </div>
+                        {{/if}}
+                        {{if $download.EXTRAS}}
                         <div class="data-box">
                             <h4>EXTRAS</h4>
-                            <a href="#">
+                            {{foreach $download.EXTRAS as $down}}
+                            <a target="_blank" href="{{'upload/file/'|base_url}}{{$down.filename}}">
                                 <div class="download-list">
                                     <div class="down-icon">
                                         <icon class="iconfont">&#xe68f;</icon>
                                     </div>
                                     <div class="down-cont">
                                         <div class="down-title">
-                                            UnicView AD User Guide
+                                            {{$down.filename|strstr:".":"TRUE"}}
                                         </div>
                                         <div class="down-text">
-                                            Size : 4.81Mb　Revision : 2017-06-02
+                                            Size : {{$down.size}}Mb　Revision : {{$down.create_time|date_format:"%Y-%m-%d"}}
                                         </div>
                                     </div>
                                 </div>
                             </a>
+                            {{/foreach}}
                         </div>
+                        {{/if}}
                     </div>
                     <div class="right-data data">
+                        {{if $download.DRIVER_DATASHEET}}
                         <div class="data-box">
                             <h4>Driver DATASHEET</h4>
-                            <a href="#">
+                            {{foreach $download.DRIVER_DATASHEET as $down}}
+                            <a  target="_blank" href="{{'upload/file/'|base_url}}{{$down.filename}}">
                                 <div class="download-list">
                                     <div class="down-icon">
                                         <icon class="iconfont">&#xe68f;</icon>
                                     </div>
                                     <div class="down-cont">
                                         <div class="down-title">
-                                            UnicView AD User Guide
+                                            {{$down.filename|strstr:".":"TRUE"}}
                                         </div>
                                         <div class="down-text">
-                                            Size : 4.81Mb　Revision : 2017-06-02
+                                            Size : {{$down.size}}Mb　Revision : {{$down.create_time|date_format:"%Y-%m-%d"}}
                                         </div>
                                     </div>
                                 </div>
                             </a>
+                            {{/foreach}}
                         </div>
+                        {{/if}}
                     </div>
                 </div>
             </div>
         </div>
         <div class="intro-pic">
-            <img src="{{'static/images/modules_desc.jpg'|base_url}}">
+            <img src="{{'static/images/'|base_url}}{{$pic}}">
         </div>
     </div>
 </div>

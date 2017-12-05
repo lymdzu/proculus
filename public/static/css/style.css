@@ -1177,7 +1177,6 @@ body.isOpenSiteNavigation {
 
     .header .head-margin {
         padding: 0 40px;
-        font-family: OpenSans, sans-serif;
     }
 
     .logo .top-logo {
@@ -3909,7 +3908,6 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     font-size: 14px;
     font-weight: 400;
     color: #bcbecc;
-    font-family: OpenSans, sans-serif;
     margin-bottom: 1rem;
     line-height: 1.5rem;
 }
@@ -3954,7 +3952,6 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
     display: block;
     font-size: 14px;
     color: #bcbecc;
-    font-family: OpenSans, sans-serif;
     font-weight: 600;
     margin-bottom: 1.3rem;
 }
@@ -3976,7 +3973,6 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
 
 .news {
     width: 75%;
-    font-family: OpenSans, sans-serif;
 }
 
 .news .banner ul, ol {
@@ -4349,7 +4345,6 @@ h1.bold-title {
 }
 
 .soft-cont {
-    font-family: OpenSans, sans-serif;
     padding-top: calc(3vw);
     padding-bottom: calc(5vw);
     padding-left: calc(15vw);
@@ -4379,7 +4374,6 @@ h1.bold-title {
     display: inline-block;
     margin-right: 1rem;
     font-weight: 400;
-    font-family: OpenSans, sans-serif;
 }
 
 .down-cont .down-soft {
@@ -4552,8 +4546,8 @@ h1.bold-title {
 }
 
 .soft-overview .soft-toggle-tip {
-    padding-left: 12vw;
-    padding-right: 12vw;
+    padding-left: 15vw;
+    padding-right: 15vw;
     margin-top: 2rem;
     width: 100%;
 }
@@ -4787,7 +4781,6 @@ h1.bold-title {
     text-align: center;
 }
 .kit-cont{
-    font-family: OpenSans, sans-serif;
     padding-top: calc(5vw);
     padding-left: calc(15vw);
     padding-right: calc(5vw);
@@ -4874,7 +4867,6 @@ h1.bold-title {
     text-align: center;
 }
 .service-cont{
-    font-family: OpenSans, sans-serif;
     border-top: 0.4rem #0380c1 solid;
     width: 100%;
     margin: 0 auto;
@@ -4890,7 +4882,6 @@ h1.bold-title {
 }
 @media screen and (min-width: 1600px) {
     .service-cont{
-        font-family: OpenSans, sans-serif;
         border-top: 0.4rem #0380c1 solid;
         padding-left: calc(15vw);
         padding-right: calc(15vw);
@@ -5244,6 +5235,9 @@ h1.bold-title {
     width: 25%;
     padding-left: 1.5rem;
     padding-top: 2rem;
+}
+.tip-list .tips.long-title{
+    width: 30%;
 }
 .tips .tip-title{
     color: #b5b5b5;
@@ -5820,7 +5814,6 @@ h1.bold-title {
 }
 
 .order-cont{
-    font-family: OpenSans, sans-serif;
     padding-top: calc(5vw);
     padding-left: calc(15vw);
     padding-right: calc(5vw);

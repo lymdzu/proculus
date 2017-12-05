@@ -54,6 +54,50 @@ class Product extends DashboardController
 
     public function display_view()
     {
+        $product_id = $this->input->get("id");
+        $this->load->model("ProductModel", "product", true);
+        $product = $this->product->get_product_desc($product_id);
+        $desc = array();
+        if (!empty($product)) {
+            $desc = array(
+                "LCM SIZE"        => $product['Size'],
+                "PLATFORM"        => $product['Working_Platform'],
+                "VOTAGE"          => $product['Input_Voltage'],
+                "BRIGHTNESS"      => $product['Brightness'],
+                "INTERFACE"       => $product['Interface'],
+                "DOWNLOAD METHOD" => $product['Download_Method'],
+                "CONECTOR"        => $product['Cable&Connector'],
+            );
+            $datasheet = array();
+            $driver = array();
+            $extras = array();
+            if (!empty($product["DataSheet"])) {
+                $sheet = explode(";", $product["DataSheet"]);
+                foreach ($sheet as $data) {
+                    $datasheet[] = $this->product->get_upload_by_name($data);
+                }
+            }
+            if (!empty($product["Extras"])) {
+                $sheet = explode(";", $product["Extras"]);
+                foreach ($sheet as $data) {
+                    $extras[] = $this->product->get_upload_by_name($data);
+                }
+            }
+            if (!empty($product["Driver"])) {
+                $sheet = explode(";", $product["Driver"]);
+                foreach ($sheet as $data) {
+                    $driver[] = $this->product->get_upload_by_name($data);
+                }
+            }
+            $download = array(
+                "DATASHEET"        => $datasheet,
+                "EXTRAS"           => $extras,
+                "DRIVER_DATASHEET" => $driver
+            );
+        }
+        $this->vars['desc'] = $desc;
+        $this->vars['download'] = $download;
+        $this->vars['pic'] = $product['pic'];
         $this->page("product/mo_desc.html");
     }
 
