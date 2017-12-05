@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<div class="order-cont" >
+<div class="order-cont">
     <div class="order-left">
         <div class="item-change">
             <div class="item-image">
@@ -20,14 +20,14 @@
                     <span class="price-num">198.00</span>
                 </div>
                 <div class="item-text">
-                    This is a developer kit for 7'' industrial 
-                    level use with UnicView AD. UnicView AD is the 
-                    compamion software for the Advanced Design(AD) 
-                    firmware LCMs. It's primarily used as a debug, 
+                    This is a developer kit for 7'' industrial
+                    level use with UnicView AD. UnicView AD is the
+                    compamion software for the Advanced Design(AD)
+                    firmware LCMs. It's primarily used as a debug,
                     test and configuring software.
                 </div>
-                <div class="cancel-btn">
-                    <u>Cancel</u>
+                <div class="cancel-btn" onclick="cacel_order($(this));" data-price="198">
+                    Cancel
                 </div>
             </div>
         </div>
@@ -43,16 +43,16 @@
                     <span class="price-num">198.00</span>
                 </div>
                 <div class="item-text">
-                    UnicView RD is the compamion software for the Real 
-                    Design(RD) firm ware LCMs. It's primarily used as 
+                    UnicView RD is the compamion software for the Real
+                    Design(RD) firm ware LCMs. It's primarily used as
                     a debug, test and configuring.
                 </div>
-                <div class="cancel-btn">
-                    <u>Cancel</u>
+                <div class="cancel-btn" onclick="cacel_order($(this));" data-price="198">
+                    Cancel
                 </div>
             </div>
         </div>
-        
+
     </div>
     <div class="order-right">
         <div class="categories-title">
@@ -60,31 +60,117 @@
         </div>
         <div class="categories-list">
             <div class="list-opt">
-                <input type="checkbox" name="categories" id="list-consumer" value="consumer"  checked="checked"/>
+                <input type="checkbox" name="categories" id="list-consumer" value="consumer" checked="checked"/>
                 <label for="list-consumer">
                     Consumer Level
                     <span>2</span>
                 </label>
-                
+
             </div>
             <div class="list-opt">
-                <input type="checkbox" name="categories" id="list-industrial" value="industrial" />
+                <input type="checkbox" name="categories" id="list-industrial" value="industrial"/>
                 <label for="list-industrial">
                     Industrial Level
                     <span>10</span>
                 </label>
-                
+
             </div>
-            
-            
+
+
         </div>
     </div>
+
     <div class="checkout">
-        <button class="checkout-btn">CHECKOUT</button>
+        <form name="paypal" id="paypal" action="https://www.paypal.com/cgi-bin/webscr" target="_blank" method="post">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="sales@proculustech.com"><!--这里填写你的paypal账户email-->
+            <input type="hidden" name="item_name" value="Item name"><!--这里填写客户订单的一些相关信息，当客户连到paypal网站付款的时候将看到这些信息-->
+            <input type="hidden" name="amount" id="amount" value="594"><!--订单的总金额信息-->
+            <input type="hidden" name="currency_code" value="USD">
+            <!--订单总金额对应的货币类型 ,客户可以用其他币种来付款,比如这里订单币种是美元USD,客户可以用欧元EUR来付款,由paypal根据当前汇率自动实现币种之间的换算-->
+            <input type="hidden" name="notify_url" value="">
+            <!--这里告诉paypal付款的通信url,即当客户付款后调用这个url通知系统-->
+            <button class="checkout-btn" onclick="$('#paypal').submit();"><span>CHECKOUT</span>
+            </button>
+        </form>
         <div class="checkout-total">
-            <span>TOTAL:</span>
-            <span class="price-total"></span>
+            <span>TOTAL:<i class="price-total"></i>396</span>
         </div>
     </div>
-    
 </div>
+<script type="text/javascript">
+    var total = 396;
+    var nums = 2;
+    var yf = 70.00;
+    $('.categoryul li a').click(function () {
+        var img = $(this).attr('img');
+        var price = $(this).attr('price');
+        var excerpt = $(this).attr('excerpt');
+        var title = $(this).text();
+        total = add(total, price);
+        nums++;
+        $('#buy_car').append('<div class="ordernowlist clearfix"><div class="ordernowimg fl"><img src="' + img + '" alt="' + price + '"></div><div class="ordernowtext fl"><h2>' + title + '</h2><div class="ordernowline"></div><p class="ordernowp1">' + excerpt + '</p><p class="ordernowp2">Price:' + price + '<a href="javascript:;" onclick="cacel_order($(this));" price="' + price + '">cancel</a></p></div></div>');
+        $('.ordernowp3').html('Merchandise:$' + total + ' Quantity:' + nums + ' Shipping Charge:$' + yf * nums);
+        $('#amount').val(total);
+    });
+
+    function cacel_order(a) {
+        total = sub(total, a.data('price'));
+        nums--;
+        a.parents('.item-change').remove();
+        $('.checkout-total').html("TOTAL:<i class='price-total'></i>" + total);
+        $('#amount').val(total);
+    }
+
+    function add(a, b) {
+        var c, d, e;
+        try {
+            c = a.split(".")[1].length;
+        } catch (f) {
+            c = 0;
+        }
+        try {
+            d = b.split(".")[1].length;
+        } catch (f) {
+            d = 0;
+        }
+        return e = Math.pow(10, Math.max(c, d)), (mul(a, e) + mul(b, e)) / e;
+    }
+    function sub(a, b) {
+        var c, d, e;
+        try {
+            c = a.split(".")[1].length;
+        } catch (f) {
+            c = 0;
+        }
+        try {
+            d = b.split(".")[1].length;
+        } catch (f) {
+            d = 0;
+        }
+        return e = Math.pow(10, Math.max(c, d)), (mul(a, e) - mul(b, e)) / e;
+    }
+    function mul(a, b) {
+        var c = 0,
+                d = a.toString(),
+                e = b.toString();
+        try {
+            c += d.split(".")[1].length;
+        } catch (f) {}
+        try {
+            c += e.split(".")[1].length;
+        } catch (f) {}
+        return Number(d.replace(".", "")) * Number(e.replace(".", "")) / Math.pow(10, c);
+    }
+    function div(a, b) {
+        var c, d, e = 0,
+                f = 0;
+        try {
+            e = a.toString().split(".")[1].length;
+        } catch (g) {}
+        try {
+            f = b.toString().split(".")[1].length;
+        } catch (g) {}
+        return c = Number(a.toString().replace(".", "")), d = Number(b.toString().replace(".", "")), mul(c / d, Math.pow(10, f - e));
+    }
+</script>

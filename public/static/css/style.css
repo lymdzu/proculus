@@ -5023,6 +5023,10 @@ h1.bold-title {
     -moz-border-radius: 0.3rem;
     -webkit-border-radius: 0.3rem;
 }
+.learn-btn:hover{
+    color: #fff;
+    background: #000;
+}
 .product-wapper{
     height: 27rem;
     width: 100%;
@@ -5873,6 +5877,7 @@ h1.bold-title {
 .cancel-btn{
 	color: #208bc6;
 	font-size: 1.2rem;
+    text-decoration: underline;
 }
 
 .cancel-btn u{
@@ -5936,7 +5941,7 @@ h1.bold-title {
 }
 
 .checkout-btn {
-    width:25%;
+    width:10rem;
 	height: 3rem;
 	border-radius: 0.4rem;
 	font-weight: 700;

@@ -1,5 +1,6 @@
 {
 	"require": {
-		"yzalis/identicon":"*"
+		"yzalis/identicon":"*",
+		"paypal/rest-api-sdk-php":"*"
 	}
 }

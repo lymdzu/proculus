@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInita12fea61c17f433c0828b2e0646d5905
 {
     public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'Psr\\Log\\' => 8,
+        ),
         'I' => 
         array (
             'Identicon\\' => 10,
@@ -14,9 +18,23 @@ class ComposerStaticInita12fea61c17f433c0828b2e0646d5905
     );
 
     public static $prefixDirsPsr4 = array (
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
         'Identicon\\' => 
         array (
             0 => __DIR__ . '/..' . '/yzalis/identicon/src/Identicon',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'PayPal' => 
+            array (
+                0 => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib',
+            ),
         ),
     );
 
@@ -25,6 +43,7 @@ class ComposerStaticInita12fea61c17f433c0828b2e0646d5905
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInita12fea61c17f433c0828b2e0646d5905::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInita12fea61c17f433c0828b2e0646d5905::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInita12fea61c17f433c0828b2e0646d5905::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
