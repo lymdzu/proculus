@@ -1627,7 +1627,7 @@ ul:last-child {
     line-height: 1;
     letter-spacing: 0em;
     font-style: italic;
-    font-family: 'Miller Text Bd It', Times, Georgia, serif;
+    /* font-family: 'Miller Text Bd It', Times, Georgia, serif; */
     font-weight: 400;
     color: #a9c000;
     padding-bottom: 3px
@@ -1728,7 +1728,7 @@ ul:last-child {
 
 .three-cont .icon {
     order: 1;
-    width: 30%;
+    /* width: 30%; */
 
 }
 
@@ -3958,7 +3958,7 @@ body.hero-list-first-index .hero-list.start-at-bottom .module:last-child .module
 
 /*****news desc page****/
 .single-new{
-    height: 19rem;
+    height: 27rem;
     width: 100%;
     overflow: hidden;
     background: repeat-x url(../images/single_news_bg.jpg) center top;
@@ -4769,7 +4769,7 @@ h1.bold-title {
     z-index: 10000;
 }
 .developer_cont{
-    height: 22rem;
+    height: 27rem;
     width: 100%;
     margin: 0 auto;
     overflow: hidden;
@@ -4826,15 +4826,16 @@ h1.bold-title {
 .kit-display{
     width: 30%;
     margin-bottom: 2rem;
+    padding-right: 1rem;
 }
 .kit-display .kitimg{
-    width: 64px;
-    height: 64px;
+    width: 4rem;
+    height: 4rem;
 }
 
 .kit-display p{
     line-height: 1rem;
-    font-size: 12px;
+    font-size: 0.8rem;
     margin-top: 0.5rem;
 }
 .change-dot{
@@ -4855,6 +4856,15 @@ h1.bold-title {
     background: #00aeef;
     border: 1px #00aeef solid;
 }
+
+.kit-buy p{
+    font-size: 1.1rem;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    line-height: 1.5rem;
+}
+
+
 .service-wapper{
     height: 27rem;
     width: 100%;
@@ -5014,6 +5024,14 @@ h1.bold-title {
     margin: 1rem 0;
 
 }
+@media screen and (min-width: 1600px) {
+    .demo-desc.right-desc{
+        padding: 9rem 4rem;
+    }
+    .demo-desc.left-desc{
+        padding: 9rem 4rem;
+    }
+}
 .learn-btn{
     border: 0.1rem solid #000;
     color: #000;
@@ -5081,6 +5099,7 @@ h1.bold-title {
 .icon-div h2{
     margin-top: 2rem;
     font-size: 1.2rem;
+    line-height: 1.8rem;
     font-weight: 600;
     text-align: center;
 }
@@ -5322,6 +5341,18 @@ h1.bold-title {
     font-size: 1rem;
     line-height: 1.5rem;
     font-weight: 400;
+}
+@media screen and (min-width: 1600px) {
+    .unic-ask{
+        padding-left: calc(14vw);
+        padding-right: calc(14vw);
+    }
+}
+@media screen and (min-width: 1200px) {
+    .unic-ask{
+        padding-left: calc(13vw);
+        padding-right: calc(13vw);
+    }
 }
 .unic-cont{
     padding-top: 5rem;
@@ -5571,6 +5602,10 @@ h1.bold-title {
 }
 .gray-and{
     /*opacity: 1;*/
+    display: flex;
+}
+.gray-and img{
+    margin: 0 auto;
 }
 .and-icon-cont{
     display: flex;
@@ -5626,6 +5661,9 @@ h1.bold-title {
 .and-overlay .and-desc{
     position: relative;
     align-items:center;
+}
+.and-overlay .and-desc h3{
+    font-weight: 600;
 }
 
 /******************************  About Us Page  ***********************************************/
@@ -5744,6 +5782,17 @@ h1.bold-title {
 	-webkit-column-count:2; /* Safari and Chrome */
 }
 
+@media screen and (min-width: 1600px) {
+    .about-desc.right-desc{
+        padding: 9rem 4rem;
+    }
+    .about-desc.left-desc{
+        padding: 9rem 4rem;
+    }
+    .our-service{
+        padding: 9rem 9rem;
+    }
+}
 .three-cont02 {
     display: flex;
     flex-direction: column;
@@ -5753,7 +5802,7 @@ h1.bold-title {
 
 .three-cont02 .icon {
     order: 1;
-    width: 30%;
+    /* width: 30%; */
 
 }
 
