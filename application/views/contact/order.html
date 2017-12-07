@@ -129,6 +129,7 @@
                     height: 0 //结束时高度
                 },
                 onEnd: function(){ //结束回调
+                    console.log("callback");
                     total = add(total, "198");
                     nums++;
                     $('#left-buy').append('<div class="item-change">\
