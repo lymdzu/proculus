@@ -101,7 +101,8 @@ class Category extends AdController
         $page = $this->input->get("page");
         $offset = empty($page) ? 0 : (intval($page) - 1) * PAGESIZE;
         $total = $this->product->count_product_list();
-        $product_list = $this->product->get_product_list($offset);
+        $product_list = $this->product->get_product_list($offset, PAGESIZE);
+        log_message("info", "productlist, resutl:" . json_encode($product_list));
         $this->vars['product_list'] = $product_list;
         $this->vars['category_list'] = $category;
         $this->load->library("tgpage", array('total' => $total, 'pagesize' => PAGESIZE));
