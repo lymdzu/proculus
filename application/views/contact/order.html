@@ -1,3 +1,6 @@
+<style>
+    .u-flyer{display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;z-index: 9999;}
+</style>
 <div class="row order-wapper nav-padding-top">
     <div class="wrapper-top">
         <div class="title-top">
@@ -7,7 +10,7 @@
 </div>
 
 <div class="order-cont">
-    <div class="order-left">
+    <div class="order-left" id="left-buy">
         <div class="item-change">
             <div class="item-image">
                 <img src="http://placehold.it/267x252"/>
@@ -26,7 +29,7 @@
                     firmware LCMs. It's primarily used as a debug,
                     test and configuring software.
                 </div>
-                <div class="cancel-btn" onclick="cacel_order($(this));" data-price="198">
+                <div class="cancel-btn" data-price="198">
                     Cancel
                 </div>
             </div>
@@ -47,7 +50,7 @@
                     Design(RD) firm ware LCMs. It's primarily used as
                     a debug, test and configuring.
                 </div>
-                <div class="cancel-btn" onclick="cacel_order($(this));" data-price="198">
+                <div class="cancel-btn" data-price="198">
                     Cancel
                 </div>
             </div>
@@ -59,7 +62,7 @@
             <h2>Categories</h2>
         </div>
         <div class="categories-list">
-            <div class="list-opt">
+            <div class="list-opt" id="add-product">
                 <input type="checkbox" name="categories" id="list-consumer" value="consumer" checked="checked"/>
                 <label for="list-consumer">
                     Consumer Level
@@ -71,7 +74,7 @@
                 <input type="checkbox" name="categories" id="list-industrial" value="industrial"/>
                 <label for="list-industrial">
                     Industrial Level
-                    <span>10</span>
+                    <span>0</span>
                 </label>
 
             </div>
@@ -99,28 +102,50 @@
     </div>
 </div>
 <script type="text/javascript">
-    var total = 396;
-    var nums = 2;
-    var yf = 70.00;
-    $('.categoryul li a').click(function () {
-        var img = $(this).attr('img');
-        var price = $(this).attr('price');
-        var excerpt = $(this).attr('excerpt');
-        var title = $(this).text();
-        total = add(total, price);
-        nums++;
-        $('#buy_car').append('<div class="ordernowlist clearfix"><div class="ordernowimg fl"><img src="' + img + '" alt="' + price + '"></div><div class="ordernowtext fl"><h2>' + title + '</h2><div class="ordernowline"></div><p class="ordernowp1">' + excerpt + '</p><p class="ordernowp2">Price:' + price + '<a href="javascript:;" onclick="cacel_order($(this));" price="' + price + '">cancel</a></p></div></div>');
-        $('.ordernowp3').html('Merchandise:$' + total + ' Quantity:' + nums + ' Shipping Charge:$' + yf * nums);
-        $('#amount').val(total);
+    $(function () {
+        var total = 396;
+        var nums = 2;
+        var yf = 70.00;
+        $(document).on("click", ".cancel-btn", function () {
+            total = sub(total, $(this).data('price'));
+            nums--;
+            $(this).parents('.item-change').remove();
+            $('.checkout-total').html("TOTAL:<i class='price-total'></i>" + total);
+            $('#amount').val(total);
+        });
+       var offset = $("#left-buy").offset();
+        $("#add-product").click(function(event){
+            var img = "{{'static/images/modules_desc.jpg'|base_url}}";
+            var flyer = $('<img class="u-flyer" src="'+img+'">');
+            flyer.fly({
+                start: {
+                    left: event.screenX, //开始位置（必填）#fly元素会被设置成position: fixed
+                    top: event.screenY //开始位置（必填）
+                },
+                end: {
+                    left: offset.left+10, //结束位置（必填）
+                    top: offset.top+10, //结束位置（必填）
+                    width: 0, //结束时宽度
+                    height: 0 //结束时高度
+                },
+                onEnd: function(){ //结束回调
+                    total = add(total, "198");
+                    nums++;
+                    $('#left-buy').append('<div class="item-change">\
+                    <div class="item-image">\
+                            <img src="http://placehold.it/267x252"/></div>\
+                            <div class="item-desc">\
+                            <div class="item-title">\
+                            <h2>Developer Kit for UnicView RD</h2></div><div class="item-price">\
+                            <span class="price-num">198.00</span></div>\
+                            <div class="item-text">UnicView RD is the compamion software for the Real Design(RD) firm ware LCMs. It\'s primarily used as a debug, test and configuring.</div><div class="cancel-btn" data-price="198">Cancel </div></div></div>');
+                    $('.checkout-total').html("TOTAL:<i class='price-total'></i>" + total);
+                    $('#amount').val(total);
+                }
+            });
+        })
     });
 
-    function cacel_order(a) {
-        total = sub(total, a.data('price'));
-        nums--;
-        a.parents('.item-change').remove();
-        $('.checkout-total').html("TOTAL:<i class='price-total'></i>" + total);
-        $('#amount').val(total);
-    }
 
     function add(a, b) {
         var c, d, e;
