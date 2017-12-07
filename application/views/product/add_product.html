@@ -19,9 +19,9 @@
                                 <label class=" col-sm-2 control-label">{{$key}}</label>
                                 <div class="col-sm-4">
                                     {{if $key == "Cable"}}
-                                    <select class="form-control m-b" name="{{$key}}">
+                                    <select class="form-control m-b" name="Cable&Connector">
                                     {{else}}
-                                        <select class="form-control m-b" name="Cable&Connector">
+                                    <select class="form-control m-b" name="{{$key}}">
                                     {{/if}}
                                         <option value="">Please Choose {{$key}}</option>
                                         {{foreach $propertys as $cate_info}}
