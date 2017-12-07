@@ -18,7 +18,11 @@
                             {{foreach $category as $key => $propertys}}
                                 <label class=" col-sm-2 control-label">{{$key}}</label>
                                 <div class="col-sm-4">
+                                    {{if $key == "Cable"}}
                                     <select class="form-control m-b" name="{{$key}}">
+                                    {{else}}
+                                        <select class="form-control m-b" name="Cable&Connector">
+                                    {{/if}}
                                         <option value="">Please Choose {{$key}}</option>
                                         {{foreach $propertys as $cate_info}}
                                         <option value="{{$cate_info.name}}">{{$cate_info.name}}</option>
