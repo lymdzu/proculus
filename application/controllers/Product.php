@@ -66,7 +66,7 @@ class Product extends DashboardController
                 "BRIGHTNESS"      => $product['Brightness'],
                 "INTERFACE"       => $product['Interface'],
                 "DOWNLOAD METHOD" => $product['Download_Method'],
-                "CONECTOR"        => $product['Cable&Connector'],
+                "CONECTOR"        => $product['Cable_Connector'],
             );
             $datasheet = array();
             $driver = array();

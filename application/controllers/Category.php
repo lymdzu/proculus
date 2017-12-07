@@ -137,7 +137,7 @@ class Category extends AdController
         $input = $this->input->post("Input_Voltage", true);
         $working = $this->input->post("Working_Platform", true);
         $download = $this->input->post("Download_Methond", true);
-        $cable = $this->input->post("Cable&Connector", true);
+        $cable = $this->input->post("Cable_Connector", true);
         $datasheet = $this->input->post("DataSheet", true);
         $driver = $this->input->post("Driver", true);
         $extras = $this->input->post("Extras", true);
@@ -166,7 +166,7 @@ class Category extends AdController
             "Input_Voltage"    => $input,
             "Working_Platform" => $working,
             "Download_Method"  => $download,
-            "Cable&Connector"  => $cable,
+            "Cable_Connector"  => $cable,
             "DataSheet"        => implode(";", $datasheet),
             "Driver"           => implode(";", $driver),
             "Extras"           => implode(";", $extras),
