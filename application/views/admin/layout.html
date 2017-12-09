@@ -107,7 +107,7 @@
                         <li {{if $page == "add_product"}}class="active"{{/if}}>
                             <a href="{{'category/add_product'|base_url}}" data-index="1"><i class="fa fa-plus-square"></i>Add Product</a>
                         </li>
-                        <li>
+                        <li {{if $page == "product_list"}}class="active"{{/if}}>
                             <a href="{{'category/product'|base_url}}" data-index="2"><i class="fa fa-cubes"></i>Product list</a>
                         </li>
                     </ul>

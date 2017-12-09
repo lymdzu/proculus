@@ -71,6 +71,18 @@ class Admin extends AdController
         $this->page("news/admin_list.html");
     }
 
+    public function delete_new()
+    {
+        $new_id = $this->input->post("new_id");
+        $this->load->model("NewModel", "new", true);
+        $delete_status = $this->new->delete_new($new_id);
+        if ($delete_status) {
+            $this->json_result(REQUEST_SUCCESS, "Delete New Success");
+        } else {
+            $this->json_result(API_ERROR, "", "Delete New Wrong");
+        }
+    }
+
     public function add_paper()
     {
         $this->vars['nav'] = "news";

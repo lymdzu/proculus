@@ -96,6 +96,8 @@ class Category extends AdController
 
     public function product()
     {
+        $this->vars['nav'] = "product";
+        $this->vars['page'] = "product_list";
         $this->load->model("ProductModel", "product", true);
         $category = $this->config->item("prop");
         $page = $this->input->get("page");
@@ -112,7 +114,7 @@ class Category extends AdController
 
     public function add_product()
     {
-        $this->vars['nav'] = "news";
+        $this->vars['nav'] = "product";
         $this->vars['page'] = "add_product";
         $type_list = $this->config->item("prop");
         $select = array();

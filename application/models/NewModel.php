@@ -53,6 +53,17 @@ class NewModel extends CI_Model
         $query = $this->db->get("t_news");
         return $query->row_array();
     }
+
+    public function delete_new($id)
+    {
+        $this->db->where('id', $id);
+        $delete_new = $this->db->delete("t_news");
+        if ($delete_new) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public function get_new_comments($new_id)
     {
         $this->db->where("new_id", $new_id);

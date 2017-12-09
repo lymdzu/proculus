@@ -1,11 +1,12 @@
 <div class="wrapper wrapper-content  animated fadeInRight">
     <div class="row">
-            <div class="ibox">
-                <div class="col-sm-12">
+        <div class="ibox">
+            <div class="col-sm-12">
                 <div class="ibox-title">
                     <h5>News List</h5>
                     <div class="ibox-tools">
-                        <a data-toggle="modal" class="btn btn-primary btn-xs add-btn" href="{{'admin/add_paper'|base_url}}">Add New Paper</a>
+                        <a data-toggle="modal" class="btn btn-primary btn-xs add-btn"
+                           href="{{'admin/add_paper'|base_url}}">Add New Paper</a>
                     </div>
                 </div>
                 <div class="ibox-content">
@@ -22,6 +23,7 @@
                                             <th>News Link</th>
                                             <th>Creater</th>
                                             <th>CreateTime</th>
+                                            <th>Action</th>
                                             </thead>
                                             <tbody>
                                             {{foreach $news_list as $new}}
@@ -37,10 +39,16 @@
                                                     <span class="label label-primary">{{$keyword.keyword}}</span>
                                                     {{/foreach}}
                                                 </td>
-                                                <td><a href="{{'news/desc'|base_url}}?id={{$new.id}}" target="_blank">{{'news/desc'|base_url}}?id={{$new.id}}</a></td>
+                                                <td><a href="{{'news/desc'|base_url}}?id={{$new.id}}" target="_blank">{{'news/desc'|base_url}}?id={{$new.id}}</a>
+                                                </td>
                                                 <td>{{$new.creater}}</td>
                                                 <td>
-                                                {{$new.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}
+                                                    {{$new.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-danger delete-new"
+                                                            data-id="{{$new.id}}">Delete
+                                                    </button>
                                                 </td>
                                             </tr>
                                             {{/foreach}}
@@ -57,3 +65,21 @@
         </div>
     </div>
 </div>
+<script type="application/javascript">
+    $(function () {
+        $(".delete-new").on("click", function () {
+            var new_id = $(this).data("id");
+            $.post("{{'admin/delete_new'|base_url}}", {new_id: new_id}, function (res) {
+                if (res.ecode == 0) {
+                    layer.msg(res.result);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1000)
+                }
+                else {
+                    layer.msg(res.emsg);
+                }
+            })
+        })
+    })
+</script>
