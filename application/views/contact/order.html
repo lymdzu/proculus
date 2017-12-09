@@ -1,5 +1,12 @@
 <style>
-    .u-flyer{display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;z-index: 9999;}
+    .u-flyer {
+        display: block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        position: fixed;
+        z-index: 9999;
+    }
 </style>
 <div class="row order-wapper nav-padding-top">
     <div class="wrapper-top">
@@ -62,24 +69,36 @@
             <h2>Categories</h2>
         </div>
         <div class="categories-list">
-            <div class="list-opt" id="add-product">
-                <input type="checkbox" name="categories" id="list-consumer" value="consumer" checked="checked"/>
-                <label for="list-consumer">
+            <div class="cate-cont">
+                <div class="list-opt" id="add-product">
+                    <icon class="iconfont">&#xe7d5;</icon>
+                    <span>
                     Consumer Level
+                </span>
                     <span>2</span>
-                </label>
-
+                </div>
+                <ul class="categoryul" style="display: none;">
+                    <li class="list-consumer">
+                        <icon class="iconfont">&#xe6b9;</icon>
+                        <a href="javascript:;" data-price="198.00" data-desc="This is a developer kit for 7'' industrial level use with UnicView AD. UnicView AD is the compamion software for the Advanced Design(AD) firmware LCMs. It's primarily used as a debug, test and configuring software. "
+                           img="http://www.proculustech.com/data/upload/portal/image/20170318/Contact-us_Order-Now_07.jpg">Developer
+                            Kit for UnicView AD</a></li>
+                    <li class="list-consumer">
+                        <icon class="iconfont">&#xe6b9;</icon>
+                        <a href="javascript:;" data-price="198.00" data-desc="UnicView RD is the compamion software for the Real Design(RD) firm ware LCMs. It's primarily used as a debug,test and configuring."
+                           img="http://www.proculustech.com/data/upload/portal/image/20170318/Contact-us_Order-Now_07.jpg">Developer
+                            Kits for UnicView RD</a></li>
+                </ul>
             </div>
-            <div class="list-opt">
-                <input type="checkbox" name="categories" id="list-industrial" value="industrial"/>
-                <label for="list-industrial">
+            <div class="cate-cont">
+                <div class="list-opt boder-bottom">
+                    <icon class="iconfont">&#xe7d5;</icon>
+                    <span>
                     Industrial Level
+                </span>
                     <span>0</span>
-                </label>
-
+                </div>
             </div>
-
-
         </div>
     </div>
 
@@ -97,12 +116,25 @@
             </button>
         </form>
         <div class="checkout-total">
-            <span>TOTAL:<i class="price-total"></i>396</span>
+            <span>TOTAL:&#36;396</span>
         </div>
     </div>
 </div>
 <script type="text/javascript">
     $(function () {
+        $(".list-opt").on("click", function () {
+
+            $(".categoryul").slideToggle();
+            var icontext = $(this).find(".iconfont").html().replace(/./gim, function (i) {
+                return '&#' + i.charCodeAt(0).toString(16) + ';';
+            });
+            if (icontext.indexOf("e7d5") > 0) {
+                $(this).find(".iconfont").html("&#xe63b;");
+            }
+            else {
+                $(this).find(".iconfont").html("&#xe7d5;");
+            }
+        });
         var total = 396;
         var nums = 2;
         var yf = 70.00;
@@ -113,35 +145,40 @@
             $('.checkout-total').html("TOTAL:<i class='price-total'></i>" + total);
             $('#amount').val(total);
         });
-       var offset = $("#left-buy").offset();
-        $("#add-product").click(function(event){
+        var offset = $("#left-buy").offset();
+        $(".list-consumer").on("click", function (event) {
             var img = "{{'static/images/modules_desc.jpg'|base_url}}";
-            var flyer = $('<img class="u-flyer" src="'+img+'">');
+            var flyer = $('<img class="u-flyer" src="' + img + '">');
+            var self = $(this);
             flyer.fly({
                 start: {
                     left: event.screenX, //开始位置（必填）#fly元素会被设置成position: fixed
-                    top: event.screenY //开始位置（必填）
+                    top: event.screenY - 120 //开始位置（必填）
                 },
                 end: {
-                    left: offset.left+10, //结束位置（必填）
-                    top: offset.top+10, //结束位置（必填）
+                    left: offset.left + 10, //结束位置（必填）
+                    top: offset.top + 10, //结束位置（必填）
                     width: 0, //结束时宽度
                     height: 0 //结束时高度
                 },
-                onEnd: function(){ //结束回调
-                    console.log("callback");
+                onEnd: function () { //结束回调
                     total = add(total, "198");
                     nums++;
+                    var title = self.find("a").text();
+                    var price = self.find("a").data("price");
+                    var desc = self.find("a").data("desc");
+                    console.log(desc);
                     $('#left-buy').append('<div class="item-change">\
                     <div class="item-image">\
                             <img src="http://placehold.it/267x252"/></div>\
                             <div class="item-desc">\
                             <div class="item-title">\
-                            <h2>Developer Kit for UnicView RD</h2></div><div class="item-price">\
-                            <span class="price-num">198.00</span></div>\
-                            <div class="item-text">UnicView RD is the compamion software for the Real Design(RD) firm ware LCMs. It\'s primarily used as a debug, test and configuring.</div><div class="cancel-btn" data-price="198">Cancel </div></div></div>');
-                    $('.checkout-total').html("TOTAL:<i class='price-total'></i>" + total);
+                            <h2>'+title+'</h2></div><div class="item-price">\
+                            <span class="price-num">'+price+'</span></div>\
+                            <div class="item-text">'+desc+'</div><div class="cancel-btn" data-price="198">Cancel </div></div></div>');
+                    $('.checkout-total').html("TOTAL:&#36;" + total);
                     $('#amount').val(total);
+                    this.destory();
                 }
             });
         })
@@ -182,10 +219,12 @@
                 e = b.toString();
         try {
             c += d.split(".")[1].length;
-        } catch (f) {}
+        } catch (f) {
+        }
         try {
             c += e.split(".")[1].length;
-        } catch (f) {}
+        } catch (f) {
+        }
         return Number(d.replace(".", "")) * Number(e.replace(".", "")) / Math.pow(10, c);
     }
     function div(a, b) {
@@ -193,10 +232,12 @@
                 f = 0;
         try {
             e = a.toString().split(".")[1].length;
-        } catch (g) {}
+        } catch (g) {
+        }
         try {
             f = b.toString().split(".")[1].length;
-        } catch (g) {}
+        } catch (g) {
+        }
         return c = Number(a.toString().replace(".", "")), d = Number(b.toString().replace(".", "")), mul(c / d, Math.pow(10, f - e));
     }
 </script>
