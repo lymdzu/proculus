@@ -105,4 +105,9 @@ class NewModel extends CI_Model
         $query = $this->db->get("t_comments");
         return $query->result_array();
     }
+    public function get_contact()
+    {
+        $query = $this->db->get("t_contact");
+        return $query->result_array();
+    }
 }
