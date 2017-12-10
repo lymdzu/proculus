@@ -1,0 +1,85 @@
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="ibox">
+            <div class="col-sm-12">
+                <div class="ibox-title">
+                    <h5>Comments List</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="clients-list">
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active">
+                                <div class="full-height-scroll">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Website</th>
+                                            <th>Message</th>
+                                            <th>New Url</th>
+                                            <th>CreateTime</th>
+                                            <th>Action</th>
+                                            </thead>
+                                            <tbody>
+                                            {{foreach $comment_list as $comment}}
+                                            <tr>
+                                                <td class="client-avatar">
+                                                    {{$comment.id}}
+                                                </td>
+                                                <td class="client-avatar">
+                                                    {{$comment.name}}
+                                                </td>
+                                                <td>
+                                                    {{$comment.email}}
+                                                </td>
+                                                <td class="client-status">
+                                                    {{$comment.website}}
+                                                </td>
+                                                <td>
+                                                    {{$comment.message}}
+                                                </td>
+                                                <td><a href="{{'news/desc'|base_url}}?id={{$comment.new_id}}" target="_blank">{{'news/desc'|base_url}}?id={{$comment.new_id}}</a>
+                                                </td>
+                                                <td>
+                                                    {{$comment.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-danger delete-new"
+                                                            data-id="{{$comment.id}}">Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            {{/foreach}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    {{$pagelist}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    $(function () {
+        $(".delete-new").on("click", function () {
+            var id = $(this).data("id");
+            $.post("{{'admin/delete_comment'|base_url}}", {id: id}, function (res) {
+                if (res.ecode == 0) {
+                    layer.msg(res.result);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1000)
+                }
+                else {
+                    layer.msg(res.emsg);
+                }
+            })
+        })
+    })
+</script>

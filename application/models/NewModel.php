@@ -66,6 +66,19 @@ class NewModel extends CI_Model
             return true;
         }
     }
+    public function delete_comment($id)
+    {
+        $this->db->where('id', $id);
+        $status = $this->db->delete("t_comments");
+        $affected_row = $this->db->affected_rows();
+        if ($status && $affected_row == 1) {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     public function random_keyword()
     {
         $this->db->group_by("keyword");
@@ -84,6 +97,11 @@ class NewModel extends CI_Model
     public function get_new_comments($new_id)
     {
         $this->db->where("new_id", $new_id);
+        $query = $this->db->get("t_comments");
+        return $query->result_array();
+    }
+    public function get_comment()
+    {
         $query = $this->db->get("t_comments");
         return $query->result_array();
     }

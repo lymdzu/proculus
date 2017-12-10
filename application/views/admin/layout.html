@@ -97,6 +97,14 @@
                         </li>
                     </ul>
                 </li>
+                <li {{if $nav == "comment"}}class="active"{{/if}}>
+                <a href="#"><i class="fa fa-commenting"></i>
+                    <span class="nav-label">Comments</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li {{if $page == "comment"}}class="active"{{/if}}>
+                    <a href="{{'admin/comments'|base_url}}" data-index="0"><i class="fa fa-commenting"></i>Comments list</a>
+                </ul>
+                </li>
                 <li {{if $nav == "product"}}class="active"{{/if}}>
                     <a href="#"><i class="fa fa-list"></i>
                         <span class="nav-label">Product</span><span class="fa arrow"></span></a>
