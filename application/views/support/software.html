@@ -36,7 +36,7 @@
                     <li class="filetype" style="text-transform: uppercase">{{$software.filetype}}</li>
                     <li class="filedate">{{$software.create_time|date_format:"%d/%m/%Y"}}</li>
                     <li class="filesize">{{$software.size}}Mb</li>
-                    <li class="filedown"><a href="{{'upload/file/'|base_url}}{{$software.filename}}"><button class="down-btn">DOWNLOAD</button></a></li>
+                    <li class="filedown"><a target="_blank" href="{{'upload/file/'|base_url}}{{$software.filename}}"><button class="down-btn">DOWNLOAD</button></a></li>
                 </ul>
                 {{/foreach}}
             </div>
@@ -63,7 +63,7 @@
                     <li class="filetype" style="text-transform: uppercase">{{$guide.filetype}}</li>
                     <li class="filedate">{{$guide.create_time|date_format:"%d/%m/%Y"}}</li>
                     <li class="filesize">{{$guide.size}}Mb</li>
-                    <li class="filedown"><a href="{{'upload/file/'|base_url}}{{$guide.filename}}"><button class="down-btn">DOWNLOAD</button></a></li>
+                    <li class="filedown"><a  target="_blank" href="{{'upload/file/'|base_url}}{{$guide.filename}}"><button class="down-btn">DOWNLOAD</button></a></li>
                 </ul>
                 {{/foreach}}
             </div>
@@ -90,7 +90,7 @@
                     <li class="filetype" style="text-transform: uppercase">{{$command.filetype}}</li>
                     <li class="filedate">{{$command.create_time|date_format:"%d/%m/%Y"}}</li>
                     <li class="filesize">{{$command.size}}Mb</li>
-                    <li class="filedown"><a href="{{'upload/file/'|base_url}}{{$command.filename}}"><button class="down-btn">DOWNLOAD</button></a></li>
+                    <li class="filedown"><a target="_blank" href="{{'upload/file/'|base_url}}{{$command.filename}}"><button class="down-btn">DOWNLOAD</button></a></li>
                 </ul>
                 {{/foreach}}
             </div>
@@ -117,7 +117,7 @@
                     <li class="filetype" style="text-transform: uppercase">{{$datasheet.filetype}}</li>
                     <li class="filedate">{{$datasheet.create_time|date_format:"%d/%m/%Y"}}</li>
                     <li class="filesize">{{$datasheet.size}}Mb</li>
-                    <li class="filedown"><a href="{{'upload/file/'|base_url}}{{$datasheet.filename}}"><button class="down-btn">DOWNLOAD</button></a></li>
+                    <li class="filedown"><a target="_blank" href="{{'upload/file/'|base_url}}{{$datasheet.filename}}"><button class="down-btn">DOWNLOAD</button></a></li>
                 </ul>
                 {{/foreach}}
             </div>
