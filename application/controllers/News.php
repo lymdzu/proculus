@@ -18,6 +18,7 @@ class News extends DashboardController
         $id = $this->input->get("id");
         $this->load->model("NewModel", "new", true);
         $news_desc = $this->new->get_new_desc(trim($id));
+        $this->vars['keywords'] = $this->new->get_keywords($id);
         $max_new = $this->new->max_new_id();
         $this->vars['max_id'] = $max_new['id'];
         if ($news_desc['pic']) {
@@ -25,12 +26,7 @@ class News extends DashboardController
         } else {
             $this->vars['news_pic'] = "";
         }
-        if ($news_desc['keywords']) {
-            $keywords = $this->new->get_keywords($news_desc['keywords']);
-            $this->vars['keywords'] = $keywords;
-        } else {
-            $this->vars['keywords'] = "";
-        }
+        $this->vars['keyword_tag'] = $this->new->random_keyword();
         $comments = $this->new->get_new_comments($id);
         foreach ($comments as $key => $comment) {
             $identicon = new \Identicon\Identicon();
@@ -42,6 +38,19 @@ class News extends DashboardController
         $this->vars['comments'] = $comments;
         $this->vars['desc'] = $news_desc;
         $this->page('news/desc.html');
+    }
+    public function tag()
+    {
+        $keyword = $this->input->get("keyword");
+        $this->load->model("NewModel", "new", true);
+        $newlist = $this->new->get_new_by_tag($keyword);
+        foreach ($newlist as $key => $new) {
+            $new['content'] = mb_substr(strip_tags($new['content']), 0, 300) . "...";
+            $newlist[$key] = $new;
+        }
+        $this->vars['newslist'] = $newlist;
+        $this->vars['keyword_tag'] = $this->new->random_keyword();
+        $this->page('news/lists.html');
     }
 
     public function save_comments()
@@ -82,6 +91,7 @@ class News extends DashboardController
             $newlist[$key] = $new;
         }
         $this->vars['newslist'] = $newlist;
+        $this->vars['keyword_tag'] = $this->new->random_keyword();
         $this->page('news/lists.html');
     }
 }

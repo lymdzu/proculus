@@ -65,7 +65,7 @@ class Admin extends AdController
         $this->load->model("NewModel", "new", true);
         $news_list = $this->new->get_news();
         foreach ($news_list as $key => $new) {
-            $news_list[$key]['key'] = $this->new->get_keywords($new['keywords']);
+            $news_list[$key]['key'] = $this->new->get_keywords($new['id']);
         }
         $this->vars['news_list'] = $news_list;
         $this->page("news/admin_list.html");
