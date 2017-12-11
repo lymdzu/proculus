@@ -9,9 +9,15 @@
                     <ul>
                         {{foreach $category_list as $catename => $cate}}
                         <li>
+                            {{if $catename == "Catalog"}}
+                            <h2>Level</h2>
+                            <select name="Level">
+                                <option value="">Search Level</option>
+                            {{else}}
                             <h2>{{$catename}}</h2>
                             <select name="{{$catename}}">
                                 <option value="">Search {{$catename}}</option>
+                            {{/if}}
                                 {{foreach $cate as $cate_info}}
                                 <option value="{{$cate_info.name}}">{{$cate_info.name}}</option>
                                 {{/foreach}}

@@ -65,10 +65,55 @@ class Admin extends AdController
         $this->load->model("NewModel", "new", true);
         $news_list = $this->new->get_news();
         foreach ($news_list as $key => $new) {
-            $news_list[$key]['key'] = $this->new->get_keywords($new['keywords']);
+            $news_list[$key]['key'] = $this->new->get_keywords($new['id']);
         }
         $this->vars['news_list'] = $news_list;
         $this->page("news/admin_list.html");
+    }
+
+    public function delete_new()
+    {
+        $new_id = $this->input->post("new_id");
+        $this->load->model("NewModel", "new", true);
+        $delete_status = $this->new->delete_new($new_id);
+        if ($delete_status) {
+            $this->json_result(REQUEST_SUCCESS, "Delete New Success");
+        } else {
+            $this->json_result(API_ERROR, "", "Delete New Wrong");
+        }
+    }
+    public function comments()
+    {
+        $this->vars['nav'] = "comment";
+        $this->vars['page'] = "comment";
+        $this->load->model("NewModel", "new", true);
+        $comment_list = $this->new->get_comment();
+        $this->vars['comment_list'] = $comment_list;
+        $this->page("comment/comment_list.html");
+    }
+    public function contact_message()
+    {
+        $this->vars['nav'] = "contact";
+        $this->vars['page'] = "contact";
+        $this->load->model("NewModel", "new", true);
+        $contact_list = $this->new->get_contact();
+        $this->vars['contact_list'] = $contact_list;
+        $this->page("contact/lists.html");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function delete_comment()
+    {
+        $id = $this->input->post("id");
+        $this->load->model("NewModel", "new", true);
+        $delete_status = $this->new->delete_comment($id);
+        if ($delete_status) {
+            $this->json_result(REQUEST_SUCCESS, "Delete Comment Success");
+        } else {
+            $this->json_result(API_ERROR, "", "Delete Comment Wrong");
+        }
     }
 
     public function add_paper()

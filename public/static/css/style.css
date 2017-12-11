@@ -5869,7 +5869,7 @@ h1.bold-title {
 .order-cont{
     padding-top: calc(5vw);
     padding-left: calc(15vw);
-    padding-right: calc(5vw);
+    padding-right: calc(15vw);
     margin-bottom: 6rem;
     display: flex;
     flex-direction: row;
@@ -5889,7 +5889,7 @@ h1.bold-title {
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
 }
 
 .item-change .item-image{
@@ -5904,13 +5904,13 @@ h1.bold-title {
 .item-title h2{
 	font-size: 1.1rem;
     font-weight: 700;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.8rem;
 }
 
 .item-price{
 	color: #208bc6;
 	font-size: 1.2rem;
-	margin-bottom: 1.2rem;
+	margin-bottom: 0.5rem;
 }
 
 .price-num::before{
@@ -5919,8 +5919,8 @@ h1.bold-title {
 }
 
 .item-text{
-	line-height: 1.8rem;
-	margin-bottom: 1.2rem;
+	line-height: 1.5rem;
+	margin-bottom: 0.5rem;
 }
 
 .cancel-btn{
@@ -5934,7 +5934,7 @@ h1.bold-title {
 }
 
 .order-right .categories-title{
-	padding-bottom: 2rem;
+	padding-bottom: 1rem;
 }
 
 .categories-title h2{
@@ -5943,21 +5943,40 @@ h1.bold-title {
 }
 
 .list-opt{
-	padding-bottom: 1.5rem;
+	padding:1rem 0;
+    color: #208bc6;
+    cursor: pointer;
+    border-top: 1px dashed #e5e5e5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.list-opt.boder-bottom
+{
+    border-bottom: 1px dashed #e5e5e5;
+}
+.categoryul li{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 1.5rem;
+    line-height: 2rem;
+    font-size: 0.8rem;
+}
+.categoryul li .iconfont {
+    font-size: 0.5rem;
+}
+.categoryul li a{
+    padding-left: 1rem;
+}
+.categoryul li:hover{
+    background: #0d8ddb;
+    color: #fff;
 }
 
 .list-opt input{
 	width: auto;
 	display: none;
-}
-
-.list-opt label{
-	color: #208bc6;
-	cursor: pointer;
-}
-
-.list-opt label span{
-	margin-left: 6rem;
 }
 
 .list-opt label::before{
@@ -5990,15 +6009,16 @@ h1.bold-title {
 }
 
 .checkout-btn {
-    width:10rem;
-	height: 3rem;
-	border-radius: 0.4rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	color: #fff;
-	background-color: #208bc6;
-	cursor: pointer;
-	position: relative;
+    width: 12rem;
+    line-height: 3rem;
+    border-radius: 0.2rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #208bc6;
+    cursor: pointer;
+    position: relative;
 }
 
 .checkout-btn:active{

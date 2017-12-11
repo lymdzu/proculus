@@ -44,7 +44,8 @@ class Contact extends DashboardController
             "email"          => $email,
             "contact_number" => $contact_number,
             "department"     => $contacting_department,
-            "message"        => $message
+            "message"        => $message,
+            "create_time"    => time()
         );
         $status = $this->contact->save_contact($contact);
         if ($status) {

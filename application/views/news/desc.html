@@ -51,7 +51,7 @@
             <div class="tags p-blank">
                 <span class="tag-title">Tags:</span>
                 {{foreach $keywords as $keyword}}
-                <button class="tag-btn">{{$keyword.keyword}}</button>
+                <button class="tag-btn"><a href="{{'news/tag'|base_url}}?keyword={{$keyword.keyword}}">{{$keyword.keyword}}</a></button>
                 {{/foreach}}
             </div>
             {{/if}}
@@ -271,12 +271,9 @@
         <div class="keys block-blank">
             <h1 class="bold-title">Keywords</h1>
             <div class="tags">
-                <button class="tag-btn">NEWS</button>
-                <button class="tag-btn">TFT</button>
-                <button class="tag-btn">TFT</button>
-                <button class="tag-btn">TFT</button>
-                <button class="tag-btn">TFT</button>
-                <button class="tag-btn active">Express</button>
+                {{foreach $keyword_tag as $tag}}
+                <button class="tag-btn"><a href="{{'news/tag'|base_url}}?keyword={{$tag.keyword}}">{{$tag.keyword}}</a></button>
+                {{/foreach}}
             </div>
 
 
