@@ -100,13 +100,21 @@ class NewModel extends CI_Model
         $query = $this->db->get("t_comments");
         return $query->result_array();
     }
+    public function get_subscribe()
+    {
+        $this->db->order("create_time", "desc");
+        $query = $this->db->get("t_subscribe");
+        return $query->result_array();
+    }
     public function get_comment()
     {
+        $this->db->order("create_time", "desc");
         $query = $this->db->get("t_comments");
         return $query->result_array();
     }
     public function get_contact()
     {
+        $this->db->order("create_time", "desc");
         $query = $this->db->get("t_contact");
         return $query->result_array();
     }

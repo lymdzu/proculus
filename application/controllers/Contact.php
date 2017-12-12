@@ -54,4 +54,57 @@ class Contact extends DashboardController
             $this->json_result(API_ERROR, "", "Something maybe wrong");
         }
     }
+    public function subscribe()
+    {
+        $email = $this->input->post("email");
+        $ip = $this->getIp();
+        if(empty($email))
+        {
+            $this->json_result(LACK_REQUIRED_PARAMETER, "","Please enter your email");
+        }
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_emai');
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->json_result(LACK_REQUIRED_PARAMETER, "","Please enter correct email");
+        }
+        $this->load->model("ContactModel", "contact", true);
+        $subscribe = array(
+            "email" => $email,
+            "ip" => $ip,
+            "create_time" => time()
+        );
+        $status = $this->contact->subscribe($subscribe);
+        if ($status) {
+            $this->json_result(REQUEST_SUCCESS, "Save Success! Thanks for your subscribe");
+        } else {
+            $this->json_result(API_ERROR, "", "Something maybe wrong");
+        }
+    }
+
+    private function getIp()
+    {
+
+        if(!empty($_SERVER["HTTP_CLIENT_IP"]))
+        {
+            $cip = $_SERVER["HTTP_CLIENT_IP"];
+        }
+        else if(!empty($_SERVER["HTTP_X_FORWARDED_FOR"]))
+        {
+            $cip = $_SERVER["HTTP_X_FORWARDED_FOR"];
+        }
+        else if(!empty($_SERVER["REMOTE_ADDR"]))
+        {
+            $cip = $_SERVER["REMOTE_ADDR"];
+        }
+        else
+        {
+            $cip = '';
+        }
+        preg_match("/[\d\.]{7,15}/", $cip, $cips);
+        $cip = isset($cips[0]) ? $cips[0] : 'unknown';
+        unset($cips);
+
+        return $cip;
+    }
 }

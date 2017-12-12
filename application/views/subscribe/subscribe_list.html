@@ -1,0 +1,50 @@
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="ibox">
+            <div class="col-sm-12">
+                <div class="ibox-title">
+                    <h5>Subscribe List</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="clients-list">
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active">
+                                <div class="full-height-scroll">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                            <th>ID</th>
+                                            <th>Email</th>
+                                            <th>Ip</th>
+                                            <th>CreateTime</th>
+                                            </thead>
+                                            <tbody>
+                                            {{foreach $subscribe_list as $subscribe}}
+                                            <tr>
+                                                <td class="client-avatar">
+                                                    {{$subscribe.id}}
+                                                </td>
+                                                <td class="client-avatar">
+                                                    {{$subscribe.email}}
+                                                </td>
+                                                <td class="client-avatar">
+                                                    {{$subscribe.ip}}
+                                                </td>
+                                                <td>
+                                                    {{$subscribe.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}
+                                                </td>
+                                            </tr>
+                                            {{/foreach}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    {{$pagelist}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

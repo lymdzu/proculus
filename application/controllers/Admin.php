@@ -91,6 +91,15 @@ class Admin extends AdController
         $this->vars['comment_list'] = $comment_list;
         $this->page("comment/comment_list.html");
     }
+    public function subscribe_list()
+    {
+        $this->vars['nav'] = "subscribe";
+        $this->vars['page'] = "subscribe";
+        $this->load->model("NewModel", "new", true);
+        $subscribe_list = $this->new->get_subscribe();
+        $this->vars['subscribe_list'] = $subscribe_list;
+        $this->page("subscribe/subscribe_list.html");
+    }
     public function contact_message()
     {
         $this->vars['nav'] = "contact";

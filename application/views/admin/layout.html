@@ -85,6 +85,21 @@
                         </li>
                     </ul>
                 </li>
+                <li {{if $nav == "product"}}class="active"{{/if}}>
+                <a href="#"><i class="fa fa-list"></i>
+                    <span class="nav-label">Product</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li {{if $page == "property"}}class="active"{{/if}}>
+                    <a href="{{'category/lists'|base_url}}" data-index="0"><i class="fa fa-shopping-cart"></i>Product Property</a>
+                    </li>
+                    <li {{if $page == "add_product"}}class="active"{{/if}}>
+                    <a href="{{'category/add_product'|base_url}}" data-index="1"><i class="fa fa-plus-square"></i>Add Product</a>
+                    </li>
+                    <li {{if $page == "product_list"}}class="active"{{/if}}>
+                    <a href="{{'category/product'|base_url}}" data-index="2"><i class="fa fa-cubes"></i>Product list</a>
+                    </li>
+                </ul>
+                </li>
                 <li {{if $nav == "news"}}class="active"{{/if}}>
                     <a href="#"><i class="fa fa-newspaper-o"></i>
                         <span class="nav-label">Paper</span><span class="fa arrow"></span></a>
@@ -113,20 +128,13 @@
                     <a href="{{'admin/contact_message'|base_url}}" data-index="0"><i class="fa fa-info-circle"></i>Contact list</a>
                 </ul>
                 </li>
-                <li {{if $nav == "product"}}class="active"{{/if}}>
-                    <a href="#"><i class="fa fa-list"></i>
-                        <span class="nav-label">Product</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li {{if $page == "property"}}class="active"{{/if}}>
-                            <a href="{{'category/lists'|base_url}}" data-index="0"><i class="fa fa-shopping-cart"></i>Product Property</a>
-                        </li>
-                        <li {{if $page == "add_product"}}class="active"{{/if}}>
-                            <a href="{{'category/add_product'|base_url}}" data-index="1"><i class="fa fa-plus-square"></i>Add Product</a>
-                        </li>
-                        <li {{if $page == "product_list"}}class="active"{{/if}}>
-                            <a href="{{'category/product'|base_url}}" data-index="2"><i class="fa fa-cubes"></i>Product list</a>
-                        </li>
-                    </ul>
+                <li {{if $nav == "subscribe"}}class="active"{{/if}}>
+                <a href="#"><i class="fa fa-thumb-tack"></i>
+                    <span class="nav-label">Subscribe</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li {{if $page == "subscribe"}}class="active"{{/if}}>
+                    <a href="{{'admin/subscribe_list'|base_url}}" data-index="0"><i class="fa fa-thumb-tack"></i>Subscribe list</a>
+                </ul>
                 </li>
             </ul>
         </div>

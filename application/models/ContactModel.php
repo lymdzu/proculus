@@ -25,4 +25,13 @@ class ContactModel extends CI_Model
             return false;
         }
     }
+    public function subscribe($subscribe)
+    {
+        $insert_status = $this->db->insert("t_subscribe", $subscribe);
+        if ($insert_status && $this->db->affected_rows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

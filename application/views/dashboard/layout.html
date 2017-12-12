@@ -38,6 +38,7 @@
 </head>
 <body class="header_hor">
 <a href="#main-content" class="visually-hidden">Skip to Content</a>
+
 <div class="div-head">
     <header class="header masthead">
         <div class="head-margin">
@@ -216,13 +217,13 @@
                                 </ul>
                             </li>
                             <li class="menu-item  menu-item-has-children level_1 togglable">
-                                <a class="w-nav-anchor level_1" >
+                                <a class="w-nav-anchor level_1">
                                     <span class="w-nav-title">Contact Us</span>
                                     <span class="w-nav-arrow"><icon class="iconfont">&#xe603;</icon></span>
                                     <span class="ripple-container"></span>
                                 </a>
                                 <ul class="w-nav-list level_2" style="">
-                                    
+
                                     <li class="menu-item  level_2 ">
                                         <a class="w-nav-anchor level_2" href="{{'contact/index'|base_url}}">
                                             <span class="w-nav-title">Contact</span>
@@ -263,16 +264,21 @@
             <div class="pro-com foot-box">
                 <div class="footer-title">
                     <h2>Products</h2>
+
                     <div class="foot-guide">
                         <p><a href="{{'product/overview'|base_url}}">Overview</a></p>
+
                         <p><a href="{{'product/unic_view'|base_url}}">Unicview Design</a></p>
+
                         <p><a href="{{'product/modules'|base_url}}">Displays</a></p>
                     </div>
                 </div>
                 <div class="footer-title">
                     <h2>Company</h2>
+
                     <div class="foot-guide">
                         <p><a href="{{'aboutus/index'|base_url}}">About us</a></p>
+
                         <p><a href="{{'news/lists'|base_url}}">News</a></p>
                     </div>
                 </div>
@@ -280,9 +286,12 @@
             <div class="support foot-box">
                 <div class="footer-title">
                     <h2>Support</h2>
+
                     <div class="foot-guide">
                         <p><a href="{{'support/software'|base_url}}">Documentation</a></p>
+
                         <p><a href="{{'support/tutorials'|base_url}}">View Tutorial</a></p>
+
                         <p><a href="{{'support/faqs'|base_url}}">FAQs</a></p>
                     </div>
                 </div>
@@ -290,6 +299,7 @@
             <div class="contact foot-box">
                 <div class="footer-title">
                     <h2>Contact Us</h2>
+
                     <div class="contact-cont foot-guide">
                         <div class="phone">
                             <icon class="iconfont">&#xe624;</icon>
@@ -313,19 +323,21 @@
             <div class="subscribe">
                 <div class="footer-title">
                     <h2>Subscribe</h2>
+
                     <div class="contact-cont foot-guide">
                         <div class="sub-tip">
                             Be aware of news
                         </div>
                         <div class="send-email">
-                            <input class="send-input" placeholder="Your e-mail">
-                            <button>send</button>
+                            <input class="send-input" id="sub-email" placeholder="Your e-mail">
+                            <button id="subscribe-btn">send</button>
                         </div>
                     </div>
                 </div>
                 <div class="follow">
                     <div class="footer-title">
                         <h2>Follow Us</h2>
+
                         <div class="foot-guide">
                             <a href="http://www.facebook.com/ProculusTechnologies">
                                 <icon class="iconfont">&#xe649;</icon>
@@ -369,7 +381,7 @@
 {{/if}}
 
 <script type="application/javascript">
-    $(function(){
+    $(function () {
         $("#nav-mobile").on("click", function () {
 
             if ($(this).hasClass('mobile-close')) {
@@ -389,9 +401,20 @@
             $("#nav-level-1").find(".w-nav-list").removeClass("mobile_item");
             $(this).find(".w-nav-list").addClass("mobile_item");
         });
-        $(".to-top a").click(function(){
-            $('body,html').animate({scrollTop:0},500);
+        $(".to-top a").click(function () {
+            $('body,html').animate({scrollTop: 0}, 500);
             return false;
+        });
+        $("#subscribe-btn").on("click", function () {
+            var email = $("#sub-email").val();
+            $.post("{{'contact/subscribe'|base_url}}", {email: email}, function (res) {
+                if (res.ecode == 0) {
+                    layer.msg(res.result);
+                }
+                else {
+                    layer.msg(res.emsg);
+                }
+            });
         });
     })
 </script>
