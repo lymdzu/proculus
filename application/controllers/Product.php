@@ -34,6 +34,8 @@ class Product extends DashboardController
         $offset = empty($page) ? 0 : (intval($page) - 1) * PAGESIZE;
         $total = $this->product->count_product_list();
         $product_list = $this->product->get_product_list($offset, PAGESIZE, $size, $catelog, $resolution, $bright, $interface, $input);
+        $cata_list = $this->product->get_upload_list(0, 10000, false, "Products Catalog");
+        $this->vars['cata'] = $cata_list[0];
         $this->vars['product_list'] = $product_list;
         $this->vars['category_list'] = $select;
         $this->load->library("tgpage", array('total' => $total, 'pagesize' => PAGESIZE));
