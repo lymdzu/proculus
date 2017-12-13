@@ -33,19 +33,28 @@ class Upload extends AdController
     public function save_doc()
     {
         $doc_cat = $this->input->post("doc-cat", true);
-        $doc_name = $this->input->post("doc-name", true);
-        $doc_type = $this->input->post("doc-type", true);
-        $doc_size = $this->input->post("doc-size", true);
+        $doc_names = $this->input->post("doc-name", true);
+        $doc_types = $this->input->post("doc-type", true);
+        $doc_sizes = $this->input->post("doc-size", true);
         if (empty($doc_cat)) {
             $this->json_result(LACK_REQUIRED_PARAMETER, "", "Please select document category");
         }
-        if (empty($doc_name) && $doc_type && $doc_size) {
+        if (empty($doc_names) && $doc_types && $doc_sizes) {
             $this->json_result(LACK_REQUIRED_PARAMETER, "", "Please upload the document");
         }
         $this->load->model("ProductModel", "upload", true);
-
-        $document = array("category" => $doc_cat, "filename" => $doc_name, "filetype" => $doc_type, "size" => $doc_size, "create_time" => time());
-        $status = $this->upload->insert_upload($document);
+        $docs = array();
+        foreach($doc_names as $key => $doc_name)
+        {
+            $docs[$key] = array(
+                 "category" => $doc_cat,
+                "filename" => $doc_name,
+                "filetype" => $doc_types[$key],
+                "size" => $doc_sizes[$key],
+                "create_time" => time()
+            );
+        }
+        $status = $this->upload->insert_upload($docs);
         if ($status) {
             $this->json_result(REQUEST_SUCCESS, "Save Success");
         } else {

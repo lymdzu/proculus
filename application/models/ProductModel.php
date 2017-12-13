@@ -9,9 +9,9 @@ class ProductModel extends CI_Model
 {
     public function insert_upload($document)
     {
-        $insert_status = $this->db->insert("t_upload", $document);
+        $insert_status = $this->db->insert_batch("t_upload", $document);
         $affected_rows = $this->db->affected_rows();
-        if ($insert_status && $affected_rows == 1) {
+        if ($insert_status && $affected_rows >= 1) {
             return true;
         } else {
             return false;

@@ -267,7 +267,7 @@
             m--, h -= e.size, m || t("pedding"), a(e), s()
         }, n.on("uploadAccept", function (file, response) {
             if (response.ecode == 0) {
-                $(".form-horizontal").append("<input type='hidden' name='doc-name'  value='" + response.result.filename + "'><input type='hidden' name='doc-size' value='" + response.result.size + "'><input type='hidden' name='doc-type' value='" + response.result.filetype + "'>");
+                $(".form-horizontal").append("<input type='hidden' name='doc-name[]'  value='" + response.result.filename + "'><input type='hidden' name='doc-size[]' value='" + response.result.size + "'><input type='hidden' name='doc-type[]' value='" + response.result.filetype + "'>");
             }
         }), n.on("all", function (e) {
             switch (e) {

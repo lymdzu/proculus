@@ -32,7 +32,7 @@
                 </ul>
                 {{foreach $soft_list as $software}}
                 <ul class="down-list">
-                    <li class="filename"><span>{{$software.filename|strstr:".":"TRUE"}}</span></li>
+                    <li class="filename"><span>{{$software.name}}</span></li>
                     <li class="filetype" style="text-transform: uppercase">{{$software.filetype}}</li>
                     <li class="filedate">{{$software.create_time|date_format:"%d/%m/%Y"}}</li>
                     <li class="filesize">{{$software.size}}Mb</li>
@@ -59,7 +59,7 @@
                 </ul>
                 {{foreach $guide_list as $guide}}
                 <ul class="down-list">
-                    <li class="filename"><span>{{$guide.filename|strstr:".":"TRUE"}}</span></li>
+                    <li class="filename"><span>{{$guide.name}}</span></li>
                     <li class="filetype" style="text-transform: uppercase">{{$guide.filetype}}</li>
                     <li class="filedate">{{$guide.create_time|date_format:"%d/%m/%Y"}}</li>
                     <li class="filesize">{{$guide.size}}Mb</li>
@@ -86,7 +86,7 @@
                 </ul>
                 {{foreach $com_list as $command}}
                 <ul class="down-list">
-                    <li class="filename"><span>{{$command.filename|strstr:".":"TRUE"}}</span></li>
+                    <li class="filename"><span>{{$command.name}}</span></li>
                     <li class="filetype" style="text-transform: uppercase">{{$command.filetype}}</li>
                     <li class="filedate">{{$command.create_time|date_format:"%d/%m/%Y"}}</li>
                     <li class="filesize">{{$command.size}}Mb</li>
@@ -113,7 +113,7 @@
                 </ul>
                 {{foreach $data_list as $datasheet}}
                 <ul class="down-list">
-                    <li class="filename"><span>{{$datasheet.filename|strstr:".":"TRUE"}}</span></li>
+                    <li class="filename"><span>{{$datasheet.name}}</span></li>
                     <li class="filetype" style="text-transform: uppercase">{{$datasheet.filetype}}</li>
                     <li class="filedate">{{$datasheet.create_time|date_format:"%d/%m/%Y"}}</li>
                     <li class="filesize">{{$datasheet.size}}Mb</li>
