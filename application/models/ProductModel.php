@@ -27,7 +27,7 @@ class ProductModel extends CI_Model
             $this->db->where("category", $category);
         }
         $this->db->limit($limit, $offset);
-        $this->db->order_by("create_time", "desc");
+        $this->db->order_by("id", "desc");
         $query = $this->db->get("t_upload");
         return $query->result_array();
     }
@@ -199,6 +199,20 @@ class ProductModel extends CI_Model
         $insert_status = $this->db->insert("t_product", $product);
         $affect = $this->db->affected_rows();
         if ($insert_status && $affect > 0) {
+            return true;
+
+        } else {
+            return false;
+        }
+    }
+
+    public function edit_product($id, $product)
+    {
+        $this->db->where("id", $id);
+        $this->db->set($product);
+        $update_status = $this->db->update("t_product");
+        $affect = $this->db->affected_rows();
+        if ($update_status && $affect > 0) {
             return true;
 
         } else {

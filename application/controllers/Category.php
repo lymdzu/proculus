@@ -125,6 +125,99 @@ class Category extends AdController
         $this->vars['category'] = $select;
         $this->page("product/add_product.html");
     }
+    public function edit_product()
+    {
+        $id = $this->input->get("id");
+        $product = $this->product->get_product_desc($id);
+        $product['DataSheet'] = explode(";", $product['DataSheet']);
+        $product['Driver'] = explode(";", $product['Driver']);
+        $product['Extras'] = explode(";", $product['Extras']);
+        $this->vars['product'] = $product;
+        $this->vars['nav'] = "product";
+        $this->vars['page'] = "add_product";
+        $type_list = $this->config->item("prop");
+        $select = array();
+        $change = array(
+            "Part Number" => "Part_Number",
+            "Size" => "Size",
+            "Catalog" => "Catalog",
+            "Resolution(pixel)" => "Resolution",
+            "Brightness(nits)" => "Brightness",
+            "Interface" => "Interface",
+            "Input Voltage" => "Input_Voltage",
+            "Working Platform" => "Working_Platform",
+            "Download Methond" => "Download_Methond",
+            "Cable Connector" => "Cable_Connector"
+        );
+        foreach ($type_list as $proporty => $item) {
+            $cate = $this->product->get_property_list($proporty);
+            if (isset($change[$proporty])) {
+                $select[$change[$proporty]] = $cate;
+            } else {
+                $select[$proporty] = $cate;
+            }
+        }
+        $this->vars['category'] = $select;
+        $this->page("product/edit_product.html");
+    }
+    public function edit_save()
+    {
+        $id = $this->input->post("product-id");
+        $name = $this->input->post("name", true);
+        $product_pic = $this->input->post("product-pic", true);
+        $partnum = $this->input->post("Part_Number", true);
+        $size = $this->input->post("Size", true);
+        $catelog = $this->input->post("Catalog", true);
+        $resolution = $this->input->post("Resolution(pixel)", true);
+        $bright = $this->input->post("Brightness(nits)", true);
+        $interface = $this->input->post("Interface", true);
+        $input = $this->input->post("Input_Voltage", true);
+        $working = $this->input->post("Working_Platform", true);
+        $download = $this->input->post("Download_Methond", true);
+        $cable = $this->input->post("Cable_Connector", true);
+        $datasheet = $this->input->post("DataSheet", true);
+        $driver = $this->input->post("Driver", true);
+        $extras = $this->input->post("Extras", true);
+        if (empty($name)) {
+            $this->json_result(LACK_REQUIRED_PARAMETER, "", "Please enter product name");
+        }
+        if (empty($product_pic)) {
+            $this->json_result(LACK_REQUIRED_PARAMETER, "", "Please enter product picture");
+        }
+        $search_keys = $this->config->item("prop");
+        foreach ($_POST as $postkey => $postvalue) {
+            if (in_array($postkey, $search_keys) && $search_keys[$postkey]) {
+                if (empty($postvalue)) {
+                    $this->json_result(LACK_REQUIRED_PARAMETER, "", "Please select " . $postkey);
+                }
+            }
+        }
+        $product = array(
+            "name"             => $name,
+            "Part_Number"      => $partnum ? $partnum : "",
+            "Size"             => $size ? $size : "",
+            "Catalog"          => $catelog ? $catelog : "",
+            "Resolution"       => $resolution ? $resolution : "",
+            "Brightness"       => $bright ? $bright : "",
+            "Interface"        => $interface ? $interface : "",
+            "Input_Voltage"    => $input ? $input : "",
+            "Working_Platform" => $working ? $working : "",
+            "Download_Method"  => $download ? $download : "",
+            "Cable_Connector"  => $cable ? $cable : "",
+            "DataSheet"        => implode(";", $datasheet),
+            "Driver"           => implode(";", $driver),
+            "Extras"           => implode(";", $extras),
+            "pic"              => $product_pic ? $product_pic : "",
+            "create_time"      => time(),
+            "status"           => 1
+        );
+        $edit_status = $this->product->edit_product($id, $product);
+        if ($edit_status) {
+            $this->json_result(REQUEST_SUCCESS, "Edit Success");
+        } else {
+            $this->json_result(API_ERROR, "", "Server Error");
+        }
+    }
 
     public function save_prodcut()
     {

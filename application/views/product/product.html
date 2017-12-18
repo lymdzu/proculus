@@ -40,7 +40,7 @@
                                     <td>{{$product_info.Download_Method}}</td>
                                     <td>{{$product_info.Cable_Connector}}</td>
                                     <td>{{$product_info.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}</td>
-                                    <td><button class="btn-danger btn delete-product" data-id="{{$product_info.id}}">Delete</button></td>
+                                    <td><a class="btn-warning btn btn-sm edit-product" href="{{'category/edit_product'|base_url}}?id={{$product_info.id}}">Edit</a>&nbsp;&nbsp;<button class="btn-danger btn btn-sm delete-product" data-id="{{$product_info.id}}">Delete</button></td>
                                 </tr>
                                 {{/foreach}}
                                 </tbody>

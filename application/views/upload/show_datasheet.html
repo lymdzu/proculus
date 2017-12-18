@@ -34,6 +34,7 @@
                                 <tr>
 
                                     <th></th>
+                                    <th>ID</th>
                                     <th>FILE NAME</th>
                                     <th>SIZE</th>
                                     <th>FILE TYPE</th>
@@ -46,8 +47,9 @@
                                     <td>
                                         <input type="checkbox" class="i-checks" name="input[]" value="{{$data.filename}}">
                                     </td>
+                                    <td>{{$data.id}}</td>
                                     <td>{{$data.filename}}</td>
-                                    <td>{{$data.size}}</td>
+                                    <td>{{$data.size}}Mb</td>
                                     <td>{{$data.filetype}}</td>
                                     <td>{{$data.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}</td>
                                 </tr>

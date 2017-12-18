@@ -237,12 +237,14 @@ class Upload extends AdController
     public function show_datasheet()
     {
         $file_type = $this->input->get("file");
+        $action = $this->input->get("action");
         $this->load->model("ProductModel", "upload", true);
         $page = $this->input->get("page");
         $offset = empty($page) ? 0 : (intval($page) - 1) * PAGESIZE;
-        $total = $this->upload->count_upload_list(false, "Video");
+        $total = $this->upload->count_upload_list(false, $file_type);
         $upload_list = $this->upload->get_upload_list($offset, PAGESIZE);
         $this->load->library("tgpage", array('total' => $total, 'pagesize' => PAGESIZE));
+        $this->vars['action'] = $action;
         $this->vars['pagelist'] = $this->tgpage->showpage();
         $this->vars['data_list'] = $upload_list;
         $this->vars['file_type'] = $file_type;
