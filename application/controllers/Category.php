@@ -168,8 +168,8 @@ class Category extends AdController
         $partnum = $this->input->post("Part_Number", true);
         $size = $this->input->post("Size", true);
         $catelog = $this->input->post("Catalog", true);
-        $resolution = $this->input->post("Resolution(pixel)", true);
-        $bright = $this->input->post("Brightness(nits)", true);
+        $resolution = $this->input->post("Resolution", true);
+        $bright = $this->input->post("Brightness", true);
         $interface = $this->input->post("Interface", true);
         $input = $this->input->post("Input_Voltage", true);
         $working = $this->input->post("Working_Platform", true);
