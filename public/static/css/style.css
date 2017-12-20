@@ -4581,7 +4581,9 @@ h1.bold-title {
     margin-top: 2rem;
     justify-content: center;
 }
-
+.dataTables_paginate .pagination .active:after{
+    display: none;
+}
 .pagination a {
     font-size: 13px;
     font-weight: 300;

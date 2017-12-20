@@ -18,12 +18,16 @@
                             {{foreach $category as $key => $propertys}}
                                 <label class=" col-sm-2 control-label">{{$key}}</label>
                                 <div class="col-sm-4">
+                                    {{if $key == "Part Number"}}
+                                    <input class="form-control" name="Part_Number" placeholder="please enter Part number">
+                                    {{else}}
                                     <select class="form-control m-b" name="{{$key}}">
                                         <option value="">Please Choose {{$key}}</option>
                                         {{foreach $propertys as $cate_info}}
                                         <option value="{{$cate_info.name}}">{{$cate_info.name}}</option>
                                         {{/foreach}}
                                     </select>
+                                    {{/if}}
                                 </div>
                             {{/foreach}}
                             </div>

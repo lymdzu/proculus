@@ -63,7 +63,7 @@ class Contact extends DashboardController
             $this->json_result(LACK_REQUIRED_PARAMETER, "","Please enter your email");
         }
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_emai');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         if ($this->form_validation->run() == FALSE)
         {
             $this->json_result(LACK_REQUIRED_PARAMETER, "","Please enter correct email");
