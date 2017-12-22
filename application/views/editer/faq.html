@@ -1,0 +1,177 @@
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="ibox">
+            <div class="col-sm-12">
+                <div class="ibox-title">
+                    <h5>FAQ List</h5>
+                    <div class="ibox-tools">
+                        <a data-toggle="modal" data-target="#modal-add" class="btn btn-primary btn-xs add-btn">ADD FAQ</a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="clients-list">
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active">
+                                <div class="full-height-scroll">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                            <th>ID</th>
+                                            <th>Title</th>
+                                            <th>Answer</th>
+                                            <th>CreateTime</th>
+                                            <th>Action</th>
+                                            </thead>
+                                            <tbody>
+                                            {{foreach $faqs_list as $faq}}
+                                            <tr class="faq-con">
+                                                <td class="client-avatar">
+                                                    {{$faq.id}}
+                                                </td>
+                                                <td class="faq-title">
+                                                    {{$faq.title}}
+                                                </td>
+                                                <td class="faq-answer">
+                                                    {{$faq.answer}}
+                                                </td>
+                                                <td>
+                                                    {{$faq.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-edit" data-id="{{$faq.id}}" id="edit-btn">Edit
+                                                    </button>
+                                                    &nbsp;&nbsp;
+                                                    <button class="btn btn-sm btn-danger delete-faq"
+                                                            data-id="{{$faq.id}}">Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            {{/foreach}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    {{$pagelist}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-add" class="modal fade" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="m-t-none m-b">New FAQ</h3>
+                        <form role="form" id="faq-add-form" class="admin-user" onsubmit="return false;">
+                            <div class="form-group">
+                                <label>Question</label>
+                                <input type="text" name="title" placeholder="Please enter the question"
+                                       class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Answer：</label>
+                                <textarea type="text" name="answer" placeholder="Please enter the answer"
+                                       class="form-control"></textarea>
+                            </div>
+                            <div>
+                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="add-faq" type="submit">
+                                    <strong>SAVE</strong>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-edit" class="modal fade" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                            <h3 class="m-t-none m-b">Edit FAQ</h3>
+                        <form role="form" id="faq-edit-form" class="admin-user" onsubmit="return false;">
+                            <input type="hidden" id="faq-edit-id" name="faq_id" value="">
+                            <div class="form-group">
+                                <label>Question</label>
+                                <input type="text" name="title" placeholder="Please enter the question"
+                                       class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Answer：</label>
+                                <textarea type="text" name="answer" placeholder="Please enter the answer"
+                                          class="form-control"></textarea>
+                            </div>
+                            <div>
+                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="edit-faq" type="submit">
+                                    <strong>SAVE</strong>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    $(function () {
+        $("#add-faq").on("click", function () {
+            $.post("{{'editer/save_faq'|base_url}}", $("#faq-add-form").serialize(), function (res) {
+                if (res.ecode == 0) {
+                    layer.msg(res.result);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1000)
+                }
+                else {
+                    layer.msg(res.emsg);
+                }
+            });
+        });
+        $("#edit-btn").on("click", function(){
+            var faq_id = $(this).data("id");
+            $("#faq-edit-id").val(faq_id);
+            var title = $.trim($(this).parents(".faq-con").find(".faq-title").text());
+            var answer = $.trim($(this).parents(".faq-con").find(".faq-answer").text());
+            $("#faq-edit-form input[name='title']").val(title);
+            $("#faq-edit-form textarea[name='answer']").val(answer);
+
+        });
+        $("#edit-faq").on("click", function () {
+            console.log($("#faq-edit-form").serialize());
+            $.post("{{'editer/edit_faq'|base_url}}", $("#faq-edit-form").serialize(), function (res) {
+                if (res.ecode == 0) {
+                    layer.msg(res.result);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1000)
+                }
+                else {
+                    layer.msg(res.emsg);
+                }
+            })
+        });
+        $(".delete-faq").on("click", function () {
+            var faq_id = $(this).data("id");
+            $.post("{{'editer/delete_faq'|base_url}}", {faq_id: faq_id}, function (res) {
+                if (res.ecode == 0) {
+                    layer.msg(res.result);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1000)
+                }
+                else {
+                    layer.msg(res.emsg);
+                }
+            })
+        })
+    })
+</script>

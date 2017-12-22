@@ -136,6 +136,14 @@
                     <a href="{{'admin/subscribe_list'|base_url}}" data-index="0"><i class="fa fa-thumb-tack"></i>Subscribe list</a>
                 </ul>
                 </li>
+                <li {{if $nav == "page"}}class="active"{{/if}}>
+                <a href="#"><i class="fa fa-edit"></i>
+                    <span class="nav-label">Page Edit</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li {{if $page == "page"}}class="active"{{/if}}>
+                    <a href="{{'editer/faq'|base_url}}" data-index="0"><i class="fa fa-thumb-tack"></i>Subscribe list</a>
+                </ul>
+                </li>
             </ul>
         </div>
     </nav>
