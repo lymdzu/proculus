@@ -9,17 +9,13 @@
     <div class="service-row">
         <div class="demo-desc left-desc">
             <div class="demo-title">
-                <h2>Medical Devices</h2>
+                <h2>{{if $demo.first_title}}{{$demo.first_title}}{{/if}}</h2>
             </div>
             <div class="demo-text">
-                Medical device GUIs must be easy to use, thoroughly tested and fail-safe — because 
-                lives are on the line! Proculus’ user interface development tools are a proven 
-                solution for developing and deploying custom GUIs for high reliability devices. 
-                This demonstration project shows the functions of heart rate curve, blood pressure 
-                measurement, etc. Click here to download the whole project.                
+                {{if $demo.first_content}}{{$demo.first_content}}{{/if}}
             </div>
             <div class="demo-btn">
-                <a href="#"><button class="learn-btn">Learn More</button></a>
+                <a href="{{if $demo.first_down}}{{$demo.first_down}}{{/if}}"><button class="learn-btn">Download</button></a>
             </div>
         </div>
         <div class="service-pic row1">
@@ -33,33 +29,26 @@
         </div>
         <div class="demo-desc right-desc">
             <div class="demo-title">
-                <h2>Engineering</h2>
+                <h2>{{if $demo.second_title}}{{$demo.second_title}}{{/if}}</h2>
             </div>
             <div class="demo-text">
-                GUIs for engineering industry is often sophisticated. 
-                It is often shown with diagrams and dashboard to realize the 
-                display and control of data. This project contains some designs of dashboard, 
-                incremental adjustment buttons and switch of different modes. 
-                Click here to download.
+                {{if $demo.second_content}}{{$demo.second_content}}{{/if}}
             </div>
             <div class="demo-btn">
-                <a href="#"><button class="learn-btn">Learn More</button></a>
+                <a href="{{if $demo.second_down}}{{$demo.second_down}}{{/if}}"><button class="learn-btn">Download</button></a>
             </div>
         </div>
     </div>
     <div class="service-row">
         <div class="demo-desc left-desc">
             <div class="demo-title">
-                <h2>Consuming Applications</h2>
+                <h2>{{if $demo.third_title}}{{$demo.third_title}}{{/if}}</h2>
             </div>
             <div class="demo-text">
-                Home appliances, thermostats, retailing vendor machines, etc.. 
-                Many of these IoT products require an embedded GUI so users can access 
-                features and functionality that make their lives easier, safer, better. 
-                This project contains demonstration of a coffee machine’s functions.                
+                {{if $demo.third_content}}{{$demo.third_content}}{{/if}}
             </div>
             <div class="demo-btn">
-                <a href="#"><button class="learn-btn">Learn More</button></a>
+                <a href="{{if $demo.third_down}}{{$demo.third_down}}{{/if}}"><button class="learn-btn">Download</button></a>
             </div>
         </div>
         <div class="service-pic row3">

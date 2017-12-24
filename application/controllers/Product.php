@@ -51,6 +51,9 @@ class Product extends DashboardController
 
     public function demos()
     {
+        $this->load->model("EditModel", "edit", true);
+        $page = $this->edit->get_page("demo");
+        $this->vars['demo'] = json_decode($page['page_content'], true);
         $this->page("product/demos.html");
     }
 

@@ -54,6 +54,9 @@ class Support extends DashboardController
     public function faqs()
     {
         $this->vars['page'] = "faqs";
+        $this->load->model("PageModel", "page", true);
+        $faqs= $this->page->faq_list();
+        $this->vars['faq_list'] = $faqs;
         $this->page("support/faqs.html");
     }
     public function service()

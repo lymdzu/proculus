@@ -86,19 +86,19 @@
                     </ul>
                 </li>
                 <li {{if $nav == "product"}}class="active"{{/if}}>
-                <a href="#"><i class="fa fa-list"></i>
-                    <span class="nav-label">Product</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li {{if $page == "property"}}class="active"{{/if}}>
-                    <a href="{{'category/lists'|base_url}}" data-index="0"><i class="fa fa-shopping-cart"></i>Product Property</a>
-                    </li>
-                    <li {{if $page == "add_product"}}class="active"{{/if}}>
-                    <a href="{{'category/add_product'|base_url}}" data-index="1"><i class="fa fa-plus-square"></i>Add Product</a>
-                    </li>
-                    <li {{if $page == "product_list"}}class="active"{{/if}}>
-                    <a href="{{'category/product'|base_url}}" data-index="2"><i class="fa fa-cubes"></i>Product list</a>
-                    </li>
-                </ul>
+                    <a href="#"><i class="fa fa-list"></i>
+                        <span class="nav-label">Product</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li {{if $page == "property"}}class="active"{{/if}}>
+                            <a href="{{'category/lists'|base_url}}" data-index="0"><i class="fa fa-shopping-cart"></i>Product Property</a>
+                        </li>
+                        <li {{if $page == "add_product"}}class="active"{{/if}}>
+                            <a href="{{'category/add_product'|base_url}}" data-index="1"><i class="fa fa-plus-square"></i>Add Product</a>
+                        </li>
+                        <li {{if $page == "product_list"}}class="active"{{/if}}>
+                            <a href="{{'category/product'|base_url}}" data-index="2"><i class="fa fa-cubes"></i>Product list</a>
+                        </li>
+                    </ul>
                 </li>
                 <li {{if $nav == "news"}}class="active"{{/if}}>
                     <a href="#"><i class="fa fa-newspaper-o"></i>
@@ -113,36 +113,48 @@
                     </ul>
                 </li>
                 <li {{if $nav == "comment"}}class="active"{{/if}}>
-                <a href="#"><i class="fa fa-commenting"></i>
-                    <span class="nav-label">Comments</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li {{if $page == "comment"}}class="active"{{/if}}>
-                    <a href="{{'admin/comments'|base_url}}" data-index="0"><i class="fa fa-commenting"></i>Comments list</a>
-                </ul>
+                    <a href="#"><i class="fa fa-commenting"></i>
+                        <span class="nav-label">Comments</span><span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li {{if $page == "comment"}}class="active"{{/if}}>
+                            <a href="{{'admin/comments'|base_url}}" data-index="0"><i class="fa fa-commenting"></i>Comments list</a>
+                        </li>
+                    </ul>
                 </li>
                 <li {{if $nav == "contact"}}class="active"{{/if}}>
-                <a href="#"><i class="fa fa-info-circle"></i>
-                    <span class="nav-label">Contact</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li {{if $page == "contact"}}class="active"{{/if}}>
-                    <a href="{{'admin/contact_message'|base_url}}" data-index="0"><i class="fa fa-info-circle"></i>Contact list</a>
-                </ul>
+                    <a href="#"><i class="fa fa-info-circle"></i>
+                        <span class="nav-label">Contact</span><span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li {{if $page == "contact"}}class="active"{{/if}}>
+                        <a href="{{'admin/contact_message'|base_url}}" data-index="0"><i class="fa fa-info-circle"></i>Contact list</a>
+                        </li>
+                    </ul>
                 </li>
                 <li {{if $nav == "subscribe"}}class="active"{{/if}}>
-                <a href="#"><i class="fa fa-thumb-tack"></i>
-                    <span class="nav-label">Subscribe</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li {{if $page == "subscribe"}}class="active"{{/if}}>
-                    <a href="{{'admin/subscribe_list'|base_url}}" data-index="0"><i class="fa fa-thumb-tack"></i>Subscribe list</a>
-                </ul>
+                    <a href="#"><i class="fa fa-thumb-tack"></i>
+                        <span class="nav-label">Subscribe</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li {{if $page == "subscribe"}}class="active"{{/if}}>
+                        <a href="{{'admin/subscribe_list'|base_url}}" data-index="0"><i class="fa fa-thumb-tack"></i>Subscribe list</a>
+                        </li>
+                    </ul>
                 </li>
                 <li {{if $nav == "page"}}class="active"{{/if}}>
-                <a href="#"><i class="fa fa-edit"></i>
-                    <span class="nav-label">Page Edit</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li {{if $page == "page"}}class="active"{{/if}}>
-                    <a href="{{'editer/faq'|base_url}}" data-index="0"><i class="fa fa-thumb-tack"></i>Subscribe list</a>
-                </ul>
+                    <a href="#"><i class="fa fa-edit"></i>
+                        <span class="nav-label">Page Edit</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li {{if $page == "page"}}class="active"{{/if}}>
+                        <a href="{{'editer/faq'|base_url}}" data-index="0"><i class="fa fa-thumb-tack"></i>FAQ list</a>
+                        </li>
+                        <li {{if $page == "editdemo"}}class="active"{{/if}}>
+                        <a href="{{'editer/demo'|base_url}}" data-index="0"><i class="fa fa-thumb-tack"></i>DEMO Page</a>
+                        </li>
+                        <li {{if $page == "editorder"}}class="active"{{/if}}>
+                        <a href="{{'editer/order'|base_url}}" data-index="0"><i class="fa fa-thumb-tack"></i>Order Page</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>

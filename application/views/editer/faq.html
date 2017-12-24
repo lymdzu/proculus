@@ -70,8 +70,8 @@
                         <form role="form" id="faq-add-form" class="admin-user" onsubmit="return false;">
                             <div class="form-group">
                                 <label>Question</label>
-                                <input type="text" name="title" placeholder="Please enter the question"
-                                       class="form-control">
+                                <textarea type="text" name="title" placeholder="Please enter the question"
+                                       class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Answer：</label>
@@ -101,8 +101,8 @@
                             <input type="hidden" id="faq-edit-id" name="faq_id" value="">
                             <div class="form-group">
                                 <label>Question</label>
-                                <input type="text" name="title" placeholder="Please enter the question"
-                                       class="form-control">
+                                <textarea type="text" name="title" placeholder="Please enter the question"
+                                       class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Answer：</label>
@@ -141,7 +141,7 @@
             $("#faq-edit-id").val(faq_id);
             var title = $.trim($(this).parents(".faq-con").find(".faq-title").text());
             var answer = $.trim($(this).parents(".faq-con").find(".faq-answer").text());
-            $("#faq-edit-form input[name='title']").val(title);
+            $("#faq-edit-form textarea[name='title']").val(title);
             $("#faq-edit-form textarea[name='answer']").val(answer);
 
         });

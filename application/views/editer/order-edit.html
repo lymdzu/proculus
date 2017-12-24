@@ -1,0 +1,197 @@
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="ibox">
+            <div class="col-sm-12">
+                <div class="ibox-title">
+                    <h5>ORDER List</h5>
+                    <div class="ibox-tools">
+                        <a href="{{'editer/order_html'|base_url}}" class="btn btn-primary btn-xs add-btn">ADD ORDER</a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="clients-list">
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active">
+                                <div class="full-height-scroll">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                            <th>ID</th>
+                                            <th>Title</th>
+                                            <th>Description</th>
+                                            <th>Price</th>
+                                            <th>IMAGE</th>
+                                            <th>CreateTime</th>
+                                            <th>Action</th>
+                                            </thead>
+                                            <tbody>
+                                            {{foreach $orders_list as $order}}
+                                            <tr class="order-con">
+                                                <td class="client-avatar">
+                                                    {{$order.id}}
+                                                </td>
+                                                <td class="order-title">
+                                                    {{$order.title}}
+                                                </td>
+                                                <td class="order-desc">
+                                                    {{$order.description}}
+                                                </td>
+                                                <td class="order-price">
+                                                    {{$order.price}}
+                                                </td>
+                                                <td class="order-pic" data-pic="{{'upload/file/'|base_url}}{{$order.img}}">
+                                                    <i class="fa fa-image"></i>
+                                                </td>
+                                                <td>
+                                                    {{$order.create_time|date_format:"%Y-%m-%d %H:%m:%S"}}
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-sm btn-primary" href="{{'editer/order_show'|base_url}}?id={{$order.id}}">Edit
+                                                    </a>
+                                                    &nbsp;&nbsp;
+                                                    <button class="btn btn-sm btn-danger delete-order"
+                                                            data-id="{{$order.id}}">Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            {{/foreach}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    {{$pagelist}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="show-pic" class="pop-porduct-pic">
+    <img style="width: 100%" src="">
+</div>
+<div id="modal-add" class="modal fade" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="m-t-none m-b">New ORDER</h3>
+                        <form role="form" id="order-add-form" class="admin-user" onsubmit="return false;">
+                            <div class="form-group">
+                                <label>Product Title</label>
+                                <textarea type="text" name="title" placeholder="Please enter the product title"
+                                          class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Product Price</label>
+                                <input type="text" name="price" placeholder="Please enter the product price" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Product Description：</label>
+                                <textarea type="text" name="description" placeholder="Please enter the description"
+                                          class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Attachment Images</label>
+                            </div>
+                            <div id="uploader" class="wu-example">
+                                <div class="queueList">
+                                    <div id="dndArea" class="placeholder">
+                                        <div id="filePicker"></div>
+                                    </div>
+                                </div>
+                                <div class="statusBar" style="display:none;">
+                                    <div class="progress">
+                                        <span class="text">0%</span> <span class="percentage"></span>
+                                    </div>
+                                    <div class="info"></div>
+                                    <div class="btns">
+                                        <div id="filePicker2"></div>
+                                        <div class="uploadBtn">Start</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="add-order" type="submit">
+                                <strong>SAVE</strong>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-edit" class="modal fade" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="m-t-none m-b">Edit ORDER</h3>
+                        <form role="form" id="order-edit-form" class="admin-user" onsubmit="return false;">
+                            <input type="hidden" id="order-edit-id" name="order_id" value="">
+                            <div class="form-group">
+                                <label>Product Title</label>
+                                <textarea type="text" name="title" placeholder="Please enter the product title"
+                                          class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Product Price</label>
+                                <input type="text" name="price" placeholder="Please enter the product price" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Product Description：</label>
+                                <textarea type="text" name="description" placeholder="Please enter the description"
+                                          class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Attachment Images</label>
+
+                            </div>
+                            <div>
+                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="edit-order" type="submit">
+                                    <strong>SAVE</strong>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    $(function () {
+        $(".order-pic").on("click", function () {
+            var url = $(this).data("pic");
+            $("#show-pic img").prop("src", url);
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 0,
+                area: '516px',
+                skin: 'layui-layer-nobg', //没有背景色
+                shadeClose: true,
+                content: $("#show-pic")
+            });
+
+        });
+        $(".delete-order").on("click", function () {
+            var order_id = $(this).data("id");
+            $.post("{{'editer/delete_order'|base_url}}", {order_id: order_id}, function (res) {
+                if (res.ecode == 0) {
+                    layer.msg(res.result);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1000)
+                }
+                else {
+                    layer.msg(res.emsg);
+                }
+            })
+        })
+
+    })
+</script>
