@@ -34,6 +34,7 @@ class NewModel extends CI_Model
 
     public function get_news()
     {
+        $this->db->order_by("create_time", "desc");
         $query = $this->db->get("t_news");
         return $query->result_array();
     }
