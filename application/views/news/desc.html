@@ -55,21 +55,21 @@
                 {{/foreach}}
             </div>
             {{/if}}
-            <div class="share">
-                <span class="tag-title">Shares:</span>
-                <a href="#">
-                    <icon class="active iconfont">&#xe606;</icon>
-                </a>
-                <a href="#">
-                    <icon class="iconfont">&#xe608;</icon>
-                </a>
-                <a href="#">
-                    <icon class="iconfont">&#xe6c1;</icon>
-                </a>
-                <a href="#">
-                    <icon class="iconfont">&#xe607;</icon>
-                </a>
-            </div>
+            <!--<div class="share">-->
+                <!--<span class="tag-title">Shares:</span>-->
+                <!--<a href="#">-->
+                    <!--<icon class="active iconfont">&#xe606;</icon>-->
+                <!--</a>-->
+                <!--<a href="#">-->
+                    <!--<icon class="iconfont">&#xe608;</icon>-->
+                <!--</a>-->
+                <!--<a href="#">-->
+                    <!--<icon class="iconfont">&#xe6c1;</icon>-->
+                <!--</a>-->
+                <!--<a href="#">-->
+                    <!--<icon class="iconfont">&#xe607;</icon>-->
+                <!--</a>-->
+            <!--</div>-->
             <div class="paper-change p-blank">
                 {{if $desc.id > 1 }}
                 <a href="{{'news/desc'|base_url}}?id={{$desc.id-1}}" class="ch-arraw prev">
@@ -141,133 +141,24 @@
         </div>
     </div>
     <div class="right-side">
-        <!--<div class="search block-blank">-->
-        <!--<h1 class="bold-title">News search</h1>-->
-        <!--<input placeholder="search..."/>-->
-        <!--</div>-->
-        <!--<div class="category block-blank">-->
-        <!--<h1 class="bold-title">Categories</h1>-->
-        <!--<div class="cat-list">-->
-        <!--<ul>-->
-        <!--<li>-->
-        <!--<div class="cat-name">-->
-        <!--LCD-->
-        <!--</div>-->
-        <!--<div class="num">-->
-        <!--24-->
-        <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<div class="cat-name">-->
-        <!--LCD-->
-        <!--</div>-->
-        <!--<div class="num">-->
-        <!--24-->
-        <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<div class="cat-name">-->
-        <!--LCD-->
-        <!--</div>-->
-        <!--<div class="num">-->
-        <!--24-->
-        <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<div class="cat-name">-->
-        <!--LCD-->
-        <!--</div>-->
-        <!--<div class="num">-->
-        <!--24-->
-        <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<div class="cat-name">-->
-        <!--LCD-->
-        <!--</div>-->
-        <!--<div class="num">-->
-        <!--24-->
-        <!--</div>-->
-        <!--</li>-->
-        <!--</ul>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="category block-blank">-->
-        <!--<h1 class="bold-title">Archive</h1>-->
-        <!--<div class="cat-list">-->
-        <!--<ul>-->
-        <!--<li>-->
-        <!--<div class="cat-name">-->
-        <!--May 2015-->
-        <!--</div>-->
-        <!--<div class="num">-->
-        <!--5-->
-        <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<div class="cat-name">-->
-        <!--May 2015-->
-        <!--</div>-->
-        <!--<div class="num">-->
-        <!--5-->
-        <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<div class="cat-name">-->
-        <!--May 2015-->
-        <!--</div>-->
-        <!--<div class="num">-->
-        <!--5-->
-        <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<div class="cat-name">-->
-        <!--May 2015-->
-        <!--</div>-->
-        <!--<div class="num">-->
-        <!--5-->
-        <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<div class="cat-name">-->
-        <!--May 2015-->
-        <!--</div>-->
-        <!--<div class="num">-->
-        <!--5-->
-        <!--</div>-->
-        <!--</li>-->
-
-        <!--</ul>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="category block-blank">-->
-        <!--<h1 class="bold-title">Hot news</h1>-->
-        <!--<div class="cat-list">-->
-        <!--<ul>-->
-        <!--<li>-->
-        <!--<div class="hotnew-pic"><img src="http://placehold.it/64x64&text=First"></div>-->
-        <!--<div class="com-content">-->
-        <!--<div class="hotnew-title">content to be translated content translated</div>-->
-        <!--<div class="hotnew-time">3 days ago</div>-->
-        <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<div class="hotnew-pic"><img src="http://placehold.it/64x64&text=First"></div>-->
-        <!--<div class="com-content">-->
-        <!--<div class="hotnew-title">content to be translated content translated</div>-->
-        <!--<div class="hotnew-time">3 days ago</div>-->
-        <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<div class="hotnew-pic"><img src="http://placehold.it/64x64&text=First"></div>-->
-        <!--<div class="com-content">-->
-        <!--<div class="hotnew-title">content to be translated content translated</div>-->
-        <!--<div class="hotnew-time">3 days ago</div>-->
-        <!--</div>-->
-        <!--</li>-->
-        <!--</ul>-->
-        <!--</div>-->
-        <!--</div>-->
+        {{if $lunbo}}
+        <div class="news">
+            <div class="banner">
+                <ul>
+                    {{foreach $lunbo as $pic}}
+                    <li><a href="{{'news/desc'|base_url}}?id={{$pic.id}}"><img src="{{'upload/file'|base_url}}/{{$pic.pic}}" alt=""></a></li>
+                    {{/foreach}}
+                </ul>
+                <a href="javascript:void(0);" class="unslider-arrow04 prev"><img class="arrow" id="al"
+                                                                                 src="{{'static/images/arrowl.png'|base_url}}"
+                                                                                 alt="prev" width="20" height="35"></a>
+                <a href="javascript:void(0);" class="unslider-arrow04 next"><img class="arrow" id="ar"
+                                                                                 src="{{'static/images/arrowr.png'|base_url}}"
+                                                                                 alt="next" width="20" height="37"></a>
+            </div>
+        </div>
+        {{/if}}
+        {{if $keyword_tag}}
         <div class="keys block-blank">
             <h1 class="bold-title">Keywords</h1>
             <div class="tags">
@@ -275,9 +166,8 @@
                 <button class="tag-btn"><a href="{{'news/tag'|base_url}}?keyword={{$tag.keyword}}">{{$tag.keyword}}</a></button>
                 {{/foreach}}
             </div>
-
-
         </div>
+        {{/if}}
     </div>
 </div>
 <script>

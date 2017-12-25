@@ -39,16 +39,45 @@
         {{/foreach}}
     </div>
     <div class="right-side">
+        {{if $lunbo}}
+        <div class="news">
+            <div class="banner">
+                <ul>
+                    {{foreach $lunbo as $pic}}
+                    <li><a href="{{'news/desc'|base_url}}?id={{$pic.id}}"><img src="{{'upload/file'|base_url}}/{{$pic.pic}}" alt=""></a></li>
+                    {{/foreach}}
+                </ul>
+                <a href="javascript:void(0);" class="unslider-arrow04 prev"><img class="arrow" id="al"
+                                                                                 src="{{'static/images/arrowl.png'|base_url}}"
+                                                                                 alt="prev" width="20" height="35"></a>
+                <a href="javascript:void(0);" class="unslider-arrow04 next"><img class="arrow" id="ar"
+                                                                                 src="{{'static/images/arrowr.png'|base_url}}"
+                                                                                 alt="next" width="20" height="37"></a>
+            </div>
+        </div>
+        {{/if}}
+        {{if $keyword_tag}}
         <div class="keys block-blank">
             <h1 class="bold-title">Keywords</h1>
-
             <div class="tags">
                 {{foreach $keyword_tag as $tag}}
                 <button class="tag-btn"><a href="{{'news/tag'|base_url}}?keyword={{$tag.keyword}}">{{$tag.keyword}}</a></button>
                 {{/foreach}}
             </div>
-
-
         </div>
+        {{/if}}
     </div>
 </div>
+<script type="application/javascript">
+    $(function(){
+        var unslider04 = $('.banner').unslider({
+                    dots: true
+                }),
+                data04 = unslider04.data('unslider');
+
+        $('.unslider-arrow04').click(function () {
+            var fn = this.className.split(' ')[1];
+            data04[fn]();
+        });
+    })
+</script>

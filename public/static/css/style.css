@@ -4228,6 +4228,10 @@ h1.bold-title {
 
 .right-side {
     padding-left: 1.5rem;
+    width:25%;
+}
+.right-side .news{
+    margin-bottom: 3rem;
 }
 
 .right-side .search .bold-title {

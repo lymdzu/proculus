@@ -34,6 +34,14 @@ class News extends DashboardController
             $comment['pic'] = $imageDataUri;
             $comments[$key] = $comment;
         }
+        $newlist = $this->new->get_news();
+        $pic = array();
+        foreach ($newlist as $key => $new) {
+            $pics = explode(";", $new['pic']);
+            $pic[$key]["pic"] = $pics[0];
+            $pic[$key]["id"] = $new['id'];
+        }
+        $this->vars['lunbo'] = $this->rand_array_two($pic, 4);
         $this->vars['comment_num'] = count($comments);
         $this->vars['comments'] = $comments;
         $this->vars['desc'] = $news_desc;
@@ -86,12 +94,36 @@ class News extends DashboardController
     {
         $this->load->model("NewModel", "new", true);
         $newlist = $this->new->get_news();
+        $pic = array();
         foreach ($newlist as $key => $new) {
             $new['content'] = mb_substr(strip_tags($new['content']), 0, 300) . "...";
             $newlist[$key] = $new;
+            $pics = explode(";", $new['pic']);
+            $pic[$key]["pic"] = $pics[0];
+            $pic[$key]["id"] = $new['id'];
         }
+        $this->vars['lunbo'] = $this->rand_array_two($pic, 4);
         $this->vars['newslist'] = $newlist;
         $this->vars['keyword_tag'] = $this->new->random_keyword();
         $this->page('news/lists.html');
+    }
+
+    public function rand_array_two($array_need, $limit)
+    {
+        $keys = array_keys($array_need);
+        $arr_count = count($array_need);
+        if ($limit >= $arr_count) {
+            return $array_need;
+        } else {
+            $rand_keys = array_rand($keys, $limit);
+            $return_arr = array();
+            foreach ($rand_keys as $rand_key) {
+                if ($array_need[$rand_key]) {
+                    $return_arr[] = $array_need[$rand_key];
+                }
+            }
+            return $return_arr;
+        }
+
     }
 }
