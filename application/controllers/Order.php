@@ -16,7 +16,13 @@ class Order extends DashboardController
         $this->vars['page'] = "order_buy";
         $this->load->model("PageModel", "page", true);
         $faqs = $this->page->order_list();
-        $this->vars['orders_list'] = $faqs;
+        $total = 0;
+        foreach($faqs as $order)
+        {
+            $total = bcadd($total, $order['price'], 3);
+        }
+        $this->vars['total'] = sprintf("%.2f", $total);
+        $this->vars['order_list'] = $faqs;
         $this->page("contact/order.html");
     }
 

@@ -18,50 +18,27 @@
 
 <div class="order-cont">
     <div class="order-left" id="left-buy">
+        {{foreach $order_list as $order}}
         <div class="item-change">
             <div class="item-image">
-                <img src="http://placehold.it/267x252"/>
+                <img src="{{'upload/file/'|base_url}}{{$order.img}}"/>
             </div>
             <div class="item-desc">
                 <div class="item-title">
-                    <h2>Developer Kit for UnicView AD</h2>
+                    <h2>{{$order.title}}</h2>
                 </div>
                 <div class="item-price">
-                    <span class="price-num">198.00</span>
+                    <span class="price-num">{{$order.price}}</span>
                 </div>
                 <div class="item-text">
-                    This is a developer kit for 7'' industrial
-                    level use with UnicView AD. UnicView AD is the
-                    compamion software for the Advanced Design(AD)
-                    firmware LCMs. It's primarily used as a debug,
-                    test and configuring software.
+                    {{$order.description}}
                 </div>
-                <div class="cancel-btn" data-price="198">
+                <div class="cancel-btn" data-price="{{$order.price}}">
                     Cancel
                 </div>
             </div>
         </div>
-        <div class="item-change">
-            <div class="item-image">
-                <img src="http://placehold.it/267x252"/>
-            </div>
-            <div class="item-desc">
-                <div class="item-title">
-                    <h2>Developer Kit for UnicView RD</h2>
-                </div>
-                <div class="item-price">
-                    <span class="price-num">198.00</span>
-                </div>
-                <div class="item-text">
-                    UnicView RD is the compamion software for the Real
-                    Design(RD) firm ware LCMs. It's primarily used as
-                    a debug, test and configuring.
-                </div>
-                <div class="cancel-btn" data-price="198">
-                    Cancel
-                </div>
-            </div>
-        </div>
+        {{/foreach}}
 
     </div>
     <div class="order-right">
@@ -78,16 +55,12 @@
                     <span>2</span>
                 </div>
                 <ul class="categoryul" style="display: none;">
+                    {{foreach $order_list as $order}}
                     <li class="list-consumer">
                         <icon class="iconfont">&#xe6b9;</icon>
-                        <a href="javascript:;" data-price="198.00" data-desc="This is a developer kit for 7'' industrial level use with UnicView AD. UnicView AD is the compamion software for the Advanced Design(AD) firmware LCMs. It's primarily used as a debug, test and configuring software. "
-                           img="http://www.proculustech.com/data/upload/portal/image/20170318/Contact-us_Order-Now_07.jpg">Developer
-                            Kit for UnicView AD</a></li>
-                    <li class="list-consumer">
-                        <icon class="iconfont">&#xe6b9;</icon>
-                        <a href="javascript:;" data-price="198.00" data-desc="UnicView RD is the compamion software for the Real Design(RD) firm ware LCMs. It's primarily used as a debug,test and configuring."
-                           img="http://www.proculustech.com/data/upload/portal/image/20170318/Contact-us_Order-Now_07.jpg">Developer
-                            Kit for UnicView RD</a></li>
+                        <a href="javascript:;" data-price="{{$order.price}}" data-desc="{{$order.description}}"
+                           data-img="{{'upload/file/'|base_url}}{{$order.img}}">{{$order.title}}</a></li>
+                    {{/foreach}}
                 </ul>
             </div>
             <div class="cate-cont">
@@ -116,7 +89,7 @@
             </button>
         </form>
         <div class="checkout-total">
-            <span>TOTAL:&#36;396</span>
+            <span>TOTAL:&#36;{{$total}}</span>
         </div>
     </div>
 </div>
@@ -135,7 +108,7 @@
                 $(this).find(".iconfont").html("&#xe7d5;");
             }
         });
-        var total = 396;
+        var total = "{{$total}}";
         var nums = 2;
         var yf = 70.00;
         $(document).on("click", ".cancel-btn", function () {
@@ -162,20 +135,21 @@
                     height: 0 //结束时高度
                 },
                 onEnd: function () { //结束回调
-                    total = add(total, "198");
-                    nums++;
                     var title = self.find("a").text();
                     var price = self.find("a").data("price");
                     var desc = self.find("a").data("desc");
+                    var img = self.find("a").data("img");
+                    total = add(total, price);
+                    nums++;
                     console.log(desc);
                     $('#left-buy').append('<div class="item-change">\
                     <div class="item-image">\
-                            <img src="http://placehold.it/267x252"/></div>\
+                            <img src="'+img+'"/></div>\
                             <div class="item-desc">\
                             <div class="item-title">\
                             <h2>'+title+'</h2></div><div class="item-price">\
                             <span class="price-num">'+price+'</span></div>\
-                            <div class="item-text">'+desc+'</div><div class="cancel-btn" data-price="198">Cancel </div></div></div>');
+                            <div class="item-text">'+desc+'</div><div class="cancel-btn" data-price="'+price+'">Cancel </div></div></div>');
                     $('.checkout-total').html("TOTAL:&#36;" + total);
                     $('#amount').val(total);
                     this.destory();

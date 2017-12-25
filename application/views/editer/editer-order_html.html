@@ -9,8 +9,10 @@
                     <div class="clients-list">
                         <div class="row">
                             <div class="col-sm-12">
-                                <form role="form" id="order-add-form" class="admin-user" onsubmit="return false;">
+                                <form role="form" id="order-edit-form" class="admin-user" onsubmit="return false;">
+                                    <input type='hidden' id='img-input' name='img' value="{{$order.img}}">
                                     <div class="form-group">
+                                        <input type="hidden" name="order_id" value="{{$order.id}}">
                                         <label>Product Title</label>
                                         <textarea type="text" name="title" placeholder="Please enter the product title"
                                                   class="form-control" value="{{$order.title}}">{{$order.title}}</textarea>
@@ -28,6 +30,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Attachment Images</label>
+                                        {{if $order.img}}
+                                        <span id="pro-img" style="color: red;margin-left: 20%">已上传图片{{$order.img}}</span>
+                                        {{/if}}
                                     </div>
                                     <div id="uploader" class="wu-example">
                                         <div class="queueList">
@@ -46,7 +51,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="btn btn-w-m btn-primary col-md-2 col-md-offset-5 m-t-n-xs" id="add-order"
+                                    <button class="btn btn-w-m btn-primary col-md-2 col-md-offset-5 m-t-n-xs" id="edit-order"
                                             type="submit">
                                         <strong>SAVE</strong>
                                     </button>
@@ -67,7 +72,7 @@
                 if (res.ecode == 0) {
                     layer.msg(res.result);
                     setTimeout(function () {
-                        window.location.reload();
+                        window.location.href="{{'editer/order'|base_url}}";
                     }, 1000)
                 }
                 else {
@@ -204,7 +209,8 @@
                 return false;
             }
             else {
-                $("#order-add-form").append("<input type='hidden' class='news-pic' name='img' value='" + response.result + "'>");
+                $("#img-input").val(response.result);
+                $("#pro-img").html("");
             }
 
         }), n.onError = function (e) {
