@@ -103,6 +103,7 @@ class Product extends DashboardController
         $this->vars['desc'] = $desc;
         $this->vars['download'] = $download;
         $this->vars['pic'] = $product['pic'];
+        $this->vars['product'] = $product;
         $this->page("product/mo_desc.html");
     }
 

@@ -4,7 +4,7 @@
             <div class="col-sm-12">
                 <div class="ibox">
                     <div class="ibox-title">
-                        <h5>Add Product</h5>
+                        <h5>Edit Product</h5>
                     </div>
                     <div class="ibox-content">
                         <form class="form-horizontal" onsubmit="return false;">
@@ -15,16 +15,26 @@
                                     <input class="form-control" name="name" placeholder="please enter product name" value="{{$product.name}}">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class=" col-sm-2 control-label">Product Description</label>
+                                <div class="col-sm-4">
+                                    <textarea class="form-control" name="pro-desc" placeholder="please enter product description" value="{{$product.pro_desc}}">{{$product.pro_desc}}</textarea>
+                                </div>
+                            </div>
                             <div class="product-select">
                                 {{foreach $category as $key => $propertys}}
                                 <label class=" col-sm-2 control-label">{{$key}}</label>
                                 <div class="col-sm-4">
+                                    {{if $key == "Part_Number"}}
+                                    <input class="form-control" name="Part_Number" value="{{$product.Part_Number}}" placeholder="please enter Part number">
+                                    {{else}}
                                     <select class="form-control m-b" name="{{$key}}">
                                         <option value="">Please Choose {{$key}}</option>
                                         {{foreach $propertys as $cate_info}}
                                         <option value="{{$cate_info.name}}" {{if $product.$key == $cate_info.name}}selected{{/if}}>{{$cate_info.name}}</option>
                                         {{/foreach}}
                                     </select>
+                                    {{/if}}
                                 </div>
                                 {{/foreach}}
                             </div>

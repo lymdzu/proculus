@@ -57,11 +57,12 @@ class PageModel extends CI_Model
         }
     }
 
-    public function save_order($title, $price, $img, $description)
+    public function save_order($title, $price, $level, $img, $description)
     {
         $order = array(
             "title"       => $title,
             "price"       => $price,
+            "level"       => $level,
             "img"         => $img,
             "description" => $description,
             "create_time" => time(),
@@ -103,9 +104,9 @@ class PageModel extends CI_Model
         }
     }
 
-    public function edit_order($id, $title, $price, $img, $description)
+    public function edit_order($id, $title, $price, $level, $img, $description)
     {
-        $order = array("title" => $title, "price" => $price, "img" => $img, "description" => $description, "update_time" => time(), "status" => 1);
+        $order = array("title" => $title, "price" => $price, "level" => $level, "img" => $img, "description" => $description, "update_time" => time(), "status" => 1);
         $this->db->where("id", $id);
         $this->db->set($order);
         $update_staus = $this->db->update("t_order");

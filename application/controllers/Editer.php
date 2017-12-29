@@ -131,10 +131,11 @@ class Editer extends AdController
     {
         $title = $this->input->post("title");
         $price = $this->input->post("price");
+        $level = $this->input->post("level");
         $img = $this->input->post("img");
         $description = $this->input->post("description");
         $this->load->model("PageModel", "page", true);
-        $save_status = $this->page->save_order($title, $price, $img, $description);
+        $save_status = $this->page->save_order($title, $price, $level, $img, $description);
         if ($save_status) {
             $this->json_result(REQUEST_SUCCESS, "SAVE Success");
         } else {
@@ -159,10 +160,11 @@ class Editer extends AdController
         $id = $this->input->post("order_id");
         $title = $this->input->post("title");
         $price = $this->input->post("price");
+        $level = $this->input->post("level");
         $img = $this->input->post("img");
         $description = $this->input->post("description");
         $this->load->model("PageModel", "page", true);
-        $save_status = $this->page->edit_order($id, $title, $price, $img, $description);
+        $save_status = $this->page->edit_order($id, $title, $price, $level, $img, $description);
         if ($save_status) {
             $this->json_result(REQUEST_SUCCESS, "EDIT Success");
         } else {

@@ -146,7 +146,7 @@ class Category extends AdController
             "Interface" => "Interface",
             "Input Voltage" => "Input_Voltage",
             "Working Platform" => "Working_Platform",
-            "Download Methond" => "Download_Methond",
+            "Download Methond" => "Download_Method",
             "Cable Connector" => "Cable_Connector"
         );
         foreach ($type_list as $proporty => $item) {
@@ -164,6 +164,7 @@ class Category extends AdController
     {
         $id = $this->input->post("product-id");
         $name = $this->input->post("name", true);
+        $desc = $this->input->post("pro-desc", true);
         $product_pic = $this->input->post("product-pic", true);
         $partnum = $this->input->post("Part_Number", true);
         $size = $this->input->post("Size", true);
@@ -173,7 +174,7 @@ class Category extends AdController
         $interface = $this->input->post("Interface", true);
         $input = $this->input->post("Input_Voltage", true);
         $working = $this->input->post("Working_Platform", true);
-        $download = $this->input->post("Download_Methond", true);
+        $download = $this->input->post("Download_Method", true);
         $cable = $this->input->post("Cable_Connector", true);
         $datasheet = $this->input->post("DataSheet", true);
         $driver = $this->input->post("Driver", true);
@@ -194,6 +195,7 @@ class Category extends AdController
         }
         $product = array(
             "name"             => $name,
+            "pro_desc"         => $desc,
             "Part_Number"      => $partnum ? $partnum : "",
             "Size"             => $size ? $size : "",
             "Catalog"          => $catelog ? $catelog : "",
@@ -222,6 +224,7 @@ class Category extends AdController
     public function save_prodcut()
     {
         $name = $this->input->post("name", true);
+        $desc = $this->input->post("pro-desc", true);
         $product_pic = $this->input->post("product-pic", true);
         $partnum = $this->input->post("Part_Number", true);
         $size = $this->input->post("Size", true);
@@ -252,6 +255,7 @@ class Category extends AdController
         }
         $product = array(
             "name"             => $name,
+            "pro_desc"         => $desc,
             "Part_Number"      => $partnum ? $partnum : "",
             "Size"             => $size ? $size : "",
             "Catalog"          => $catelog ? $catelog : "",
