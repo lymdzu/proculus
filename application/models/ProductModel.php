@@ -220,25 +220,25 @@ class ProductModel extends CI_Model
         }
     }
 
-    public function get_product_list($offset, $limit, $size = false, $catelog = false, $resolution = false, $bright = false, $interface = false, $input = false)
+    public function get_product_list($offset, $limit, $size = false, $catelog = false, $resolution = false, $bright = false, $interface = false, $input = false, $level = false)
     {
         if ($size) {
             $this->db->where("Size", $size);
         }
         if ($catelog) {
-            $this->db->where("Catalog", $size);
+            $this->db->where("Catalog", $catelog);
         }
         if ($resolution) {
-            $this->db->where("Resolution", $size);
+            $this->db->where("Resolution", $resolution);
         }
         if ($bright) {
-            $this->db->where("Brightness", $size);
+            $this->db->where("Brightness", $bright);
         }
         if ($interface) {
-            $this->db->where("Interface", $size);
+            $this->db->where("Interface", $interface);
         }
         if ($input) {
-            $this->db->where("Input_Voltage", $size);
+            $this->db->where("Input_Voltage", $input);
         }
         $this->db->limit($limit, $offset);
         $this->db->order_by("create_time", "desc");

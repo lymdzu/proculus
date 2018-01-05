@@ -16,7 +16,7 @@ class Product extends DashboardController
     public function modules()
     {
         $size = $this->input->get("Size", true);
-        $catelog = $this->input->get("Catalog", true);
+        $catelog = $this->input->get("Level", true);
         $resolution = $this->input->get("Resolution(pixel)", true);
         $bright = $this->input->get("Brightness(nits)", true);
         $interface = $this->input->get("Interface", true);
