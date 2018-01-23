@@ -74,7 +74,7 @@
         });
         $(".delete-product").on("click", function () {
             var id = $(this).data("id");
-            $.post("{{'category/delete_product'}}", {id:id}, function (res) {
+            $.post("{{'category/delete_product'|base_url}}", {id:id}, function (res) {
                 if(res.ecode == 0)
                 {
                     layer.msg(res.result);
